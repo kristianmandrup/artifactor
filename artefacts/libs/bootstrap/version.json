@@ -1,0 +1,31 @@
+{
+  "name": "bootstrap",
+  "description": "Bootstrap UI/UX framework",
+  "date": "2016-07-21",
+  "version": "1.3",
+  "rating": "4.1",
+  "author": {
+    "alias": "moonboy",
+    "organisation": "twitter"
+  },
+  "type": [
+    "lib"
+  ],
+  "keywords": [
+    "ui",
+    "ux",
+    "bootstrap"
+  ],
+  "categories": [
+    "ui",
+    "ux"
+  ],
+  "location": "github:twitter/bootstrap#1.2",
+  "notice": "Fixed flex grids",
+  "status": "stable",
+  "installations": 1795,
+  "ratings": [
+    { "rating": 3, "comment": "pretty good" },
+    { "rating": 5, "comment": "works perfectly" }
+  ]
+}

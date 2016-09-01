@@ -1,0 +1,39 @@
+{
+  "name": "sigma-ui",
+  "description": "Sigma UI framework",
+  "date": "2016-07-21",
+  "version": "1.0",
+  "rating": "4.2",
+  "author": {
+    "name": "Kristian Mandrup"
+  },
+  "type": [
+    "addon"
+  ],
+  "keywords": [
+    "ui",
+    "framework"
+  ],
+  "categories": [
+    "ui",
+    "ux"
+  ],
+  "versions": [
+    {
+      "1.0": {
+        "location": "github:sigmaframeworks/sigma-ui-framework#1.0",
+        "date": "2016-07-21",
+        "author": {
+          "name": "Kristian Mandrup"
+        },
+        "notice": "Added calendar control",
+        "status": "stable",
+        "installations": 102,
+        "rating": "4.5",
+        "ratings": [
+          { "rating": 5, "comment": "works perfectly" }
+        ]
+      }
+    }
+  ]
+}  

@@ -1,0 +1,42 @@
+{
+  "name": "jquery",
+  "description": "jQuery DOM utility library",
+  "date": "2016-07-21",
+  "version": "2.2",
+  "rating": "4.2",
+  "author": {
+    "alias": "jimbo",
+    "organisation": "yahoo"
+  },
+  "type": [
+    "lib"
+  ],
+  "keywords": [
+    "dom",
+    "query",
+    "utility"
+  ],
+  "categories": [
+    "utility"
+  ],
+  "versions": [
+    {
+      "2.2": {
+        "author": {
+          "alias": "jimbo",
+          "organisation": "yahoo"
+        },
+        "location": "github:yahoo/jquery#2.2",
+        "date": "2016-07-21",
+        "notice": "Use more promises",
+        "status": "stable",
+        "installations": 114395,
+        "rating": "4.2",
+        "ratings": [
+          { "rating": 3, "comment": "pretty good" },
+          { "rating": 5, "comment": "works perfectly" }
+        ]
+      }
+    }
+  ]
+}
