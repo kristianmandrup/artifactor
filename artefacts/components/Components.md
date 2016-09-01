@@ -32,3 +32,19 @@ Here the component depends on the `entity` component, which is not mounted. It a
   }
 } 
 ```
+
+## Component groups
+
+```json
+"name": "property-rental",
+"type": [
+  "component",
+  "group",
+]
+"group": [
+  "property",
+  "gallery",
+  "negotiation",
+  "pricing"
+]
+```

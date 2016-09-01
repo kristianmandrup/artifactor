@@ -29,3 +29,17 @@ library requires.
   }
 } 
 ```
+
+## Plugin groups
+
+```json
+"name": "animations",
+"type": [
+  "plugin",
+  "group",
+]
+"group": [
+  "aurelia-animation",
+  "aurelia-velocity"
+]
+```

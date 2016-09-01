@@ -29,3 +29,17 @@ library requires.
   }
 } 
 ```
+
+## Lib group
+
+```json
+"name": "animation-libs",
+"type": [
+  "lib",
+  "group",
+]
+"group": [
+  "greensock",
+  "velocity"
+]
+```

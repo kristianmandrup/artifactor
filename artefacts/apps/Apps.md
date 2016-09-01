@@ -30,3 +30,27 @@ app requires.
   }
 } 
 ```
+
+## App groups
+
+```json
+{
+  "name": "social-app",
+  "type": [
+    "app",
+    "group",
+  ],
+  "apps": [
+    "guest",
+    {
+      "social": {
+        "components": [
+          "communication",
+          "profile"
+        ]
+      }
+    }
+    "social-dashboard"
+  ]  
+}
+```
