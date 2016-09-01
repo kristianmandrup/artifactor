@@ -27,5 +27,22 @@
     { "rating": "4", "comment": "Perfect for my needs", "user": "goofy" },
     { "rating": "2", "comment": "Missing a Dialogue", "user": "all4you" },
     { "rating": "3", "comment": "Bootstrap UI looks good", "user": "megaboy" }
-  ]
+  ],
+  "install": {
+    "bundles": {
+      "vendor-lib.js": {                
+      }
+    },
+    "dependencies": {
+      "components": {
+        "login-modal": {
+          "version": "^1.0",
+          "mountPath": "./login"
+        }
+      },
+      "libs": [
+        "lodash"
+      ]
+    }
+  }   
 }

@@ -27,5 +27,24 @@
   "ratings": [
     { "rating": 3, "comment": "pretty good" },
     { "rating": 5, "comment": "works perfectly" }
-  ]
+  ],
+  "install": {
+    "bundles": {
+      "vendor-libs.js": {
+        "dependencies": [
+          {
+            // bootstrap styles etc.
+          }
+        ]
+      }
+    },
+    "dependencies": {
+      "libs": [
+        "jquery"
+      ]
+    },
+    "prepend": [
+
+    ]
+  }
 }

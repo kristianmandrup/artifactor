@@ -1,5 +1,5 @@
 {
-  "name": "guest",
+  "name": "guest-app",
   "description": "Guest application with social login",
   "date": "2016-07-21",
   "version": "1.0",
@@ -37,7 +37,24 @@
           { "rating": 5, "comment": "works perfectly" },
           { "rating": 4, "comment": "Foundation UI missing",
             "user": "trisha7", "date": "2017-07-24" }
-        ]
+        ],
+        "install": {
+          "bundles": {
+            "vendor-lib.js": {                
+            }
+          },
+          "dependencies": {
+            "components": {
+              "login-modal": {
+                "version": "^1.0",
+                "mountPath": "./login"
+              }
+            },
+            "libs": [
+              "lodash"
+            ]
+          }
+        }         
       }
     }
   ]

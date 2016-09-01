@@ -21,7 +21,8 @@
   "versions": [
     {
       "1.0": {
-        "location": "github:sigmaframeworks/sigma-ui-framework#1.0",
+        "repo": "github:sigmaframeworks/sigma-ui-framework",
+        "site": "http://demo.sigmaframeworks.io/",
         "date": "2016-07-21",
         "author": {
           "name": "Kristian Mandrup"
@@ -32,8 +33,36 @@
         "rating": "4.5",
         "ratings": [
           { "rating": 5, "comment": "works perfectly" }
-        ]
-      }
+        ],
+        "install": {
+          "bundles": {
+            "vendor-lib.js": {                
+            },
+            "app.js": {  
+              "source": [
+                "<modules>/sigma-ui/**/*.js"
+              ]              
+            }
+          },
+          "dependencies": {
+            "libs": [
+              "jquery"
+            ],
+            "plugins": [
+              "aurelia-validate",
+              "aurelia-i18n"
+            ],
+            "typescript": {
+              "typings": [
+                "jquery"
+              ],
+              "dtsSources": [
+                "<modules>/jquery/**/*.d.ts"        
+              ]
+            }
+          }
+        }
+      }              
     }
   ]
 }  

@@ -26,5 +26,24 @@
   "ratings": [
     { "rating": 3, "comment": "pretty good" },
     { "rating": 5, "comment": "works perfectly" }
-  ]
+  ],
+  "install": {
+    "bundles": {
+      "vendor-libs.js": {
+        "dependencies": [
+          "jquery"
+        ]
+      }
+    },
+    "dependencies": {
+      "typings": {
+        "dtsSources": [
+          "<modules>/jquery/**/*.d.ts"
+        ]
+      }
+    },
+    "libs": [
+      "jquery"
+    ]                        
+  }  
 }
