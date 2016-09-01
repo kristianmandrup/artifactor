@@ -1,0 +1,73 @@
+{
+  "name": "contacts",
+  "description": "Contacts management",
+  "date": "2016-07-21",
+  "version": "1.3",
+  "rating": "4.1",
+  "author": {
+    "name": "Kristian Mandrup",
+    "alias": "kmandrup",
+    "email": "kmandrup@gmail.com",
+    "organisation": "google",
+    "profile": "developers.google.com/kmandrup"
+  },
+  "type": [
+    "component"
+  ],
+  "keywords": [
+    "contacts"
+  ],
+  "categories": [
+    "entity"
+  ],
+  "versions": [
+    {
+      "1.3": {
+        "location": "github:kmandrup/contacts#1.3",
+        "date": "2016-07-21",
+        "author": {
+          "name": "Kristian Mandrup",
+          "alias": "kmandrup",
+          "email": "kmandrup@gmail.com",
+          "organisation": "google",
+          "profile": "developers.google.com/kmandrup"
+        },
+        "notice": "Added admin interface",
+        "status": "stable",
+        "installations": 416,
+        "rating": "4.1",
+        "ratings": [
+          { "rating": 3, "comment": "pretty good" },
+          { "rating": 5, "comment": "works perfectly" },
+          { "rating": 4, "comment": "Foundation UI missing",
+            "user": "trisha7", "date": "2017-07-24" },
+        ]
+      }
+    },
+    {
+      "1.2": {
+        "location": "github:kmandrup/contacts#1.2",
+        "date": "2016-06-18",
+        "author": {
+          "name": "Kristian Mandrup",
+          "alias": "kmandrup",
+          "email": "kmandrup@gmail.com",
+          "organisation": "google",
+          "profile": "developers.google.com/kmandrup"
+        },
+        "notice": "Added bootstrap",
+        "status": "beta",
+        "installations": 309,
+        "rating": "3.7",
+        "ratings": [
+          { "rating": 4, "comment": "Perfect for my needs",
+            "user": "goofy", "date": "2017-06-21" },
+          { "rating": 2, "comment": "Missing a Dialogue",
+            "user": "all4you", "date": "2017-06-20" },
+          { "rating": 3, "comment": "Bootstrap UI looks good",
+            "user": "megaboy", "date": "2017-06-18" },
+        ]
+      }
+    }
+  ]
+}
