@@ -17,6 +17,18 @@
   "categories": [
     "entity"
   ],
+  "popularWith": {
+    "components": {
+      "edgy": {
+        "combined": 1151 
+      }
+    },
+    "apps": {
+      "social-app": {
+        "combined": 94
+      }
+    }
+  },  
   "location": "github:kmandrup/contacts#1.2",
   "notice": "Added bootstrap",
   "status": "beta",
@@ -24,5 +36,31 @@
     { "rating": "4", "comment": "Perfect for my needs", "user": "goofy" },
     { "rating": "2", "comment": "Missing a Dialogue", "user": "all4you" },
     { "rating": "3", "comment": "Bootstrap UI looks good", "user": "megaboy" }
-  ]
+  ],
+  "fakes": "complete",
+  "preview": "complete",
+  "docs": "complete",
+  "tests": "incomplete",
+  "configs": {
+    "local": "complete",
+    "remote": "alpha"
+  },
+  "ui-frameworks": {
+    "bootstrap": "stable",
+    "foundation": "beta"
+  },          
+  "install": {
+    "bundles": {
+    },
+    "dependencies": {
+      "components": {
+        "entity": {
+          "version": "^1.0"
+        }
+      },
+      "libs": [
+        "lodash"
+      ]
+    }
+  }  
 }

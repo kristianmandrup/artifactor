@@ -20,5 +20,23 @@
   "version": "1.2",
   "location": "github:kmandrup/contacts#1.2",
   "notice": "Added bootstrap",
-  "status": "beta"
+  "status": "beta",
+  "ui-frameworks": {
+    "bootstrap": "stable",
+    "foundation": "beta"
+  },
+  "install": {
+    "bundles": {
+    },
+    "dependencies": {
+      "components": {
+        "entity": {
+          "version": "^1.0"
+        }
+      },
+      "libs": [
+        "lodash"
+      ]
+    }
+  }    
 }

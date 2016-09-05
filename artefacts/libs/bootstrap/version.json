@@ -20,6 +20,21 @@
     "ui",
     "ux"
   ],
+  "popularWith": {
+    "components": {
+      "edgy": {
+        "combined": 2134 
+      }
+    },
+    "apps": {
+      "social-app": {
+        "combined": 134
+      },
+      "marketplace-app": {
+        "combined": 134
+      }
+    }
+  },  
   "location": "github:twitter/bootstrap#1.2",
   "notice": "Fixed flex grids",
   "status": "stable",

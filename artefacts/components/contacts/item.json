@@ -20,6 +20,18 @@
   "categories": [
     "entity"
   ],
+  "popularWith": {
+    "components": {
+      "edgy": {
+        "combined": 1151 
+      }
+    },
+    "apps": {
+      "social-app": {
+        "combined": 94
+      }
+    }
+  },
   "versions": [
     {
       "1.3": {
@@ -42,6 +54,10 @@
           { "rating": 4, "comment": "Foundation UI missing",
             "user": "trisha7", "date": "2017-07-24" }
         ],
+        "ui-frameworks": {
+          "bootstrap": "stable",
+          "foundation": "beta"
+        },        
         "install": {
           "bundles": {
           },
@@ -80,7 +96,25 @@
             "user": "all4you", "date": "2017-06-20" },
           { "rating": 3, "comment": "Bootstrap UI looks good",
             "user": "megaboy", "date": "2017-06-18" }
-        ]
+        ],
+        "ui-frameworks": {
+          "bootstrap": "beta",
+          "foundation": "alpha"
+        },        
+        "install": {
+          "bundles": {
+          },
+          "dependencies": {
+            "components": {
+              "entity": {
+                "version": "^1.0"
+              }
+            },
+            "libs": [
+              "lodash"
+            ]
+          }
+        }        
       }
     }
   ]

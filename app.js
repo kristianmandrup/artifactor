@@ -1,7 +1,9 @@
+// 'babel-polyfill' is needed for async/await.
+require('babel-polyfill');
+
 const Koa = require('koa');
 const app = new Koa();
 const router = require('koa-router')();
-const views = require('koa-views');
 const co = require('co');
 const convert = require('koa-convert');
 const json = require('koa-json');
@@ -12,16 +14,34 @@ const logger = require('koa-logger');
 const index = require('./routes/index');
 const users = require('./routes/users');
 const artefacts = require('./routes/artefacts');
+const static = require('koa-static');
+
+// const views = require('koa-views');
+const Pug = require('koa-pug')
+const pug = new Pug({
+  viewPath: './views',
+  debug: false,
+  pretty: false,
+  compileDebug: false,
+  // locals: global_locals_for_all_pages,
+  // basedir: 'path/for/pug/extends',
+  // helperPath: [
+  //   'path/to/pug/helpers',
+  //   { random: 'path/to/lib/random.js' },
+  //   { _: require('lodash') }
+  // ],
+  app: app // equals to pug.use(app) and app.use(pug.middleware)
+})
 
 // middlewares
 app.use(convert(bodyparser));
 app.use(convert(json()));
 app.use(convert(logger()));
-app.use(require('koa-static')(__dirname + '/public'));
+app.use(static(__dirname + '/public'));
 
-app.use(views(__dirname + '/views', {
-  extension: 'jade'
-}));
+// app.use(views(__dirname + '/views', {
+//   extension: 'jade'
+// }));
 
 // logger
 app.use(async (ctx, next) => {
@@ -44,5 +64,7 @@ app.on('error', function(err, ctx){
   logger.error('server error', err, ctx);
 });
 
+// Start the application.
+// app.listen(5050, () => console.log('Listening on port 5050.'));
 
 module.exports = app;
