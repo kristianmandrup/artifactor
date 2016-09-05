@@ -14,6 +14,14 @@ using `koa2` binary: `$ koa2 artifactor`
 - clone this repo
 - `npm install` - install dependencies 
 
+### Build
+
+`npm run build` - builds `/src` folder and puts resulting `app.js` in `/dist`
+
+### Auto build
+
+`npm run watch` - builds `/src` and watches for changes to src file for auto-build!
+
 ### Run
 
 - `$ npm start` or `$ npm koa` - start the server
@@ -135,6 +143,8 @@ An alternative way to add ES7 [Node async/await](https://github.com/yortus/async
 var async = require('asyncawait/async');
 var await = require('asyncawait/await');
 ```
+
+Also see [Node.js Async Await in ES7](http://stackabuse.com/node-js-async-await-in-es7/)
 
 ## IO
 

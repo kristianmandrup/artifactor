@@ -13,31 +13,15 @@ const logger = require('koa-logger');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
-const artefacts = require('./routes/artefacts');
-const static = require('koa-static');
+// const artefacts = require('./routes/artefacts');
 
-// const views = require('koa-views');
-const Pug = require('koa-pug')
-const pug = new Pug({
-  viewPath: './views',
-  debug: false,
-  pretty: false,
-  compileDebug: false,
-  // locals: global_locals_for_all_pages,
-  // basedir: 'path/for/pug/extends',
-  // helperPath: [
-  //   'path/to/pug/helpers',
-  //   { random: 'path/to/lib/random.js' },
-  //   { _: require('lodash') }
-  // ],
-  app: app // equals to pug.use(app) and app.use(pug.middleware)
-})
+const views = require('koa-views');
 
 // middlewares
 app.use(convert(bodyparser));
 app.use(convert(json()));
 app.use(convert(logger()));
-app.use(static(__dirname + '/public'));
+app.use(require('koa-static')(__dirname + '/public'));
 
 // app.use(views(__dirname + '/views', {
 //   extension: 'jade'

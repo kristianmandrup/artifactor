@@ -16,7 +16,7 @@ module.exports = class IO {
   }
 
   get paths() {
-    return await fs.readdir(dir);
+    return fs.readdir(dir);
   }
 
   // async
@@ -35,11 +35,11 @@ module.exports = class IO {
   }
 
   async jsonItem(id) {
-    return await JSON.parse(this.file(id));
+    return JSON.parse(this.file(id));
   }
 
   async jsonList(id) {
-    return await JSON.parse(this.list());
+    return JSON.parse(this.list());
   }
 
 
@@ -55,7 +55,7 @@ module.exports = class IO {
 
   // return single .json file for that entity
   async file(name) {
-    return await fs.readFile(this.filePath(name), 'utf8');
+    return fs.readFile(this.filePath(name), 'utf8');
   }
 
   get listFile() {
@@ -63,12 +63,12 @@ module.exports = class IO {
   }
 
   get list() {
-    return await fs.readFile(this.listFile, 'utf8');
+    return fs.readFile(this.listFile, 'utf8');
   }
 
   // return list of json entries, one for each file of entity type
   get files() {
-    return await Promise.all(
+    return Promise.all(
       this.paths.map(path => {        
         const fileContent = fs.readFile(this.filePath(path), 'utf8');
         return JSON.parse(fileContent);

@@ -1,5 +1,3 @@
-'use strict';
-
 const _ = require('../../utils');
 const expectations = require('./expectations');
 const data = require('../requests/create');
@@ -8,9 +6,9 @@ const data = require('../requests/create');
 // _.expect()
 
 describe('apps', () => {
-  describe('POST item', () => {            
-    it('should create a single app', _.doAsync(async () => {   
-      let result = await _.callApi('/apps/contacts-app', 'POST', data);         
+  describe('UPDATE item', () => {            
+    it('should update a single app', _.doAsync(async () => {   
+      let result = await _.callApi('/apps/contacts-app', 'UPDATE', data);         
       expectations(result);       
     }));
   });

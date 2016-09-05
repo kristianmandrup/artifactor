@@ -1,9 +1,9 @@
-const chai = require('chai'),
+const chai = require('chai');
 const expect = chai.expect;
 chai.should();
 
 module.exports = {
-  expect = expect,
+  expect: expect,
   agent: require('./agent'),
   doAsync: require('./do-async'),
   koaApp: require('./koa-app'),

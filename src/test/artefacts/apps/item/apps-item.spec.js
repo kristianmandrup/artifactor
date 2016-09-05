@@ -1,5 +1,3 @@
-'use strict';
-
 const _ = require('../../utils');
 const expectations = require('./expectations');
 
