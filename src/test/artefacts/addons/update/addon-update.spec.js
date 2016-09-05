@@ -4,11 +4,12 @@ const data = require('../requests/create');
 
 // to use expect:
 // _.expect()
+const route = '/addons/sigma-ui';
 
-describe('apps', () => {
+describe('addons', () => {
   describe('UPDATE item', () => {            
-    it('should update a single app', _.doAsync(async () => {   
-      let result = await _.callApi('/apps/contacts-app', 'UPDATE', data);         
+    it('should update a single addon', _.doAsync(async () => {   
+      let result = await _.callApi(route, 'UPDATE', data);         
       expectations(result);       
     }));
   });

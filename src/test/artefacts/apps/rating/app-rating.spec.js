@@ -1,12 +1,13 @@
 const _ = require('../../utils');
-const data = require('../requests/rating');
+const data = require('../requests/contacts-app/rate');
 const expectations = require('./expectations');
 
 // to use expect:
 // _.expect()
+const route = '/apps/contacts-app';
 
 async function rating(data) {
-  return _.callApi('/apps/contacts-app/rate', 'POST', data);
+  return _.callApi(route + '/rate', 'POST', data);
 }
 
 describe('apps', () => {

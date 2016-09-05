@@ -5,12 +5,11 @@ const expectations = require('./expectations');
 
 // to use expect:
 // _.expect()
-const route = '/apps';
 
-describe('apps', () => {
+describe('plugins', () => {
   describe('GET list', () => {            
-    it('should return a list of apps', _.doAsync(async () => {   
-      let result = await _.callApi(route, 'GET');         
+    it('should return a list of plugins', _.doAsync(async () => {   
+      let result = await _.callApi('/apps');         
       expectations(result);       
     }));
   });

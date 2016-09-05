@@ -1,15 +1,13 @@
-'use strict';
-
 const _ = require('../../utils');
 const expectations = require('./expectations');
 
 // to use expect:
 // _.expect()
-const route = '/apps';
+const route = '/apps/contacts-app';
 
 describe('apps', () => {
-  describe('GET list', () => {            
-    it('should return a list of apps', _.doAsync(async () => {   
+  describe('GET item', () => {            
+    it('should return a single app', _.doAsync(async () => {   
       let result = await _.callApi(route, 'GET');         
       expectations(result);       
     }));
