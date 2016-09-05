@@ -105,7 +105,7 @@ In the end for a `contacts` component, the REST routes would be:
 
 ## Mongoose DB and Models/Schemas
 
-Mongoose DB Models and Schemas are configured in the `db` folder. 
+Mongoose DB Models and Schemas are configured in the `/db` folder. 
 The `models.js` exports an object with entity models, each linked to a schema.
 See [Mongoose models](http://mongoosejs.com/docs/models.html)
 
@@ -119,6 +119,74 @@ components.contacts = new models.Component({
   // ...
 })
 ```
+
+## Promises
+
+Just use bluebird if no native Promise ;)
+
+`mongoose.Promise = global.Promise || require('bluebird');`
+
+## Queries
+
+[Mongoose Queries](http://mongoosejs.com/docs/queries.html)
+
+"In mongoose 4, a Query has a `.then()` function, and thus can be used as a promise."
+
+Mongoose queries are not promises. However, they do have a `.then()` function for yield and async/await. 
+If you need a fully-fledged promise, use the `.exec()` function.
+
+Mongoose async operations, like `.save()` and queries, return Promises/A+ conformant promises. 
+This means that you can do things like `MyModel.findOne({}).then()` and `yield MyModel.findOne({}).exec()` 
+(if you're using [co](https://github.com/tj/co) or async/await etc. via Babel).
+
+Promises are returned from executed queries. Example:
+
+```js
+var query = Candy.find({ bar: true });
+var promise = query.exec();
+```
+
+See [Switching out callbacks with promises in Mongoose](http://eddywashere.com/blog/switching-out-callbacks-with-promises-in-mongoose/)
+
+### Save
+
+```js
+fluffy.save().then(fluffy => {
+  fluffy.speak();
+}).catch(err => {
+  
+});
+```
+
+Say time goes by and we want to display all the kittens we've seen. We can access all of the kitten documents through our Kitten model.
+
+```js
+Kitten.find().exec().then(kittens => {
+  console.log(kittens);
+}).catch(err => {
+
+})
+```
+
+### Removing models
+
+Models have a static `remove` method available for removing all documents matching conditions.
+
+`Tank.remove({ size: 'large' }).exec().then(onSuccess).catch(onError)`
+
+### Find by conditions
+
+We just logged all of the kittens in our db to the console. If we want to filter our kittens by name, Mongoose supports MongoDBs rich querying syntax.
+
+```js
+Kitten.find({ name: /^fluff/ }).exec().then(onSuccess).catch(onErr);
+```
+
+### Find one and update
+
+To update an artefact, use `findOneAndUpdate` as follows: 
+
+`Component.findOneAndUpdate(query, update, {'upsert': true}).exec().then(onSuccess, onError);`
 
 ## Pug views
 

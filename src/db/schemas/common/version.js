@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const defaults = {
   status: {type: String, default: 'stable'},
   rating: {type: Number, default: 3},
-  date: {type: Date, default: Date.now}
+  date: {type: Date, default: Date.now, required: true},
+  installations: {type: Number, default: 0, required: true},
 }
 
 const UiFramework = new Schema({
@@ -20,17 +21,21 @@ const Rating = new Schema({
 
 
 const schemaObj = {
-  number: String, // version number such as 1.3
+  number: {type: String, required: true }, // version number such as 1.3
   date: defaults.date,
   author: Author,
   notice: String,
   status: defaults.status,
-  installations: Number,
+  installations: defaults.installations,
   rating: defaults.rating,
   ratings: [Rating],
   ui: [UiFramework],
   install: InstallConfig
 }
+
+
+
+const schema = new Schema(schemaObj);
 
 module.exports = {
   schemaObj: schemaObj

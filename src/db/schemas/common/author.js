@@ -1,6 +1,6 @@
 module.exports = new Schema({
-  name: String,
-  alias: String,
+  name: {type: String, required: false },
+  alias: {type: String, index: true},
   email: String,
   organisation: String,
   profile: String

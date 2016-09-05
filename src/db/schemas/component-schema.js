@@ -7,19 +7,19 @@ const { Version } = require('./component');
 
 // allows easy extension
 const schemaObj = {
-  name: String,
+  name: {type: String, index: true, required: true},
   description: String,
-  date: Date,
-  version: String,
-  rating: Float,
+  date: {type: Date, index: true, required: true},
+  version: {type: String, index: true, required: true},
+  rating: Float, // virtual?
   author: Author,
-  type: [String],
-  keywords: [String],
-  categories: [String],
+  type: {type: String, index: true, required: true},
+  keywords: {type: [String], index: true},
+  categories: {type: [String], index: true},
   versions: [Version]
 };
 
 module.exports = {
   schemaObj: schemaObj,
-  schema: new Schema(schemaObj)
+  schema: new Schema(schema)
 }

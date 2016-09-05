@@ -3,10 +3,16 @@ const schemas = require('./schemas');
 const entities = require('../artefacts/entities');
 const _ = require('lodash');
 
+// decorator adds useful instance and static methods to model
+// esp. to better manage versions and ratings! 
+const decorator = require('./decorator');
+
 // iterate over all supported artefact entities
 // create a models map using schemas map
 module.exports = entities.names.reduce( (models, name) => {
   let clazzName = _.capitalize(name);
-  models[clazzName] = mongoose.model(clazzName, schemas[name]);
+  let mdl = mongoose.model(clazzName, schemas[name]);
+
+  models[clazzName] = decorate(mdl) 
   return models;
 }, {})

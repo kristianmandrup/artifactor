@@ -42,7 +42,6 @@ module.exports = class IO {
     return JSON.parse(this.list());
   }
 
-
   fileName(name) {
     // normalize file name to always have .json extension
     return !name.match(/\.json$/) ? `${name}.json` : name; 

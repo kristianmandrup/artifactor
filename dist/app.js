@@ -213,6 +213,48 @@ module.exports = function () {
 }();
 'use strict';
 
+function noSuchVersion(number) {
+  console.error('No such version', number);
+}
+
+module.exports = function decorate(schema, modelName) {
+  var _this = this;
+
+  schema.query.findByName = function (name) {
+    return _this.find({
+      name: new RegExp(name, 'i')
+    });
+  };
+
+  // See: http://mongoosejs.com/docs/subdocs.html
+
+  schema.methods.latestVersion = function (name) {
+    return _this.versions.sort({ number: -1 }).exec()[0];
+  };
+
+  schema.methods.addVersion = function (version) {
+    return _this.versions.push(version);
+  };
+
+  schema.methods.removeVersion = function (id) {
+    return _this.versions.id(id).remove();
+  };
+
+  schema.methods.rateVersion = function (number, rating) {
+    var version = _this.versions.id(number);
+    return version ? version.ratings.push(rating) : noSuchVersion(number);
+  };
+
+  schema.methods.rateLatest = function (rating) {
+    _this.latestVersion().then(function (version) {
+      return version.ratings.push(rating);
+    }).catch(function (err) {
+      console.error('rateLatest', err);
+    });
+  };
+};
+'use strict';
+
 // getting-started.js
 var mongoose = require('mongoose');
 var dbName = 'artifactor';
@@ -232,11 +274,17 @@ var schemas = require('./schemas');
 var entities = require('../artefacts/entities');
 var _ = require('lodash');
 
+// decorator adds useful instance and static methods to model
+// esp. to better manage versions and ratings! 
+var decorator = require('./decorator');
+
 // iterate over all supported artefact entities
 // create a models map using schemas map
 module.exports = entities.names.reduce(function (models, name) {
   var clazzName = _.capitalize(name);
-  models[clazzName] = mongoose.model(clazzName, schemas[name]);
+  var mdl = mongoose.model(clazzName, schemas[name]);
+
+  models[clazzName] = decorate(mdl);
   return models;
 }, {});
 'use strict';
@@ -295,8 +343,8 @@ module.exports = {
 "use strict";
 
 module.exports = new Schema({
-  name: String,
-  alias: String,
+  name: { type: String, required: false },
+  alias: { type: String, index: true },
   email: String,
   organisation: String,
   profile: String
@@ -325,13 +373,30 @@ modules.export = new Schema({
 });
 'use strict';
 
+// From: http://stackoverflow.com/questions/25449570/mongoose-default-sorting-order
+
+module.exports = function (query, fields, options) {
+    //First 3 parameters are optional
+    if (arguments.length === 1) {
+        cb = query;
+    } else if (arguments.length === 2) {
+        cb = fields;
+    } else if (arguments.length === 3) {
+        cb = options;
+    }
+
+    return this.find(query, fields, options).sort('-createdAt').exec(cb);
+};
+'use strict';
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var defaults = {
   status: { type: String, default: 'stable' },
   rating: { type: Number, default: 3 },
-  date: { type: Date, default: Date.now }
+  date: { type: Date, default: Date.now, required: true },
+  installations: { type: Number, default: 0, required: true }
 };
 
 var UiFramework = new Schema({
@@ -346,17 +411,19 @@ var Rating = new Schema({
 });
 
 var schemaObj = {
-  number: String, // version number such as 1.3
+  number: { type: String, required: true }, // version number such as 1.3
   date: defaults.date,
   author: Author,
   notice: String,
   status: defaults.status,
-  installations: Number,
+  installations: defaults.installations,
   rating: defaults.rating,
   ratings: [Rating],
   ui: [UiFramework],
   install: InstallConfig
 };
+
+var schema = new Schema(schemaObj);
 
 module.exports = {
   schemaObj: schemaObj
@@ -399,21 +466,21 @@ var Version = _require2.Version;
 // allows easy extension
 
 var schemaObj = {
-  name: String,
+  name: { type: String, index: true, required: true },
   description: String,
-  date: Date,
-  version: String,
-  rating: Float,
+  date: { type: Date, index: true, required: true },
+  version: { type: String, index: true, required: true },
+  rating: Float, // virtual?
   author: Author,
-  type: [String],
-  keywords: [String],
-  categories: [String],
+  type: { type: String, index: true, required: true },
+  keywords: { type: [String], index: true },
+  categories: { type: [String], index: true },
   versions: [Version]
 };
 
 module.exports = {
   schemaObj: schemaObj,
-  schema: new Schema(schemaObj)
+  schema: new Schema(schema)
 };
 'use strict';
 
