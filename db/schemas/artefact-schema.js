@@ -1,9 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const { Author } = require('./common');
-const { Version } = require('./component');
-
-// Schema guide: http://mongoosejs.com/docs/guide.html
 
 // allows easy extension
 const schemaObj = {
@@ -15,11 +12,9 @@ const schemaObj = {
   author: Author,
   type: [String],
   keywords: [String],
-  categories: [String],
-  versions: [Version]
+  categories: [String]
 };
 
 module.exports = {
-  schemaObj: schemaObj,
-  schema: new Schema(schemaObj)
-}
+  schemaObj: schemaObj
+} 
