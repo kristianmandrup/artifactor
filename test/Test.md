@@ -2,9 +2,12 @@
 
 [mocha](https://mochajs.org/) with [should](http://chaijs.com/api/bdd/) are used as the testing framework.
 
-See [How To Use Mocha With Node.js For Test-Driven Development to Avoid Pain and Ship Products Faster](http://webapplog.com/tdd/)
+- See [How To Use Mocha With Node.js For Test-Driven Development to Avoid Pain and Ship Products Faster](http://webapplog.com/tdd/)
+- For async testing, see [Testing Asynchronous Code with MochaJS and ES7 async/await](http://staxmanade.com/2015/11/testing-asyncronous-code-with-mochajs-and-es7-async-await/)
 
 ## Superagent REST API testing
+
+We use superagent for doing Ajax requests on the Koa app server API.
 
 ```js
 describe('homepage', function(){
@@ -34,8 +37,9 @@ agent('GET', 'http://google.com')
   });
 ```  
 
-Use [Super Agent mocker](https://www.npmjs.com/package/superagent-mocker)
-to mock the REST API.
+## Mocking Ajax
+
+We can also use [Super Agent mocker](https://www.npmjs.com/package/superagent-mocker) to mock the REST API.
 
 ```js
 Timeout
