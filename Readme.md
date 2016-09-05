@@ -1,6 +1,9 @@
 # Artifact Registry
 
-This *Artifact Registry* server is being built using Koa 2 using ES7 async/await syntax.
+This *Artifact Registry* app/API web server is being built using Koa 2 using ES7 async/await syntax.
+
+The initial project was generated using [koa-generator](https://www.npmjs.com/package/koa-generator)
+using `koa2` binary: `$ koa2 artifactor` 
 
 ## Usage
 - install/configure
@@ -18,6 +21,28 @@ This *Artifact Registry* server is being built using Koa 2 using ES7 async/await
 ### Display and navigate
 
 - Go to `localhost:3000` in your browser of choice!
+
+## Koa boilerplate
+
+Example of [Koa2 boilerplate project](https://github.com/llambda/koa-boiler)
+Look at [Koa2 tutorial](https://dinosaurscode.xyz/nodejs/2016/06/28/nodejs-koa2-tutorial/)
+
+Generators:
+- [generator-koa2](https://www.npmjs.com/package/generator-koa2)
+- [generator-koa2-rest](https://www.npmjs.com/package/generator-koa2-rest)
+
+## Generator koa2 REST
+
+`npm install -g generator-koa2-rest yo`
+
+Run `yo koa2-rest`
+
+Run `npm start` and navigate to `localhost:9000`
+
+### Creating another endpoint
+Navigate to project folder and run `yo koa2-rest:api resource-name`
+
+This will create a folder under src/api/ with the name of the resource with an index, controller, model. Test files will be generated in test/e2e and test/unit
 
 ## Architecture  
 
@@ -102,6 +127,14 @@ See [koa-view pug test](https://github.com/queckezz/koa-views/blob/master/test/i
 
 ## Database
 
+## Async/await
+
+An alternative way to add ES7 [Node async/await](https://github.com/yortus/asyncawait) using Node fibers.
+
+```js
+var async = require('asyncawait/async');
+var await = require('asyncawait/await');
+```
 
 ## IO
 
