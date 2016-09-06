@@ -33,7 +33,7 @@ app.use(async (ctx, next) => {
   await next();
   const ms = new Date() - start;
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
-});
+});;
 
 
 router.use('/', index.routes(), index.allowedMethods());

@@ -7,8 +7,8 @@
     "koa": "./node_modules/.bin/runkoa bin/www",
     "pm2": "pm2 start bin/run ",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -o dist/app.js",
-    "watch": "babel src --watch -o dist/app.js"
+    "build": "babel src -d dist",
+    "watch": "babel src --watch -d dist"
   },
   "dependencies": {
     "babel-polyfill": "^6.13.0",
@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",

@@ -12,6 +12,12 @@ module.exports = class RouterFactory {
     }
   }
 
+  get rate() {
+    return async function (ctx, next) {
+      ctx.body = `POST/create ${entity} is not yet supported!`;  
+    }
+  }
+
   get remove() {
     return async function (ctx, next) {
       ctx.body = `DELETE ${entity} is not yet supported!`;  
@@ -36,6 +42,12 @@ module.exports = class RouterFactory {
     }
   }
 
+  get version() {
+    return async (ctx, next) => {
+      ctx.body = `GET/list ${entity} is not yet supported!`;  
+    }
+  }
+
   createRouter(entity) {
     const router = new Router({
       prefix: `/${entity}`
@@ -44,7 +56,9 @@ module.exports = class RouterFactory {
     router
       .get('list', '/', this.list)
       .get('item', '/:id', this.item)
+      .get('version', '/:id/version', this.version)            
       .post('create', '/:id', this.create)
+      .post('rate', '/:id/rate', this.rate)
       .put('update','/:id', this.update)
       .del('delete', '/:id', this.remove);
 

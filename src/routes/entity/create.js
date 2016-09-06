@@ -1,4 +1,4 @@
-const Io = require('../artefacts/io')
+const adapter = require('../adapter')
 
 module.exports = async function create(ctx, next) {
   switch (ctx.accepts('json', 'html')) {
@@ -12,14 +12,14 @@ module.exports = async function create(ctx, next) {
   const entity = ctx.params.entity || 'components';
   const id = ctx.params.id || 0;
 
-  const io = new Io(entity);
+  const io = adapter.adapt(entity);
 
   if (!io.validate()) {
     ctx.throw(406, `invalid artefact type: ${entity}`);
   }      
 
   ctx.type = 'json';
-  io.createJsonItem(id, ctx);
+  io.create(id, ctx);
   ctx.body = `created item: ${id}`
   ctx.status = 200; // OK
 }

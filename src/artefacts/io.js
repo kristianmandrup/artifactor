@@ -1,7 +1,7 @@
 const fs = require('fs-promise');
 const entities = require('./entities'); 
 
-module.exports = class IO {
+class IO {
   construtor(entity) {
     this.entity = entity || 'components';
     this.entities = entities;
@@ -73,5 +73,12 @@ module.exports = class IO {
         return JSON.parse(fileContent);
       })    
     );
+  }
+}
+
+module.exports = {
+  Io: Io,
+  create: function(entity) {
+    return new Io(entity);
   }
 }

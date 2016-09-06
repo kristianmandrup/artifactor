@@ -114,6 +114,8 @@ The `io.js` can be used to access these files, f.ex via:
 You can start playing with the API using these files, building up the test suite and then 
 gradually switch to using Mongo DB schemas/models for the API. 
 
+Use the `/adapters` folder to add an adapter, either for the file IO or mongoose.
+
 ## Mongoose DB and Models/Schemas
 
 Mongoose DB Models and Schemas are configured in the `/db` folder. 
