@@ -2,7 +2,7 @@ const fs = require('fs-promise');
 const entities = require('./entities'); 
 
 class IO {
-  construtor(entity) {
+  constructor(entity) {
     this.entity = entity || 'components';
     this.entities = entities;
   }
@@ -38,6 +38,10 @@ class IO {
     return JSON.parse(this.file(id));
   }
 
+  async jsonVersion(id) {
+    return JSON.parse(this.version(id));
+  }
+
   async jsonList(id) {
     return JSON.parse(this.list());
   }
@@ -47,9 +51,18 @@ class IO {
     return !name.match(/\.json$/) ? `${name}.json` : name; 
   }
 
+  folder(name) {
+    return path.join(this.entityDir, name);
+  }
+
   filePath(name) {
     // return path.join(this.entityDir, this.fileName(name));
-    return path.join(this.entityDir, name, 'item.json');
+    return path.join(this.folder(name), 'item.json');
+  }
+
+  versionPath(name) {
+    // return path.join(this.entityDir, this.fileName(name));
+    return path.join(this.folder(name), 'version.json');
   }
 
   // return single .json file for that entity
@@ -57,8 +70,17 @@ class IO {
     return fs.readFile(this.filePath(name), 'utf8');
   }
 
+  // return single .json file for that entity
+  async version(name) {
+    return fs.readFile(this.versionPath(name), 'utf8');
+  }
+
   get listFile() {
     return path.join(this.entityDir, 'list.json');
+  }
+
+  rateVersion(id, versionId, data) {
+    console.log(`Rate ${this.entity} for ${id} not yet supported...`);
   }
 
   get list() {

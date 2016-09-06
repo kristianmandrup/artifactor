@@ -11,3 +11,10 @@ db.once('open', function() {
   console.log('Mongo DB connection is open :)');
 });
 
+const models = require('./models');
+
+module.export = {
+  models: models,
+  db: db
+};
+
