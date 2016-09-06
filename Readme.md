@@ -116,7 +116,27 @@ gradually switch to using Mongo DB schemas/models for the API.
 
 Use the `/adapters` folder to add an adapter, either for the file IO or mongoose.
 
-## Mongoose DB and Models/Schemas
+## Mongoose DB
+
+### Mac OSX - Mongo DB
+Configuring Mongo DB. First install [homebrew](https://github.com/Homebrew/brew)
+
+`$ brew install mongodb` 
+
+Then run mongo deamon process
+
+`$ mongod`
+
+If it terminates with error `Data directory /data/db not found., terminating`: 
+- create missing storage folder which holds databases
+- set permissions
+
+```
+$ sudo mkdir -p /data/db/`
+$ sudo chown -R `id -u` /data/db
+```
+
+### Models/Schemas
 
 Mongoose DB Models and Schemas are configured in the `/db` folder. 
 The `models.js` exports an object with entity models, each linked to a schema.

@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const { Schema } = require('mongoose');
 const { Author } = require('./common');
 const { Version } = require('./component');
 
@@ -11,15 +10,15 @@ const schemaObj = {
   description: String,
   date: {type: Date, index: true, required: true},
   version: {type: String, index: true, required: true},
-  rating: Float, // virtual?
+  rating: Number, // virtual?
   author: Author,
   type: {type: String, index: true, required: true},
   keywords: {type: [String], index: true},
   categories: {type: [String], index: true},
-  versions: [Version]
+  versions: [Version.schema]
 };
 
 module.exports = {
-  schemaObj: schemaObj,
-  schema: new Schema(schema)
+  obj: schemaObj,
+  schema: new Schema(schemaObj)
 }

@@ -1,6 +1,7 @@
 // The Addon is similar to component, app etc. except it is NOT linked to a repo,
 // so a version has no repo location
 
+const {Schema } = require('mongoose');
 const artefact = require('./artefact-schema');
 
 // Note: an app is a kind of component

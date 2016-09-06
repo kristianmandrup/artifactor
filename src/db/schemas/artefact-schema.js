@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const {Schema } = require('mongoose');
 const { Author } = require('./common');
 
 // allows easy extension
@@ -8,7 +7,7 @@ const schemaObj = {
   description: String,
   date: Date,
   version: String,
-  rating: Float,
+  rating: Number,
   author: Author,
   type: [String],
   keywords: [String],
@@ -16,5 +15,5 @@ const schemaObj = {
 };
 
 module.exports = {
-  schemaObj: schemaObj
+  obj: schemaObj
 } 

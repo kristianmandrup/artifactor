@@ -6,7 +6,15 @@ function warnNoSuchVersion(number) {
   console.error('No such version', number);
 }
 
-module.exports = function decorate(schema, modelName) {
+module.exports = function(schema, modelName) {
+  if (!schema) {
+    console.error('Missing schema (db decorator)', schema);
+    return;
+  } else {
+    // , schema
+    console.log('decorating schema', modelName)
+  }
+
   schema.query.findByName = (name) => {
     return this.find({
       name: new RegExp(name, 'i')

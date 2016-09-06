@@ -1,5 +1,6 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const { Schema } = require('mongoose');
+const Author = require('./author');
+const InstallConfig = require('./install-config');
 
 const defaults = {
   status: {type: String, default: 'stable'},
@@ -33,10 +34,8 @@ const schemaObj = {
   install: InstallConfig
 }
 
-
-
 const schema = new Schema(schemaObj);
 
 module.exports = {
-  schemaObj: schemaObj
+  obj: schemaObj
 }
