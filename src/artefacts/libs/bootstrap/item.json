@@ -37,41 +37,40 @@
   },  
   "versions": [
     {
-      "1.2": {
-        "location": "github:twitter/bootstrap#1.2",
-        "date": "2016-07-21",
-        "author": {
-          "alias": "moonboy",
-          "organisation": "twitter"
-        },
-        "notice": "Fixed flex grids",
-        "status": "stable",
-        "installations": 1795,
-        "rating": "4.3",
-        "ratings": [
-          { "rating": 3, "comment": "pretty good" },
-          { "rating": 5, "comment": "works perfectly" }
+      "version": "1.2",
+      "location": "github:twitter/bootstrap#1.2",
+      "date": "2016-07-21",
+      "author": {
+        "alias": "moonboy",
+        "organisation": "twitter"
+      },
+      "notice": "Fixed flex grids",
+      "status": "stable",
+      "installations": 1795,
+      "rating": "4.3",
+      "ratings": [
+        { "rating": 3, "comment": "pretty good" },
+        { "rating": 5, "comment": "works perfectly" }
+      ]
+    },
+    "install": {
+      "bundles": {
+        "vendor-libs.js": {
+          "dependencies": [
+            {
+              // bootstrap styles etc.
+            }
+          ]
+        }
+      },
+      "dependencies": {
+        "libs": [
+          "jquery"
         ]
       },
-      "install": {
-        "bundles": {
-          "vendor-libs.js": {
-            "dependencies": [
-              {
-                // bootstrap styles etc.
-              }
-            ]
-          }
-        },
-        "dependencies": {
-          "libs": [
-            "jquery"
-          ]
-        },
-        "prepend": [
+      "prepend": [
 
-        ]
-      }
+      ]
     }
   ]
 }

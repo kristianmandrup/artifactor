@@ -103,6 +103,17 @@ In the end for a `contacts` component, the REST routes would be:
 - POST `/components/contacts` (POST to create the single item `contacts`)  
 ...
 
+### artefacts
+
+The `/artefacts` folder contains canned API responses in `.json` files for each artefact type.
+The `io.js` can be used to access these files, f.ex via:
+- `jsonItem(id)` - return specific artefact item
+- `jsonList(id)` - return list of artefact items
+- `files()` - return all artefact items (with full `versions` list for each item)
+
+You can start playing with the API using these files, building up the test suite and then 
+gradually switch to using Mongo DB schemas/models for the API. 
+
 ## Mongoose DB and Models/Schemas
 
 Mongoose DB Models and Schemas are configured in the `/db` folder. 

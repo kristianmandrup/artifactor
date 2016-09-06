@@ -19,34 +19,33 @@
   ],
   "versions": [
     {
-      "2.2": {
-        "author": {
-          "alias": "jack",
-          "organisation": "aurelia"
+      "version": "2.2",
+      "author": {
+        "alias": "jack",
+        "organisation": "aurelia"
+      },
+      "location": "github:aurelia/aurelia-i18n#master",
+      "date": "2016-07-21",
+      "install": {
+        "bundles": {
+          "vendor-libs.js": {
+            "dependencies": [          
+            ],
+            "prepends": [          
+            ]
+          }
         },
-        "location": "github:aurelia/aurelia-i18n#master",
-        "date": "2016-07-21",
-        "install": {
-          "bundles": {
-            "vendor-libs.js": {
-              "dependencies": [          
-              ],
-              "prepends": [          
-              ]
-            }
-          },
-          "dependencies": {
-            "addons": [
+        "dependencies": {
+          "addons": [
 
-            ],
-            "plugins": [
+          ],
+          "plugins": [
 
-            ],
-            "libs": [
+          ],
+          "libs": [
 
-            ],
-            "typings": {
-            }
+          ],
+          "typings": {
           }
         }
       }

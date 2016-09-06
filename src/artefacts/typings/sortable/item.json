@@ -3,7 +3,8 @@
   "description": "Sortable drag and drop",
   "versions": [
     {
-      "1.0": "dt~sortable" 
+      "version": "1.0.0",
+      "location": "dt~sortable" 
     }
   ]
 }

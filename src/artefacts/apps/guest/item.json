@@ -21,41 +21,40 @@
     "social"
   ],
   "versions": [
-    {
-      "1.0": {
-        "location": "github:kmandrup/contacts#1.3",
-        "date": "2016-07-21",
-        "author": {
-          "name": "Kristian Mandrup"
+  {
+      "version": "1.0",
+      "location": "github:kmandrup/contacts#1.3",
+      "date": "2016-07-21",
+      "author": {
+        "name": "Kristian Mandrup"
+      },
+      "notice": "Fixed facebook auth",
+      "status": "stable",
+      "installations": 218,
+      "rating": "4.2",
+      "ratings": [
+        { "rating": 3, "comment": "pretty good" },
+        { "rating": 5, "comment": "works perfectly" },
+        { "rating": 4, "comment": "Foundation UI missing",
+          "user": "trisha7", "date": "2017-07-24" }
+      ],
+      "install": {
+        "bundles": {
+          "vendor-lib.js": {                
+          }
         },
-        "notice": "Fixed facebook auth",
-        "status": "stable",
-        "installations": 218,
-        "rating": "4.2",
-        "ratings": [
-          { "rating": 3, "comment": "pretty good" },
-          { "rating": 5, "comment": "works perfectly" },
-          { "rating": 4, "comment": "Foundation UI missing",
-            "user": "trisha7", "date": "2017-07-24" }
-        ],
-        "install": {
-          "bundles": {
-            "vendor-lib.js": {                
+        "dependencies": {
+          "components": {
+            "login-modal": {
+              "version": "^1.0",
+              "mountPath": "./login"
             }
           },
-          "dependencies": {
-            "components": {
-              "login-modal": {
-                "version": "^1.0",
-                "mountPath": "./login"
-              }
-            },
-            "libs": [
-              "lodash"
-            ]
-          }
-        }         
-      }
+          "libs": [
+            "lodash"
+          ]
+        }
+      }         
     }
   ]
 }  

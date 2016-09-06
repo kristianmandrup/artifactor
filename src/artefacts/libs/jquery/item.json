@@ -21,40 +21,39 @@
   ],
   "versions": [
     {
-      "2.2": {
-        "author": {
-          "alias": "jimbo",
-          "organisation": "yahoo"
+      "version": "2.2",
+      "author": {
+        "alias": "jimbo",
+        "organisation": "yahoo"
+      },
+      "location": "github:yahoo/jquery#2.2",
+      "date": "2016-07-21",
+      "notice": "Use more promises",
+      "status": "stable",
+      "installations": 114395,
+      "rating": "4.2",
+      "ratings": [
+        { "rating": 3, "comment": "pretty good" },
+        { "rating": 5, "comment": "works perfectly" }
+      ],
+      "install": {
+        "bundles": {
+          "vendor-libs.js": {
+            "dependencies": [
+              "jquery"
+            ]
+          }
         },
-        "location": "github:yahoo/jquery#2.2",
-        "date": "2016-07-21",
-        "notice": "Use more promises",
-        "status": "stable",
-        "installations": 114395,
-        "rating": "4.2",
-        "ratings": [
-          { "rating": 3, "comment": "pretty good" },
-          { "rating": 5, "comment": "works perfectly" }
-        ],
-        "install": {
-          "bundles": {
-            "vendor-libs.js": {
-              "dependencies": [
-                "jquery"
-              ]
-            }
-          },
-          "dependencies": {
-            "typings": {
-              "dtsSources": [
-                "<modules>/jquery/**/*.d.ts"
-              ]
-            }
-          },
-          "libs": [
-            "jquery"
-          ]                        
-        }
+        "dependencies": {
+          "typings": {
+            "dtsSources": [
+              "<modules>/jquery/**/*.d.ts"
+            ]
+          }
+        },
+        "libs": [
+          "jquery"
+        ]                        
       }
     }
   ]
