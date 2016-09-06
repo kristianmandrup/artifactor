@@ -1,7 +1,9 @@
 // Usage:
 //  createRouter('components')
 
-module.exports = class RouterFactory {
+const Router = require('koa-router');
+
+class RouterFactory {
   constructor(entity) {
     this.entity = entity;
   }
@@ -48,9 +50,9 @@ module.exports = class RouterFactory {
     }
   }
 
-  createRouter(entity) {
+  createRouter() {
     const router = new Router({
-      prefix: `/${entity}`
+      prefix: `/${this.entity}`
     });
 
     router
@@ -66,4 +68,10 @@ module.exports = class RouterFactory {
   }
 } 
 
-
+module.exports = {
+  Factory: RouterFactory, 
+  create: function(entity) {
+    return new RouterFactory(entity).createRouter();
+  }
+ 
+}

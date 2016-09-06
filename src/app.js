@@ -13,7 +13,7 @@ const logger = require('koa-logger');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
-// const artefacts = require('./routes/artefacts');
+const artefacts = require('./routes/artefacts');
 
 const views = require('koa-views');
 
