@@ -136,6 +136,8 @@ $ sudo mkdir -p /data/db/`
 $ sudo chown -R `id -u` /data/db
 ```
 
+Also see this gist: [ install-mongodb](https://gist.github.com/adamgibbons/cc7b263ab3d52924d83b)
+
 ### Models/Schemas
 
 Mongoose DB Models and Schemas are configured in the `/db` folder. 
