@@ -1,7 +1,7 @@
 const fs = require('fs-promise');
 const entities = require('./entities'); 
 
-class IO {
+class Io {
   constructor(entity) {
     this.entity = entity || 'components';
     this.entities = entities;
