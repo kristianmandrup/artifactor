@@ -16,11 +16,11 @@ using `koa2` binary: `$ koa2 artifactor`
 
 ### Build
 
-`npm run build` - builds `/src` folder and puts resulting `app.js` in `/dist`
+`npm run build` - builds `/src` folder and puts resulting ES5 `.js` files in `/dist`
 
 ### Auto build
 
-`npm run watch` - builds `/src` and watches for changes to src file for auto-build!
+`npm run watch` - builds `/src` and watches for changes to `/src` files for auto-build!
 
 ### Run
 

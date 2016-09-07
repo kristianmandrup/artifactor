@@ -1,5 +1,7 @@
-const adapter = require('../adapter')
+const adapter = require('./adapter')
 
+// TODO: wrap using class or higher order function!
+// Avoid duplication!!!
 module.exports = async function list(ctx, next) {
   switch (ctx.accepts('json', 'html')) {
     case 'json':
@@ -16,7 +18,7 @@ module.exports = async function list(ctx, next) {
 
   if (!io.validate()) {
     ctx.throw(406, `invalid artefact type: ${entity}`);
-  }      
+  }
 
   ctx.type = 'json';
   const jsonBody = io.item(id);
