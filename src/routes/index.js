@@ -6,7 +6,6 @@ router.get('/', async function (ctx, next) {
   };
   // console.log('STATE', ctx.state);
 
-  await ctx.render('index', {
-  });
+  await ctx.render('index');
 })
 module.exports = router;
