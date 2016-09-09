@@ -1,5 +1,8 @@
+const path = require('path');
+
 module.exports = class Paths {
-  constructor(name) {
+  constructor(entity, name) {
+    this.entity = entity;
     this.name = name;
   }
 
@@ -7,21 +10,16 @@ module.exports = class Paths {
     return path.join(__dirname, '../../responses', this.entity);
   }
 
-  get fileName() {
-    // normalize file name to always have .json extension
-    return !this.name.match(/\.json$/) ? `${this.name}.json` : this.name; 
-  }
-
   get folder() {
     return path.join(this.entityDir, this.name);
   }
 
-  itemPath() {
+  get itemPath() {
     // return path.join(this.entityDir, this.fileName(name));
     return path.join(this.folder, 'item.json');
   }
 
-  versionPath(name) {
+  get versionPath() {
     // return path.join(this.entityDir, this.fileName(name));
     return path.join(this.folder, 'version.json');
   }  
