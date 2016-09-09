@@ -20,12 +20,15 @@ describe('Io', () => {
     });
   });
 
-  // describe('#list', () => {            
-  //   it('should return list file content', _.doAsync(async () => {
-  //     let res = await components.list;   
-  //     _.expect(res).to.match(/components\/list.json/);                
-  //   }));
-  // });
+  describe('#list', () => {            
+    it('should return list file content with 3 items, first item contacts', async () => {
+      let content = await components.list();
+      console.log('CONTENT', content);
+      let json = JSON.parse(content);
+      _.expect(json.length).to.equal(3);   
+      _.expect(json[0].name).to.equal('contacts');                
+    });
+  });
 
 
   // TODO: Fix this
