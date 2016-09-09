@@ -1,7 +1,9 @@
 const agent = require('./agent');
 
 module.exports = async function(path, method = 'GET') {
-  const fullServerPath = `localhost:3000/${method}`;
+  const fullServerPath = `localhost:3000/${path}`;
+  console.log(method, ' @ ', fullServerPath);
+
   return agent(method, fullServerPath)
     .end()
     .then(res => {
