@@ -2,21 +2,21 @@ const _ = require('../utils');
 // to use expect:
 // _.expect()
 
-const io = require('../../artefacts/io');
+const fileIo = require('../../artefacts/file-io');
 
 describe('Io', () => {
-  const components = io.create('components')
   let name = 'contacts';
+  const components = fileIo.create('components', name);
 
   describe('#entityDir', () => {                
     it('should return entity folder', () => {   
-      _.expect(components.entityDir).to.match(/artefacts\/components$/);                
+      _.expect(components.paths.entityDir).to.match(/artefacts\/components$/);                
     });
   });
 
   describe('#folder(name)', () => {            
     it('should return entity folder', () => {   
-      _.expect(components.folder(name)).to.match(/components\/contacts/);                
+      _.expect(components.paths.folder.to.match(/components\/contacts/);                
     });
   });
 

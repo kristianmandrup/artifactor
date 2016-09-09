@@ -1,4 +1,4 @@
 module.exports = {
   entities: require('./entities'),
-  io: require('./io')
+  fileIo: require('./file-io')
 }
