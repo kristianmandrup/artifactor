@@ -18,13 +18,13 @@ module.exports = async function (ctx, next) {
   const entity = ctx.params.entity || 'components';
   const id = ctx.params.id || 'contacts';
 
-  const artifactor = adapters.io.adapt(entity);
+  const artifactor = adapters.io.adapt(entity, id);
 
   // if (!artifactor.validate()) {
   //   ctx.throw(406, `invalid artefact type: ${entity}`);
   // }
 
   ctx.type = 'json';
-  const jsonBody = await artifactor.item(id);
+  const jsonBody = await artifactor.item();
   ctx.body = jsonBody; // `[\n${jsonBody}\n]\n`;
 }
