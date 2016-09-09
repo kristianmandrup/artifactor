@@ -19,6 +19,7 @@ class Adapter {
 
   // creates new and/or adds new version (upsert)
   async create(data) {
+    console.log('create item', data, this.io.createItem);
     return this.io.createItem(data);
   }
 

@@ -9,12 +9,13 @@ class JsonIo {
 
   // async
   createItem() {
-    console.log(`Create ${this.entity} for ${id} not yet supported...`);
+    console.log(`Create ${this.entity} for ${this.id} not yet supported...`);
+    return {};
   }
 
   // async 
   deleteItem() {
-    console.log(`Delete ${this.entity} for ${id} not yet supported...`);
+    console.log(`Delete ${this.entity} for ${this.id} not yet supported...`);
   }
 
   // async 

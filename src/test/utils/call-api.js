@@ -1,11 +1,14 @@
 const agent = require('./agent');
 const urlJoin = require('url-join');
 
-module.exports = async function(urlPath, method = 'GET') {
+module.exports = async function(urlPath, method = 'GET', data) {
   const fullServerPath = urlJoin('localhost:3000', urlPath)
   console.log(method, ' @ ', fullServerPath);
+  if (method === 'POST') {
+    console.log('send data', data);
+  }  
 
-  return agent(method, fullServerPath)
+  return agent(method, fullServerPath, data)
     .end()
     .then(res => {
       return res; 

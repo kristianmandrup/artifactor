@@ -3,6 +3,7 @@ const adapters = require('./adapters')
 // TODO: wrap using class or higher order function!
 // Avoid duplication!!!
 module.exports = async function (ctx, next) {
+  console.log('create route');
   switch (ctx.accepts('json', 'html')) {
     case 'json':
       break;
@@ -11,18 +12,28 @@ module.exports = async function (ctx, next) {
     default: ctx.throw(406, 'json or html only');
   }
 
-  const entity = ctx.params.entity || 'components';
-  const id = ctx.params.id || 0;
+  const params = ctx.params;
 
-  const artifactor = adapters.io.adapt(entity);
+  const entity = params.entity || 'components';
+  const id = params.id || 0;
+  const data = params.data;
+  console.log('params data', data);
+
+  const artifactor = adapters.io.adapt(entity, id);
 
   ctx.type = 'json';
   try {
-    let result = await artifactor.create(id, ctx);
-    ctx.body = `created item: ${id}`;
+    // let result = await artifactor.create();
+
+    let result = artifactor.create();
+    ctx.body = {
+      created: true,
+      result: result
+    };
     ctx.status = 200; // OK
   } catch (err) {
-    ctx.body = `error: ${err}`;
+    console.error('ERROR', err);
+    ctx.body = {error: err};
     ctx.status = 400; // OK
   }
 }
