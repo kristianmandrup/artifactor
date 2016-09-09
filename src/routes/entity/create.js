@@ -16,7 +16,7 @@ module.exports = async function (ctx, next) {
 
   const entity = params.entity || 'components';
   const id = params.id || 0;
-  const data = params.data;
+  const data = ctx.request.body;
   console.log('params data', data);
 
   const artifactor = adapters.io.adapt(entity, id);
@@ -25,7 +25,7 @@ module.exports = async function (ctx, next) {
   try {
     // let result = await artifactor.create();
 
-    let result = artifactor.create();
+    let result = artifactor.create(data);
     ctx.body = {
       created: true,
       result: result

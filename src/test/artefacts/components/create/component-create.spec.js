@@ -13,7 +13,7 @@ describe('components', () => {
   describe('POST/create item: contacts', () => {            
     it('should create a single component called: contacts', async () => {   
       let result = await _.callApi(route, 'POST', data);
-      console.log('RESULT', result);         
+      // console.log('RESULT', result);         
       expectations(result);       
     });
   });

@@ -8,7 +8,8 @@ module.exports = async function(urlPath, method = 'GET', data) {
     console.log('send data', data);
   }  
 
-  return agent(method, fullServerPath, data)
+  return agent(method, fullServerPath)
+    .send(data)
     .end()
     .then(res => {
       return res; 
