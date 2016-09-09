@@ -2,7 +2,7 @@ const adapter = require('./adapter')
 
 // TODO: wrap using class or higher order function!
 // Avoid duplication!!!
-module.exports = async function create(ctx, next) {
+module.exports = async function (ctx, next) {
   switch (ctx.accepts('json', 'html')) {
     case 'json':
       break;
