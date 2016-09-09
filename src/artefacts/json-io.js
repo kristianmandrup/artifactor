@@ -23,15 +23,15 @@ class JsonIo {
   }
 
   async getItem() {
-    return JSON.parse(this.io.file());
+    return JSON.parse(await this.io.item());
   }
 
   async getVersion() {
-    return JSON.parse(this.io.version());
+    return JSON.parse(await this.io.version());
   }
 
   async getList() {
-    return JSON.parse(this.io.list());
+    return JSON.parse(await this.io.list());
   }
 
   // async

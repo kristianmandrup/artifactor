@@ -37,18 +37,5 @@ describe('Io', () => {
       _.expect(json[0].name).to.equal('contacts');                
     });
   });
-
-
-  // TODO: Fix this
-  // See: http://staxmanade.com/2015/11/testing-asyncronous-code-with-mochajs-and-es7-async-await/
-  // See: https://github.com/mochajs/mocha/issues/2407
-  // Error: Resolution method is overspecified. Specify a callback *or* return a Promise; not both.
-  // describe('#file(name)', () => {            
-  //   it('should return file content', _.doAsync(async (done) => {   
-  //     let result = await components.file(name);
-  //     console.log('res', result);         
-  //     _.expect(result).to.not.be.empty;
-  //   }));                            
-  // });
-
+  
 });
