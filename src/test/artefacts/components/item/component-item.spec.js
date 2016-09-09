@@ -1,4 +1,4 @@
-const _ = require('../../../utils');
+const _ = require('../utils');
 const expectations = require('./expectations');
 
 // to use expect:

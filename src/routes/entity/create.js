@@ -14,14 +14,15 @@ module.exports = async function (ctx, next) {
   const entity = ctx.params.entity || 'components';
   const id = ctx.params.id || 0;
 
-  const io = adapters.io.adapt(entity);
-
-  if (!io.validate()) {
-    ctx.throw(406, `invalid artefact type: ${entity}`);
-  }
+  const artifactor = adapters.io.adapt(entity);
 
   ctx.type = 'json';
-  io.create(id, ctx);
-  ctx.body = `created item: ${id}`
-  ctx.status = 200; // OK
+  try {
+    let result = await artifactor.create(id, ctx);
+    ctx.body = `created item: ${id}`;
+    ctx.status = 200; // OK
+  } catch (err) {
+    ctx.body = `error: ${err}`;
+    ctx.status = 400; // OK
+  }
 }

@@ -1,7 +1,8 @@
 const agent = require('./agent');
+const urlJoin = require('url-join');
 
-module.exports = async function(path, method = 'GET') {
-  const fullServerPath = `localhost:3000/${path}`;
+module.exports = async function(urlPath, method = 'GET') {
+  const fullServerPath = urlJoin('localhost:3000', urlPath)
   console.log(method, ' @ ', fullServerPath);
 
   return agent(method, fullServerPath)
