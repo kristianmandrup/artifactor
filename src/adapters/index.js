@@ -1,4 +1,4 @@
 module.exports = {
-  db: require('./db'),
-  io: require('./db')
+  db: require('./db-adapter'),
+  io: require('./file-adapter')
 }
