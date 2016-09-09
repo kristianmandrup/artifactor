@@ -13,7 +13,7 @@ class Io {
   }
 
   get entityDir() {
-    return path.join(__dirname, this.entity);
+    return path.join(__dirname, '../../responses', this.entity);
   }
 
   get paths() {
