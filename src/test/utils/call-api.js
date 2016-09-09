@@ -4,7 +4,7 @@ const urlJoin = require('url-join');
 module.exports = async function(urlPath, method = 'GET', data) {
   const fullServerPath = urlJoin('localhost:3000', urlPath)
   console.log(method, ' @ ', fullServerPath);
-  if (method === 'POST') {
+  if (method === 'POST' || method === 'PUT') {
     console.log('send data', data);
   }  
 

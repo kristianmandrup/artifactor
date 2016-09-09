@@ -1,8 +1,8 @@
 'use strict';
 
-const _ = require('../../utils');
+const _ = require('../utils');
 const expectations = require('./expectations');
-const data = require('../requests/contacts/remove');
+const data = require('../../../../../requests/components/contacts/remove');
 
 // to use expect:
 // _.expect()
@@ -10,9 +10,9 @@ const route = '/components/contacts';
 
 describe('components', () => {
   describe('DELETE item', () => {            
-    it('should delete a single component', _.doAsync(async () => {   
+    it('should delete a single component', async () => {   
       let result = await _.callApi(route, 'DELETE', data);         
       expectations(result);       
-    }));
+    });
   });
 });
