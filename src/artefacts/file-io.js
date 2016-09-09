@@ -23,11 +23,11 @@ class FileIo {
   }
 
   // return single .json file for that entity
-  async get version() {
+  async version() {
     return fs.readFile(this.paths.versionPath, 'utf8');
   }
 
-  async get list() {
+  async list() {
     return fs.readFile(this.paths.listPath, 'utf8');
   }
 }

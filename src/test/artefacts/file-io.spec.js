@@ -10,11 +10,12 @@ describe('Io', () => {
 
   describe('#item', () => {            
     it('should return item file content', (done) => {
-      console.log(components.item);
       components.item().then(res => {   
-        console.log('res', res);
-        _.expect(res[0].name).to.equal('contacts');
+        // console.log('ITEM', res);
+        _.expect(res).to.match(/"name": "contacts"/);
         done();
+      }).catch(err => {
+        console.error(err);
       })
     });
   });
