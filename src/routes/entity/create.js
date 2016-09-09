@@ -1,4 +1,4 @@
-const adapter = require('./adapter')
+const adapters = require('./adapters')
 
 // TODO: wrap using class or higher order function!
 // Avoid duplication!!!
@@ -14,7 +14,7 @@ module.exports = async function (ctx, next) {
   const entity = ctx.params.entity || 'components';
   const id = ctx.params.id || 0;
 
-  const io = adapter.adapt(entity);
+  const io = adapters.io.adapt(entity);
 
   if (!io.validate()) {
     ctx.throw(406, `invalid artefact type: ${entity}`);

@@ -1,5 +1,5 @@
 test:
 
-	@./node_modules/mocha/bin/mocha -t 2000 dist/test/adapters/file-adapter.spec.js
+	@./node_modules/mocha/bin/mocha -t 2000 dist/test/artefacts/components/item/component-item.spec.js
 
 .PHONY: test

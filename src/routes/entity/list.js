@@ -13,7 +13,7 @@ module.exports = async function (ctx, next) {
   }
 
   const entity = ctx.params.entity || 'components';
-  const io = adapter.adapt(entity);
+  const io = adapters.io.adapt(entity);
 
   if (!io.validate()) {
     ctx.throw(406, `invalid artefact type ${entity}`);

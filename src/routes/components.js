@@ -1,4 +1,5 @@
 const item = require('./entity/item');
+var router = require('koa-router')();
 
 // router.get('/components/:id', async function (ctx, next) {
 //   await item(ctx);
@@ -6,6 +7,6 @@ const item = require('./entity/item');
 //   next();
 // })
 
-router.get('/components/:id', item)
+router.get('/:id', item)
 
 module.exports = router;
