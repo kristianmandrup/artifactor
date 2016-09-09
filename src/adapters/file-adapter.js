@@ -13,7 +13,7 @@ class Adapter {
     return this.io.getList();
   }
 
-  async version(versionId) {
+  async version(id) {
     return this.io.getVersion(id);
   }
 

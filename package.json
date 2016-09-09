@@ -25,6 +25,7 @@
     "koa-pug": "^3.0.0-0",
     "koa-router": "^7.0.0",
     "koa-static": "^3.0.0",
+    "koa-strong-params": "0.0.3",
     "koa-views": "^5.0.2",
     "mongoose": "^4.6.0",
     "pouch-clerk": "^0.3.6",
