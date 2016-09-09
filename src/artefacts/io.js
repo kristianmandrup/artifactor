@@ -1,5 +1,6 @@
 const fs = require('fs-promise');
 const entities = require('./entities'); 
+const path = require('path');
 
 class Io {
   constructor(entity) {
