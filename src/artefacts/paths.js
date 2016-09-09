@@ -14,6 +14,10 @@ module.exports = class Paths {
     return path.join(this.entityDir, this.name);
   }
 
+  get listPath() {
+    return path.join(this.entityDir, 'list.json');
+  }
+
   get itemPath() {
     // return path.join(this.entityDir, this.fileName(name));
     return path.join(this.folder, 'item.json');
