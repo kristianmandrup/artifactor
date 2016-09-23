@@ -28,7 +28,7 @@ class FileIo {
   }
 
   async list() {
-    return fs.readFile(this.paths.listPath, 'utf8');
+    return await fs.readFile(this.paths.listPath, 'utf8');
   }
 }
 

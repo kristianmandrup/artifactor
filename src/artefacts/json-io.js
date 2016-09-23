@@ -32,7 +32,9 @@ class JsonIo {
   }
 
   async getList() {
-    return JSON.parse(await this.io.list());
+    let content = await this.io.list();
+    console.log('json content', content);
+    return JSON.parse(content);
   }
 
   // async

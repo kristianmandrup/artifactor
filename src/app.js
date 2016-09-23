@@ -13,8 +13,8 @@ const logger = require('koa-logger');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
-const artefacts = require('./routes/artefacts');
-const components = require('./routes/components');
+const artefactsRouter = require('./routes/artefacts');
+// const components = require('./routes/components');
 
 const views = require('koa-views');
 
@@ -41,11 +41,11 @@ app.use(async (ctx, next) => {
 
 router.use('/', index.routes(), index.allowedMethods());
 router.use('/users', users.routes(), users.allowedMethods());
-router.use('/components', components.routes(), components.allowedMethods());
+// router.use('/components', components.routes(), components.allowedMethods());
 
 // router.use('/artefacts', artefacts.routes(), users.allowedMethods());
 
-app.use(router.routes(), router.allowedMethods());
+app.use(artefactsRouter.routes(), artefactsRouter.allowedMethods());
 // response
 
 app.on('error', function(err, ctx){

@@ -1,8 +1,9 @@
 import io from '../artefacts/json-io'
 
 class Adapter {
-  constructor(entity, name) {
-    this.io = io.create(entity, name);
+  // id is optional, used to indicate specific REST resource
+  constructor(entity, id) {
+    this.io = io.create(entity, id);
   }
 
   async item() {
@@ -10,7 +11,10 @@ class Adapter {
   }
 
   async list() {
-    return this.io.getList();
+    console.log('get file list');
+    let list = await this.io.getList();
+    console.log('list', list);
+    return list; // await this.io.getList();
   }
 
   async version(id) {
@@ -39,7 +43,8 @@ class Adapter {
 
 module.exports = {
   Adapter: Adapter,
-  adapt: function(entity, name) {
-    return new Adapter(entity, name);
+  // id is optional, used to indicate specific REST resource
+  adapt: function(entity, id) {
+    return new Adapter(entity, id);
   }
 } 

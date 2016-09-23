@@ -13,8 +13,7 @@ module.exports = async function (ctx, next) {
     default: ctx.throw(406, 'json or html only');
   }
 
-  const entity = ctx.params.entity || 'components';
-  const artifactor = adapters.io.adapt(entity);
+  const artifactor = adapters.io.adapt('components');
 
   ctx.type = 'json';
   const jsonBody = await artifactor.list();
