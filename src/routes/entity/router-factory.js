@@ -1,5 +1,6 @@
 const Router = require('koa-router');
 const ListRoute = require('./list-route');
+const ItemRoute = require('./item-route');
 
 class RouterFactory {
   constructor(entity) {
@@ -8,7 +9,8 @@ class RouterFactory {
 
   get registry() {
     return {
-      list: ListRoute
+      list: ListRoute,
+      item: ItemRoute
       // ... one entry for each route class
     }
   }
@@ -49,12 +51,6 @@ class RouterFactory {
       ctx.body = `PUT/update ${entity} is not yet supported!`;  
     }
   }
-*/
-
-  async list(ctx, next) {
-    console.log('list', ctx);
-    return await this.request('list', ctx, next);
-  }
 
   get item() {
     return async function (ctx, next) {
@@ -68,15 +64,28 @@ class RouterFactory {
     }
   }
 
+*/
+
+  async list(ctx, next) {
+    console.log('list', ctx);
+    return await this.request('list', ctx, next);
+  }
+
+  async item(ctx, next) {
+    console.log('item', ctx);
+    return await this.request('item', ctx, next);
+  }
+
+
   createRouter() {
     const router = new Router({
       prefix: `/${this.entity}`
     });
 
     router
-      .get('list', '/', this.list.bind(this));
+      .get('list', '/', this.list.bind(this))
+      .get('item', '/:id', this.item.bind(this));
 /*
-      .get('item', '/:id', this.item)
       .get('version', '/:id/version', this.version)            
       .post('create', '/:id', this.create)
       .post('rate', '/:id/rate', this.rate)

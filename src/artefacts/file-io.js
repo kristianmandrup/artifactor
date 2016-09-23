@@ -17,14 +17,14 @@ class FileIo {
 
   // return single .json file for that entity
   // See: https://www.npmjs.com/package/fs-promise
-  item() {
-    console.log('open', this.paths.itemPath);
-    return fs.readFile(this.paths.itemPath, 'utf8');
+  async item() {
+    console.log('item', this.paths.itemPath);
+    return await fs.readFile(this.paths.itemPath, 'utf8');
   }
 
   // return single .json file for that entity
   async version() {
-    return fs.readFile(this.paths.versionPath, 'utf8');
+    return await fs.readFile(this.paths.versionPath, 'utf8');
   }
 
   async list() {

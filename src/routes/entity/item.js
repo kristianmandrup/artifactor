@@ -24,7 +24,7 @@ module.exports = async function (ctx, next) {
 
   console.log('params', ctx.params);
 
-  const entity = ctx.params.entity || 'components';
+  const entity = 'components';
   const id = ctx.params.id || 'contacts';
 
   const artifactor = adapters.io.adapt(entity, id);

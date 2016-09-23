@@ -6,7 +6,6 @@ module.exports = class EntityRoute {
     this.name = name;
     this.entity = entity;
     this.ctx = ctx;
-    this.adapter = adapters.io.adapt(entity);
   }
 
   // Do we accept the request?
@@ -18,6 +17,10 @@ module.exports = class EntityRoute {
         return true;
       default: this.ctx.throw(406, 'json or html only');
     }    
+  }
+
+  get adapter() {
+    return adapters.io.adapt(this.entity, this.id);
   }
 
   async route() { 
