@@ -13,7 +13,7 @@ const logger = require('koa-logger');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
-const artefactsRouter = require('./routes/artefacts');
+const artefactRouters = require('./routes/artefacts');
 // const components = require('./routes/components');
 
 const views = require('koa-views');
@@ -45,7 +45,10 @@ router.use('/users', users.routes(), users.allowedMethods());
 
 // router.use('/artefacts', artefacts.routes(), users.allowedMethods());
 
-app.use(artefactsRouter.routes(), artefactsRouter.allowedMethods());
+for (let router of artefactRouters) {
+  app.use(router.routes(), router.allowedMethods());
+}
+
 // response
 
 app.on('error', function(err, ctx){
