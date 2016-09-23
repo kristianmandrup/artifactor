@@ -6,7 +6,9 @@ module.exports = class ItemRoute extends EntityRoute {
   }
 
   extract() {   
-    this.id = this.ctx.params.id || 'contacts'; 
+    this.params = {
+      id: this.ctx.params.id || 'contacts'
+    } 
   }
 
   error() {

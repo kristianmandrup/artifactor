@@ -8,9 +8,11 @@ class JsonIo {
   }
 
   // async
-  createItem() {
-    console.log(`Create ${this.entity} for ${this.id} not yet supported...`);
-    return {};
+  async createItem(data) {
+    // console.log(`Create ${this.entity} for ${this.id} not yet supported...`);
+    return {
+      created: await this.io.create(data)
+    };
   }
 
   // async 
@@ -23,11 +25,11 @@ class JsonIo {
     this.createItem();
   }
 
-  async getItem() {
+  async getItem(id) {
     return JSON.parse(await this.io.item());
   }
 
-  async getVersion() {
+  async getVersion(version) {
     return JSON.parse(await this.io.version());
   }
 

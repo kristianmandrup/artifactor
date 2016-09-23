@@ -26,8 +26,7 @@
     "foundation": "beta"
   },
   "install": {
-    "bundles": {
-    },
+    "bundles": {},
     "dependencies": {
       "components": {
         "entity": {
@@ -38,5 +37,5 @@
         "lodash"
       ]
     }
-  }    
+  }
 }

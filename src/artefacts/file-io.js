@@ -1,14 +1,15 @@
 const fs = require('fs-promise');
 const entities = require('./entities'); 
-const path = require('path');
 const Paths = require('./paths');
 
+// TODO: Use readJson/writeJson directly from json-io
+// https://www.npmjs.com/package/fs-extra#readjsonfile-options-callback
 class FileIo {
-  constructor(entity, name) {
+  constructor(entity, id) {
     this.entity = entity || 'components';
-    this.name = name;
+    this.id = id;
     this.entities = entities;
-    this.paths = new Paths(entity, name);
+    this.paths = new Paths(entity, id);
   }
 
   validate() {
@@ -18,13 +19,29 @@ class FileIo {
   // return single .json file for that entity
   // See: https://www.npmjs.com/package/fs-promise
   async item() {
-    console.log('item', this.paths.itemPath);
-    return await fs.readFile(this.paths.itemPath, 'utf8');
+    let filePath = this.paths.itemPath;
+    console.log('item path', filePath);
+    return await fs.readFile(filePath, 'utf8');
+  }
+
+  // uses: outputJson from fs-extra
+  // Almost the same as writeJson, except that if the directory does not exist, it's created.
+  async create(data) {
+    let filePath = this.paths.itemPath;
+    console.log('create path', filePath);
+    try {
+      await fs.outputJson(filePath, data);
+      return true;
+    } catch (err) {
+      return false;
+    }     
   }
 
   // return single .json file for that entity
-  async version() {
-    return await fs.readFile(this.paths.versionPath, 'utf8');
+  async version(version) {
+    let filePath = this.paths.versionPath(version);
+    console.log('version path', filePath);
+    return await fs.readFile(filePath, 'utf8');
   }
 
   async list() {
@@ -34,7 +51,7 @@ class FileIo {
 
 module.exports = {
   clazz: FileIo,
-  create: function(entity, name) {
-    return new FileIo(entity, name);
+  create: function(entity, id) {
+    return new FileIo(entity, id);
   }
 }

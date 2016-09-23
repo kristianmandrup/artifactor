@@ -2,12 +2,12 @@ import io from '../artefacts/json-io'
 
 class Adapter {
   // id is optional, used to indicate specific REST resource
-  constructor(entity, id) {
+  constructor(entity, {id}) {
     this.io = io.create(entity, id);
   }
 
-  async item() {
-    return await this.io.getItem();
+  async item({id}) {
+    return await this.io.getItem(id);
   }
 
   async list() {
@@ -17,14 +17,15 @@ class Adapter {
     return list; // await this.io.getList();
   }
 
-  async version(id) {
-    return this.io.getVersion(id);
+  async version({version}) {
+    console.log('get version', version);
+    return await this.io.getVersion(version);
   }
 
   // creates new and/or adds new version (upsert)
-  async create(data) {
+  async create({data}) {
     console.log('create item', data);
-    return this.io.createItem(data);
+    return await this.io.createItem(data);
   }
 
   // adds new version (upsert)

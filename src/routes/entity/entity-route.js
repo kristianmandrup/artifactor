@@ -20,24 +20,30 @@ module.exports = class EntityRoute {
   }
 
   get adapter() {
-    return adapters.io.adapt(this.entity, this.id);
+    return adapters.io.adapt(this.entity, this.params);
   }
 
-  async route() { 
-    // See routes/entity/list.js 
-    if (!this.accept()) this.error();
-    this.extract();
-    await this.respond();
+  async route() {
+    try {
+      // See routes/entity/list.js 
+      if (!this.accept()) this.error();
+      this.extract();
+      await this.respond();
+    } catch (err) {
+      console.error('ERROR', err);
+      this.ctx.body = {error: err};
+      this.ctx.status = 400; // OK      
+    }
   }
 
   // Extract from params and query string
   extract() {   
-    console.log('nothing to be extracted from request'); 
+    this.params = {}; 
   }
 
   async jsonBody() {
     console.log('get json body', this.name);
-    return await this.adapter[this.name]();
+    return await this.adapter[this.name](this.params);
   }
     
   // Use adapter

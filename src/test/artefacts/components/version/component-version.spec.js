@@ -3,7 +3,7 @@ const expectations = require('./expectations');
 
 // to use expect:
 // _.expect()
-const route = 'components/contacts?version=1.2';
+const route = 'components/contacts/version?version=1.2';
 
 describe('components', () => {
   describe('GET version', () => {            

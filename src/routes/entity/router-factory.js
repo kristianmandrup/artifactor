@@ -1,6 +1,8 @@
 const Router = require('koa-router');
 const ListRoute = require('./list-route');
 const ItemRoute = require('./item-route');
+const VersionRoute = require('./version-route');
+const CreateRoute = require('./create-route');
 
 class RouterFactory {
   constructor(entity) {
@@ -10,7 +12,9 @@ class RouterFactory {
   get registry() {
     return {
       list: ListRoute,
-      item: ItemRoute
+      item: ItemRoute,
+      version: VersionRoute,
+      create: CreateRoute
       // ... one entry for each route class
     }
   }
@@ -76,6 +80,15 @@ class RouterFactory {
     return await this.request('item', ctx, next);
   }
 
+  async version(ctx, next) {
+    console.log('version', ctx);
+    return await this.request('version', ctx, next);
+  }
+
+  async create(ctx, next) {
+    console.log('create', ctx);
+    return await this.request('create', ctx, next);
+  }
 
   createRouter() {
     const router = new Router({
@@ -84,10 +97,10 @@ class RouterFactory {
 
     router
       .get('list', '/', this.list.bind(this))
-      .get('item', '/:id', this.item.bind(this));
-/*
-      .get('version', '/:id/version', this.version)            
-      .post('create', '/:id', this.create)
+      .get('item', '/:id', this.item.bind(this))
+      .get('version', '/:id/version', this.version.bind(this))            
+      .post('create', '/:id', this.create.bind(this))
+/*      
       .post('rate', '/:id/rate', this.rate)
       .put('update','/:id', this.update)
       .del('delete', '/:id', this.remove);

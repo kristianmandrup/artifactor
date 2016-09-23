@@ -1,9 +1,9 @@
 const path = require('path');
 
 module.exports = class Paths {
-  constructor(entity, name) {
+  constructor(entity, id) {
     this.entity = entity;
-    this.name = name;
+    this.id = id;
   }
 
   get entityDir() {
@@ -11,7 +11,7 @@ module.exports = class Paths {
   }
 
   get folder() {
-    return path.join(this.entityDir, this.name);
+    return path.join(this.entityDir, this.id);
   }
 
   get listPath() {
@@ -19,12 +19,10 @@ module.exports = class Paths {
   }
 
   get itemPath() {
-    // return path.join(this.entityDir, this.fileName(name));
-    return path.join(this.folder, 'item.json');
+    return path.join(this.folder, `item.json`);
   }
 
-  get versionPath() {
-    // return path.join(this.entityDir, this.fileName(name));
-    return path.join(this.folder, 'version.json');
+  get versionPath(version = 'version') {
+    return path.join(this.folder, `${version}.json`);
   }  
 }

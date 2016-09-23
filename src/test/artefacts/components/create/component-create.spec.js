@@ -5,7 +5,7 @@ const data = require('../../../../../requests/components/contacts/create');
 // to use expect:
 // _.expect()
 // POST to route: contacts/:id
-const route = '/components/contacts';
+const route = '/components/my-contacts';
 
 console.log('data', data)
 
