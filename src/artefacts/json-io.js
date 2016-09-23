@@ -44,8 +44,11 @@ class JsonIo {
   }
 
   // async
-  rateVersion(id, versionId, data) {
-    console.log(`Rate ${this.entity} for ${id} not yet supported...`);
+  async rateVersion(versionId, data) {
+    return {
+      rated: await this.io.rate(versionId, data)
+    };
+
   }  
 }
 

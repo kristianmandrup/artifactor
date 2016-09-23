@@ -2,11 +2,11 @@ var chai = require('chai'),
     expect = chai.expect;
 
 function ratingAdded(res) {
-  expect(res.length).to.equal(2);
+  expect(res.body.rated.ratings.length).to.equal(4);
 }
 
 function duplicateUserRatingNotAdded(res) {
-  expect(res.length).to.equal(2);
+  expect(res.body.rated.ratings.length).to.equal(4);
 }
 
 

@@ -1,26 +1,19 @@
 const Router = require('koa-router');
-const ListRoute = require('./list-route');
-const ItemRoute = require('./item-route');
-const VersionRoute = require('./version-route');
-const CreateRoute = require('./create-route');
-const DeleteRoute = require('./delete-route');
-const UpdateRoute = require('./update-route');
 
 class RouterFactory {
   constructor(entity) {
     this.entity = entity;
   }
 
+  get routes() {
+    return ['list', 'item', 'version', 'create', 'update', 'delete', 'rate'];
+  }
+
   get registry() {
-    return {
-      list: ListRoute,
-      item: ItemRoute,
-      version: VersionRoute,
-      create: CreateRoute,
-      delete: DeleteRoute,
-      update: UpdateRoute
-      // ... one entry for each route class
-    }
+    return this.routes.reduce( (res, name) => {
+      res[name] = require(`./${name}-route`);
+      return res;
+    }, {});
   }
 
   routeClass(name) {
@@ -99,6 +92,11 @@ class RouterFactory {
     return await this.request('update', ctx, next);
   }
 
+  async rate(ctx, next) {
+    console.log('rate', ctx.body);
+    return await this.request('rate', ctx, next);
+  }
+
   async delete(ctx, next) {
     console.log('delete', ctx);
     return await this.request('delete', ctx, next);
@@ -115,10 +113,9 @@ class RouterFactory {
       .get('version', '/:id/version', this.version.bind(this))            
       .post('create', '/:id', this.create.bind(this))
       .del('delete', '/:id', this.delete.bind(this))
-      .put('update','/:id', this.update.bind(this))
-/*      
-      .post('rate', '/:id/rate', this.rate)            
-*/
+      .put('update','/:id', this.update.bind(this))      
+      .post('rate', '/:id/rate', this.rate.bind(this))            
+
     return router;
   }
 } 

@@ -37,6 +37,22 @@ class FileIo {
     }     
   }
 
+  async rate(version, data) {
+    let filePath = this.paths.versionPath(version);
+    console.log('rate path', filePath);
+    try {
+      let item = await fs.readJson(filePath);
+      // add rating to ratings of version item
+      console.log('item before rating', item)
+      item.ratings.push(data.rating);
+      console.log('item after rating', item)
+      await fs.outputJson(filePath + '.rated', item);
+      return item;
+    } catch (err) {
+      return false;
+    }     
+  }
+
   async delete() {
     let filePath = this.paths.itemPath;
     console.log('delete path', filePath);

@@ -37,8 +37,8 @@ class Adapter {
     return this.io.deleteItem();
   }
 
-  async rate(data) {
-    return this.io.rateVersion(versionId, data);
+  async rate({version, data}) {
+    return this.io.rateVersion(version, data);
   }
 }
 
