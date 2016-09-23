@@ -37,6 +37,17 @@ class FileIo {
     }     
   }
 
+  async delete() {
+    let filePath = this.paths.itemPath;
+    console.log('delete path', filePath);
+    try {
+      await fs.remove(filePath);
+      return true;
+    } catch (err) {
+      return false;
+    }     
+  }
+
   // return single .json file for that entity
   async version(version) {
     let filePath = this.paths.versionPath(version);

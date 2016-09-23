@@ -22,7 +22,7 @@ module.exports = class Paths {
     return path.join(this.folder, `item.json`);
   }
 
-  get versionPath(version = 'version') {
+  versionPath(version = 'version') {
     return path.join(this.folder, `${version}.json`);
   }  
 }

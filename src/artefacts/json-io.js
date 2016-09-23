@@ -16,13 +16,17 @@ class JsonIo {
   }
 
   // async 
-  deleteItem() {
-    console.log(`Delete ${this.entity} for ${this.id} not yet supported...`);
+  async deleteItem() {
+    return {
+      deleted: await this.io.delete()
+    };
   }
 
   // async 
-  updateItem() {
-    this.createItem();
+  async updateItem(data) {
+    return {
+      updated: await this.io.create(data)
+    };
   }
 
   async getItem(id) {

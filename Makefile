@@ -1,5 +1,5 @@
 test:
 
-	@./node_modules/mocha/bin/mocha -t 2000 dist/test/artefacts/components/create/component-create.spec.js
+	@./node_modules/mocha/bin/mocha -t 2000 dist/test/artefacts/components/update/component-update.spec.js
 
 .PHONY: test

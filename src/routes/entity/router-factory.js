@@ -3,6 +3,8 @@ const ListRoute = require('./list-route');
 const ItemRoute = require('./item-route');
 const VersionRoute = require('./version-route');
 const CreateRoute = require('./create-route');
+const DeleteRoute = require('./delete-route');
+const UpdateRoute = require('./update-route');
 
 class RouterFactory {
   constructor(entity) {
@@ -14,7 +16,9 @@ class RouterFactory {
       list: ListRoute,
       item: ItemRoute,
       version: VersionRoute,
-      create: CreateRoute
+      create: CreateRoute,
+      delete: DeleteRoute,
+      update: UpdateRoute
       // ... one entry for each route class
     }
   }
@@ -90,6 +94,16 @@ class RouterFactory {
     return await this.request('create', ctx, next);
   }
 
+  async update(ctx, next) {
+    console.log('update', ctx);
+    return await this.request('update', ctx, next);
+  }
+
+  async delete(ctx, next) {
+    console.log('delete', ctx);
+    return await this.request('delete', ctx, next);
+  }
+
   createRouter() {
     const router = new Router({
       prefix: `/${this.entity}`
@@ -100,10 +114,10 @@ class RouterFactory {
       .get('item', '/:id', this.item.bind(this))
       .get('version', '/:id/version', this.version.bind(this))            
       .post('create', '/:id', this.create.bind(this))
+      .del('delete', '/:id', this.delete.bind(this))
+      .put('update','/:id', this.update.bind(this))
 /*      
-      .post('rate', '/:id/rate', this.rate)
-      .put('update','/:id', this.update)
-      .del('delete', '/:id', this.remove);
+      .post('rate', '/:id/rate', this.rate)            
 */
     return router;
   }
