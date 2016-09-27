@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const schemas = require('./schemas');
-const entities = require('../artefacts/entities');
+const entities = require('./entities');
 const _ = require('lodash');
 
 // decorator adds useful instance and static methods to model

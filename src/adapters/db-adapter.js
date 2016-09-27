@@ -1,4 +1,4 @@
-import {db, models} from '../db'
+import {db, models} from '../db/mongo'
 
  class Adapter {
   constructor(entity) {

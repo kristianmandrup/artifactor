@@ -8,7 +8,8 @@ const route = 'components/contacts';
 describe('components', () => {
   describe('GET item', () => {            
     it('should return a single component', async () => {   
-      let result = await _.callApi(route);         
+      let result = await _.callApi(route);   
+      console.log('body', result.body.data);      
       expectations(result);       
     });
   });

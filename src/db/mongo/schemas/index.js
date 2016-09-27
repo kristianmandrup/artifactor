@@ -1,4 +1,4 @@
-const entities = require('../../artefacts/entities');
+const entities = require('../entities');
 
 // top level entity schemas are named <entity>-schema.js
 //  component-schema.js

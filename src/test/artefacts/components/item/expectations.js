@@ -3,5 +3,5 @@ var chai = require('chai'),
 
 module.exports = function(res) {
   console.log('RESPONSE', res.body);
-  expect(res.body.name).to.equal('contacts');
+  expect(res.body.data.name).to.equal('my-contacts');
 }

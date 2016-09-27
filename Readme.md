@@ -116,7 +116,26 @@ gradually switch to using Mongo DB schemas/models for the API.
 
 Use the `/adapters` folder to add an adapter, either for the file IO or mongoose.
 
-## Mongoose DB
+## Couch DB for Pouch DB (sync)
+
+### Setup
+
+See [setup couchdb](https://pouchdb.com/guides/setup-couchdb.html)
+
+OSX: `$ brew install couchdb`
+
+Once CouchDB is installed, it should be running at `localhost:5984`
+
+`sudo couchdb`
+
+### Add CORS
+
+```bash
+npm install -g add-cors-to-couchdb
+add-cors-to-couchdb
+```
+
+## Mongo DB via Mongoose
 
 ### Mac OSX - Mongo DB
 Configuring Mongo DB. First install [homebrew](https://github.com/Homebrew/brew)
