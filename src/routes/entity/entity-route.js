@@ -20,7 +20,7 @@ module.exports = class EntityRoute {
   }
 
   get adapter() {
-    return adapters.io.adapt(this.entity, this.params);
+    return adapters.file.adapt(this.entity, this.params);
   }
 
   async route() {

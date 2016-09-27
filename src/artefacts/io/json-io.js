@@ -1,9 +1,9 @@
+const BaseIo = require('./base-io');
 const fileIo = require('./file-io');
 
-class JsonIo {
+class JsonIo extends BaseIo {
   constructor(entity, id) {
-    this.id = id;
-    this.entity = entity;
+    super(entity, id);
     this.io = fileIo.create(entity, id);
   }
 
@@ -54,7 +54,7 @@ class JsonIo {
 
 module.exports = {
   clazz: JsonIo,
-  create: function(entity, name) {
-    return new JsonIo(entity, name);  
+  create: function(entity, id) {
+    return new JsonIo(entity, id);  
   }
 }

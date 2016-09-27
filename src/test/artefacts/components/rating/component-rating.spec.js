@@ -1,3 +1,4 @@
+// require('babel-polyfill');
 const _ = require('../utils');
 const expectations = require('./expectations');
 const data = require('../../../../../requests/components/contacts/rate');
@@ -14,7 +15,7 @@ describe('components', () => {
   describe('POST component rating', () => {            
     it('should add a rating to the component', async () => {   
       let result = await _.callApi(route + '/rate', 'POST', data);
-      // console.log('result', result);
+      // console.log('BODY', result.body);
       expectations.ratingAdded(result);             
     });
 

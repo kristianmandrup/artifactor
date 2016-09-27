@@ -1,15 +1,11 @@
 const fs = require('fs-promise');
-const entities = require('./entities'); 
-const Paths = require('./paths');
+const BaseIo = require('./base-io'); 
 
 // TODO: Use readJson/writeJson directly from json-io
 // https://www.npmjs.com/package/fs-extra#readjsonfile-options-callback
-class FileIo {
+class FileIo extends BaseIo {
   constructor(entity, id) {
-    this.entity = entity || 'components';
-    this.id = id;
-    this.entities = entities;
-    this.paths = new Paths(entity, id);
+    super(entity, id);
   }
 
   validate() {
