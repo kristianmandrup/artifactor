@@ -26,6 +26,11 @@ using `koa2` binary: `$ koa2 artifactor`
 
 - `$ npm start` or `$ npm koa` - start the server
 
+_NOTICE_: Please be aware that the server doesn't respond to the root route.
+So to test it, try a route like:
+
+`http://localhost:3000/components/contacts`
+
 ### Display and navigate
 
 - Go to `localhost:3000` in your browser of choice!
