@@ -8,13 +8,12 @@ const logger = require('koa-logger');
 
 const index = require('./routes/index');
 const artefacts = require('./routes/artefacts');
-const artefactRouters = artefacts({
-  adapter: 'file'
-}); 
 
 const views = require('koa-views');
 
 module.exports = function(app, options) {
+  const artefactRouters = artefacts(options);
+
   // middlewares
   app.use(convert(bodyparser));
   app.use(convert(json()));
