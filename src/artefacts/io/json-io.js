@@ -39,6 +39,9 @@ class JsonIo extends BaseIo {
   }
 
   async getVersion(version) {
+    console.log('version', version)
+    // Hack for now
+    version = undefined;
     let filePath = this.paths.versionPath(version);
     console.log('version path', filePath);
     return await fs.readJson(filePath);    

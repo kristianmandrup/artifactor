@@ -1,8 +1,8 @@
-const EntityRoute = require('./entity-route');
+const BaseRoute = require('./base');
 
-module.exports = class UpdateRoute extends EntityRoute {
-  constructor(entity, ctx, next) {
-    super('update', entity, ctx, next);
+module.exports = class UpdateRoute extends BaseRoute {
+  constructor(ctx, next, options) {
+    super(ctx, next, options, 'update');
   }
 
   extract() {   

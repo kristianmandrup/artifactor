@@ -2,7 +2,10 @@ const routerFactory = require('./entity/router-factory');
 const entities = require('../artefacts').entities;
 
 // apps, components, plugins, ...
-module.exports = entities.list.map(entity => routerFactory.create(entity));
+module.exports = function({adapter = 'file'}) {
+  console.log('creating routers using adapter:', adapter)
+  return entities.list.map(entity => routerFactory.create(entity, adapter));
+}
 
   
 

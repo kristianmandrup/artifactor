@@ -1,11 +1,12 @@
 const adapters = require('./adapters')
 
-module.exports = class EntityRoute {
+module.exports = class BaseRoute {
   // type is the type of artefact such as: components
-  constructor(name, entity, ctx, next) {
+  constructor(ctx, next, {entity, adapter}, name) {
     this.name = name;
     this.entity = entity;
     this.ctx = ctx;
+    this.adapterType = adapter || 'file';
   }
 
   // Do we accept the request?
@@ -22,7 +23,7 @@ module.exports = class EntityRoute {
   // we use file adapter here
   // f.ex for components entity
   get adapter() {
-    return adapters.file.adapt(this.entity, this.params);
+    return adapters[this.adapterType].adapt(this.entity, this.params);
   }
 
   // executes the route and returns the body

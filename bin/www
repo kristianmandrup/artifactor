@@ -4,9 +4,13 @@
  * Module dependencies.
  */
 
-var app = require('../dist/app');
+var createApp = require('../dist/app');
 var debug = require('debug')('demo:server');
 var http = require('http');
+
+// call with options to configure, such as with specific adapter
+// createApp({adapter: 'db'}); 
+var app = createApp();
 
 /**
  * Get port from environment and store in Express.

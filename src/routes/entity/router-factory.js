@@ -1,8 +1,10 @@
 const Router = require('koa-router');
 
 class RouterFactory {
-  constructor(entity) {
+
+  constructor(entity, adapter) {
     this.entity = entity;
+    this.adapter = adapter; // type of adapter ('file' or 'db')
   }
 
   get routes() {
@@ -11,7 +13,7 @@ class RouterFactory {
 
   get registry() {
     return this.routes.reduce( (res, name) => {
-      res[name] = require(`./${name}-route`);
+      res[name] = require(`./${name}`);
       return res;
     }, {});
   }
@@ -22,13 +24,18 @@ class RouterFactory {
 
   routeInstance(name, ctx, next) {
     let clazz = this.routeClass(name);
-    return new clazz(this.entity, ctx, next);
+    let options = {
+      name: name, 
+      entity: this.entity, 
+      adapter: this.adapter
+    };
+    return new clazz(ctx, next, options);
   }
 
   async request(name, ctx, next) {
     return await this.routeInstance(name, ctx, next).route();
   }
-  
+
   async list(ctx, next) {
     console.log('list', ctx);
     return await this.request('list', ctx, next);
