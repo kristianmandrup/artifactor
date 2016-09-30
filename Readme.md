@@ -46,6 +46,12 @@ const adapter = 'db';
 Bonus if you configure the `Makefile` for different kinds of test runs or find another/better way to run the tests
 for various scenarios and configurations, f.ex using a config file of some sort?
 
+### DB adapter testing
+
+To test the Mongo and Couch DB adapters, we need to first populate the DBs.
+This should ideally be done via `beforeEach` and cleaned up in `afterEach` for each test suite:
+To populate the DBs, add functions in /src/test/data' for `/mongo/populate` and `/couch/populate` respectively!   
+
 ## Architecture  
 
 ### app.js

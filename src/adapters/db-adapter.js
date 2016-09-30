@@ -25,7 +25,7 @@ class Adapter {
   }
 
   async list(id) {
-    return this.model.find().exec();
+    return await this.model.find().exec();
   }
 
   // Look at db/decorator.js for useful instance methods...
@@ -35,7 +35,7 @@ class Adapter {
 
   // creates new and/or adds new version (upsert)
   async create(id, data) {
-    return this.model.create(data).exec();
+    return await this.model.create(data).exec();
   }
 
   // adds new version (upsert)
@@ -46,7 +46,7 @@ class Adapter {
   // http://mongoosejs.com/docs/api.html#model_Model.findByIdAndRemove
   // http://mongoosejs.com/docs/api.html#model_Model.findOneAndRemove
   async delete(id) {
-    return this.model.findOneAndRemove({name: id}).exec();
+    return await this.model.findOneAndRemove({name: id}).exec();
   }
 
   async rate(id, data) {
