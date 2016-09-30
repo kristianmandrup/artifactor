@@ -31,31 +31,16 @@ So to test it, try a route like:
 
 `http://localhost:3000/components/contacts`
 
-### Display and navigate
+### Run Test or Test suite
 
-- Go to `localhost:3000` in your browser of choice!
+Currently requires that Koa server app is running
 
-## Koa boilerplate
+`npm test` (runs test command in `Makefile`)
 
-Example of [Koa2 boilerplate project](https://github.com/llambda/koa-boiler)
-Look at [Koa2 tutorial](https://dinosaurscode.xyz/nodejs/2016/06/28/nodejs-koa2-tutorial/)
+You can also configure `tests/helper.js` to start the Koa server. Alternatively have the test (or suite) in question start 
+the server with a specific adapter (see _Switching adapter_ section below).
 
-Generators:
-- [generator-koa2](https://www.npmjs.com/package/generator-koa2)
-- [generator-koa2-rest](https://www.npmjs.com/package/generator-koa2-rest)
-
-## Generator koa2 REST
-
-`npm install -g generator-koa2-rest yo`
-
-Run `yo koa2-rest`
-
-Run `npm start` and navigate to `localhost:9000`
-
-### Creating another endpoint
-Navigate to project folder and run `yo koa2-rest:api resource-name`
-
-This will create a folder under src/api/ with the name of the resource with an index, controller, model. Test files will be generated in test/e2e and test/unit
+Bonus if you configure the `Makefile` for different kinds of test runs...
 
 ## Architecture  
 
