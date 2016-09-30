@@ -52,6 +52,15 @@ To test the Mongo and Couch DB adapters, we need to first populate the DBs.
 This should ideally be done via `beforeEach` and cleaned up in `afterEach` for each test suite:
 To populate the DBs, add functions in /src/test/data' for `/mongo/populate` and `/couch/populate` respectively!   
 
+Currently we have a validation error when trying to use the components item reponse to create a DB model using the
+Mongoose `Component` schema. 
+
+```
+(node:17910) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): TypeError: this.model.create(...).exec is not a function
+(node:17910) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 3): ValidationError: Path `type` is required., Path `version` is required., Path `date` is required., Path `name` is required.
+```
+
+
 ## Architecture  
 
 ### app.js

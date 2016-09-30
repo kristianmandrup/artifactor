@@ -6,7 +6,9 @@ const adapter = require('../../../adapters').db;
 
 const components = adapter.adapt('components');
 
-let contacts = require('../../../responses/components/contacts/item');
+let contacts = require('../../../../responses/components/contacts/item');
 
-await components.create('contact', contacts);
-console.log('Mongo DB - created', contacts)
+components.create('contact', contacts).then(() => {
+  console.log('Mongo DB - created', contacts)
+})
+

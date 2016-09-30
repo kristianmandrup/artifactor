@@ -21,35 +21,36 @@ class Adapter {
   async item({id}) {
     console.log('DB: find item by ID', id);
 
-    return this.model.find({name: id}).exec();
+    return await this.model.find({name: id}).exec();
   }
 
-  async list(id) {
+  async list({id}) {
     return await this.model.find().exec();
   }
 
   // Look at db/decorator.js for useful instance methods...
-  async version(id, versionId) {
+  async version({id, versionId}) {
     console.log('Retrieve version', versionId, 'not yet supported');
   }
 
   // creates new and/or adds new version (upsert)
-  async create(id, data) {
+  async create({id, data}) {
+    console.log('create', this.clazzName, data)
     return await this.model.create(data).exec();
   }
 
   // adds new version (upsert)
-  async update(id, data) {
+  async update({id, data}) {
     console.log('Update', this.entity, id, 'not yet supported');
   }  
 
   // http://mongoosejs.com/docs/api.html#model_Model.findByIdAndRemove
   // http://mongoosejs.com/docs/api.html#model_Model.findOneAndRemove
-  async delete(id) {
+  async delete({id}) {
     return await this.model.findOneAndRemove({name: id}).exec();
   }
 
-  async rate(id, data) {
+  async rate({id, data}) {
     console.log('Rating', this.entity, id, 'not yet supported');
   }
 }
