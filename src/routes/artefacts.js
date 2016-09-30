@@ -1,7 +1,8 @@
-const factory = require('./entity/router-factory');
+const routerFactory = require('./entity/router-factory');
 const entities = require('../artefacts').entities;
 
-module.exports = entities.list.map(entity => factory.create(entity));
+// apps, components, plugins, ...
+module.exports = entities.list.map(entity => routerFactory.create(entity));
 
   
 

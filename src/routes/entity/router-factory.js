@@ -28,45 +28,7 @@ class RouterFactory {
   async request(name, ctx, next) {
     return await this.routeInstance(name, ctx, next).route();
   }
-/*
-  get create() {
-    return async function (ctx, next) {
-      ctx.body = `POST/create ${entity} is not yet supported!`;  
-    }
-  }
-
-  get rate() {
-    return async function (ctx, next) {
-      ctx.body = `POST/create ${entity} is not yet supported!`;  
-    }
-  }
-
-  get remove() {
-    return async function (ctx, next) {
-      ctx.body = `DELETE ${entity} is not yet supported!`;  
-    }
-  }
-
-  get update() {
-    return async function (ctx, next) {
-      ctx.body = `PUT/update ${entity} is not yet supported!`;  
-    }
-  }
-
-  get item() {
-    return async function (ctx, next) {
-      ctx.body = `GET/list ${entity} is not yet supported!`;  
-    }
-  }
-
-  get version() {
-    return async (ctx, next) => {
-      ctx.body = `GET/list ${entity} is not yet supported!`;  
-    }
-  }
-
-*/
-
+  
   async list(ctx, next) {
     console.log('list', ctx);
     return await this.request('list', ctx, next);
@@ -104,11 +66,16 @@ class RouterFactory {
 
   createRouter() {
     const router = new Router({
+      // /apps
+      // /components
       prefix: `/${this.entity}`
     });
 
+    // each entity router has exactly the same routes
     router
+      // /components/
       .get('list', '/', this.list.bind(this))
+      // /components/:id
       .get('item', '/:id', this.item.bind(this))
       .get('version', '/:id/version', this.version.bind(this))            
       .post('create', '/:id', this.create.bind(this))

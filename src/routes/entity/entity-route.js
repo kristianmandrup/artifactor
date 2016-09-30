@@ -19,10 +19,13 @@ module.exports = class EntityRoute {
     }    
   }
 
+  // we use file adapter here
+  // f.ex for components entity
   get adapter() {
     return adapters.file.adapt(this.entity, this.params);
   }
 
+  // executes the route and returns the body
   async route() {
     try {
       // See routes/entity/list.js 
@@ -41,6 +44,7 @@ module.exports = class EntityRoute {
     this.params = {}; 
   }
 
+  // name could be f.ex: list, item or version and so on...
   async jsonBody() {
     console.log('get json body', this.name);
     return await this.adapter[this.name](this.params);

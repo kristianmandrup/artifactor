@@ -3,6 +3,8 @@ const BaseIo = require('./base-io');
 const fileIo = require('./file-io');
 
 // TODO: read/write JSON directly and get rid of file-io
+
+// Reads JSON from files in /responses
 class JsonIo extends BaseIo {
   constructor(entity, id) {
     super(entity, id);
@@ -33,9 +35,7 @@ class JsonIo extends BaseIo {
 
   async getItem(id) {
     let filePath = this.paths.itemPath;
-    // console.log('item path', filePath);
     return await fs.readJson(filePath);    
-    // return JSON.parse(await this.io.item());
   }
 
   async getVersion(version) {
