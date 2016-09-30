@@ -60,13 +60,6 @@ class FileIo extends BaseIo {
     }     
   }
 
-  // return single .json file for that entity
-  async version(version) {
-    let filePath = this.paths.versionPath(version);
-    console.log('version path', filePath);
-    return await fs.readFile(filePath, 'utf8');
-  }
-
   async list() {
     return await fs.readFile(this.paths.listPath, 'utf8');
   }

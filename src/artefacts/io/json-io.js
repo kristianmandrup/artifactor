@@ -39,7 +39,9 @@ class JsonIo extends BaseIo {
   }
 
   async getVersion(version) {
-    return JSON.parse(await this.io.version());
+    let filePath = this.paths.versionPath(version);
+    console.log('version path', filePath);
+    return await fs.readJson(filePath);    
   }
 
   async getList() {
