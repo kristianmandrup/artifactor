@@ -17,7 +17,10 @@ class Adapter {
     }
   }
 
-  async item(id) {
+  // TODO: We need to populate DB!!!
+  async item({id}) {
+    console.log('DB: find item by ID', id);
+
     return this.model.find({name: id}).exec();
   }
 
