@@ -47,7 +47,7 @@ module.exports = class BaseRoute {
 
   // name could be f.ex: list, item or version and so on...
   async jsonBody() {
-    console.log('get json body', this.name);
+    console.log('get json body', this.name, this.adapterType);
     return await this.adapter[this.name](this.params);
   }
     

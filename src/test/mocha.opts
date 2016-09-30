@@ -3,4 +3,3 @@
 --colors 
 --recursive
 --compilers js:babel-core/register
---require test/helper babel-polyfill

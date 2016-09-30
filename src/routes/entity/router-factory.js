@@ -2,7 +2,8 @@ const Router = require('koa-router');
 
 class RouterFactory {
 
-  constructor(entity, adapter) {
+  constructor(entity, adapter = 'file') {
+    console.log('create router factory', entity, adapter);
     this.entity = entity;
     this.adapter = adapter; // type of adapter ('file' or 'db')
   }
@@ -96,8 +97,8 @@ class RouterFactory {
 
 module.exports = {
   Factory: RouterFactory, 
-  create: function(entity) {
-    return new RouterFactory(entity).createRouter();
+  create: function(entity, adapter) {
+    return new RouterFactory(entity, adapter).createRouter();
   }
  
 }

@@ -33,14 +33,18 @@ So to test it, try a route like:
 
 ### Run Test or Test suite
 
-Currently requires that Koa server app is running
+To run the tests, the Koa server app must be running...
 
 `npm test` (runs test command in `Makefile`)
 
-You can also configure `tests/helper.js` to start the Koa server. Alternatively have the test (or suite) in question start 
-the server with a specific adapter (see _Switching adapter_ section below).
+You can configure `tests/utils/server.js` to start the http server with the Koa app and set the `adapter`
 
-Bonus if you configure the `Makefile` for different kinds of test runs...
+```js
+const adapter = 'db';
+```
+
+Bonus if you configure the `Makefile` for different kinds of test runs or find another/better way to run the tests
+for various scenarios and configurations, f.ex using a config file of some sort?
 
 ## Architecture  
 

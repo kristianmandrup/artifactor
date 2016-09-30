@@ -1,7 +1,7 @@
 const BaseRoute = require('./base');
 
 module.exports = class VersionRoute extends BaseRoute {
-  constructor(ctx, next, options) {
+  constructor(ctx, next, options) {    
     super(ctx, next, options, 'version');
   }
 
