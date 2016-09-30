@@ -1,9 +1,20 @@
 import {db, models} from '../db/mongo'
+const _ = require('lodash');
+_.mixin(require("lodash-inflection"));
 
- class Adapter {
+// console.log('imported models', models)
+
+class Adapter {
   constructor(entity) {
     this.entity = entity;
-    this.model = models[entity];
+    this.clazzName = _.capitalize(_.singularize(entity));
+    this.model = models[this.clazzName];
+
+    if (!this.model) {
+      throw `No models defined for ${entity}`;
+    } else {
+      console.log('MODEL', entity, this.model);
+    }
   }
 
   async item(id) {

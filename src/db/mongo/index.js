@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 const dbName = 'artifactor';
 
+mongoose.Promise = global.Promise || require('bluebird');
+
 mongoose.connect('mongodb://localhost/' + dbName);
 
 var db = mongoose.connection;
@@ -13,7 +15,9 @@ db.once('open', function() {
 
 const models = require('./models');
 
-module.export = {
+// console.log('models', models);
+
+module.exports = {
   models: models,
   db: db
 };

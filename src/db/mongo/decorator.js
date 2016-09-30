@@ -57,4 +57,6 @@ module.exports = function(schema, modelName) {
       console.error('rateLatest', err);
     })    
   }
+
+  return schema;
 };

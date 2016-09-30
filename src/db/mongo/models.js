@@ -12,8 +12,10 @@ const decorate = require('./decorator');
 module.exports = entities.names.reduce( (models, name) => {
   let clazzName = _.capitalize(name);
   let schema = schemas[name];
+  schema = decorate(schema, clazzName)
+
   let mdl = mongoose.model(clazzName, schema);
 
-  models[clazzName] = decorate(schema, clazzName) 
+  models[clazzName] = mdl;  
   return models;
 }, {})
