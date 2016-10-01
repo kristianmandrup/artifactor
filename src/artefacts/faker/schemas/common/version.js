@@ -7,27 +7,7 @@ const jsf = require('json-schema-faker');
 // Test schema: http://json-schema-faker.js.org/
 // To convert to valid JSON, use: http://www.freeformatter.com/json-formatter.html#ad-output
 
-const ui = require('./ui');
-const install = require('./install');
-
-const rating = {
-  id: 'rating',
-  rating: {
-    type: 'number'
-    minimum: 1, 
-    maximum: 5
-  },  
-  comment: {
-    type: 'string',
-    faker: 'lorem.sentence'
-  },
-  username: {
-    type: 'string',
-    faker: 'name.firstName'
-  } 
-});
-
-const author = require('./author');
+const common = require('./common').schema;
 
 const schema = {
   required: [
@@ -43,7 +23,7 @@ const schema = {
     type: 'date',
     faker: 'date.past'
   },
-  author: author,
+  author: common.author,
   notice: {
     type: 'string',
     faker: 'lorem.sentence'            
@@ -69,8 +49,8 @@ const schema = {
     type: 'array',
     $ref: 'rating'
   },
-  ui: ui
-  // install: install
+  ui: common.ui,
+  install: common.install
 }
 
-module.exports = jsf(schema, rating);
+module.exports = schema;

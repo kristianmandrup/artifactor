@@ -5,11 +5,13 @@
 // Test schema: http://json-schema-faker.js.org/
 // To convert to valid JSON, use: http://www.freeformatter.com/json-formatter.html#ad-output
 
-// an app is simply a root level component
-const schema = Object.assign(require('./component'), {
+const schema = Object.assign(require('./base'), {
   type: {
-    enum: ['app']      
-  } 
+    enum: ['addon']      
+  },
+  // no location
+  // no ui
+  // use default version without location
 });
 
 module.exports = schema;

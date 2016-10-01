@@ -1,77 +1,25 @@
 // https://www.npmjs.com/package/json-schema-faker
 
 // For Faker API, see: https://github.com/marak/Faker.js/
-
-const jsf = require('json-schema-faker');
-
 // Test schema: http://json-schema-faker.js.org/
 // To convert to valid JSON, use: http://www.freeformatter.com/json-formatter.html#ad-output
 
-const author = require('./author');
-const ui = require('./ui');
-const install = require('./install');
+const common = require('./common');
 
-const schema = {
-  type: 'object',
-  required: [
-    'name',
-    'author',
-    'version',
-    'location',
-    'status',
-    'type',
-    'keywords'
-  ],
-  properties: {
-    name: {
-      type: 'string',
-      faker: 'random.word'
-    },
-    description: {
-      type: 'string',
-      faker: 'lorem.paragraph'
-    },
-    author: author,
-    version: {
-      type: 'string',
-      faker: 'system.semver'      
-    },
-    location: {
-      type: 'string',
-      faker: 'internet.url'      
-    },
-    notice: {
-      type: 'string',
-      faker: 'lorem.sentence'            
-    },
-    status: {
-      enum: [
-        'alpha',
-        'beta',
-        'stable'
-      ]
-    },
-    ui: ui,
-    keywords: {
-      type: 'array',
-      items: {
-        type: 'string',
-        faker: 'lorem.word'
-      },
-      minItems: 1,
-      uniqueItems: true          
-    },
-    categories: {
-      type: 'array',
-      items: {
-        type: 'string',
-        faker: 'lorem.word'
-      },
-      minItems: 1,
-      uniqueItems: true          
-    },
-    install: install
+const schema = Object.assign(require('./base'), {
+  type: {
+    enum: ['component']
+  },
+  location: {
+    type: 'string',
+    faker: 'internet.url'      
+  },  
+  ui: common.ui,
+  versions: {
+    type: 'array',
+    $ref: 'locVersion'
   }
-};
+}
 
-module.exports = jsf(schema);
+
+module.exports = schema;
