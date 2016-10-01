@@ -4,7 +4,7 @@ _.mixin(require("lodash-inflection"));
 
 // console.log('imported models', models)
 
-class Adapter {
+class DbAdapter {
   constructor(entity) {
     this.entity = entity;
     this.clazzName = _.capitalize(_.singularize(entity));
@@ -56,8 +56,8 @@ class Adapter {
 }
 
 module.exports = {
-  Adapter: Adapter,
+  Adapter: DbAdapter,
   adapt: function(entity) {
-    return new Adapter(entity)
+    return new DbAdapter(entity)
   }
 } 

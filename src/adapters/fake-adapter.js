@@ -1,9 +1,11 @@
-import io from '../artefacts/io';
+// Generates fake data, simulating a backend with tons of data
 
-class FileAdapter {
+import faker from '../artefacts/faker';
+
+class FakeAdapter {
   // id is optional, used to indicate specific REST resource
   constructor(entity, {id}) {
-    this.io = io.json.create(entity, id);
+    this.io = faker.create(entity, id);
   }
 
   async item() {
@@ -43,9 +45,9 @@ class FileAdapter {
 }
 
 module.exports = {
-  Adapter: FileAdapter,
+  Adapter: FakeAdapter,
   // id is optional, used to indicate specific REST resource
   adapt: function(entity, id) {
-    return new FileAdapter(entity, id);
+    return new FakeAdapter(entity, id);
   }
 } 
