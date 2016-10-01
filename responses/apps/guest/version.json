@@ -7,9 +7,7 @@
   "author": {
     "name": "Kristian Mandrup"
   },
-  "type": [
-    "app"
-  ],
+  "type": "app",
   "keywords": [
     "guest",
     "login",

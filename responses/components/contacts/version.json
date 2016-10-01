@@ -8,9 +8,7 @@
     "organisation": "google",
     "profile": "developers.google.com/kmandrup"
   },
-  "type": [
-    "component"
-  ],
+  "type": "component",
   "keywords": [
     "contacts"
   ],
@@ -46,7 +44,7 @@
     "local": "complete",
     "remote": "alpha"
   },
-  "ui-frameworks": {
+  "ui": {
     "bootstrap": "stable",
     "foundation": "beta"
   },          

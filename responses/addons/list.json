@@ -8,9 +8,7 @@
     "author": {
       "name": "Kristian Mandrup"
     },
-    "type": [
-      "addon"
-    ],
+    "type": "addon",
     "keywords": [
       "ui",
       "framework"

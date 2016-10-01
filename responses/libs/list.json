@@ -1,20 +1,14 @@
 [
   {
-    "name": "contacts",
-    "description": "Contacts management",
+    "name": "bootstrap",
+    "description": "Twitter Bootstrap ui lib",
     "author": {
-      "name": "Kristian Mandrup",
-      "alias": "kmandrup",
-      "email": "kmandrup@gmail.com",
-      "organisation": "google",
-      "profile": "developers.google.com/kmandrup"
+      "organisation": "google"
     },
     "keywords": [
-      "contacts"
+      "ui"
     ],
-    "type": [
-      "component"
-    ],
+    "type": "lib",
     "categories": [
       "entity"
     ],

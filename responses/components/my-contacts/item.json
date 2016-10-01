@@ -8,9 +8,7 @@
     "organisation": "google",
     "profile": "developers.google.com/kmandrup"
   },
-  "type": [
-    "component"
-  ],
+  "type": "component",
   "keywords": [
     "contacts"
   ],
@@ -21,7 +19,7 @@
   "location": "github:kmandrup/contacts#1.2",
   "notice": "Added bootstrap",
   "status": "beta",
-  "ui-frameworks": {
+  "ui": {
     "bootstrap": "stable",
     "foundation": "beta"
   },

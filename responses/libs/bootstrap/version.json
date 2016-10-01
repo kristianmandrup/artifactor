@@ -8,9 +8,7 @@
     "alias": "moonboy",
     "organisation": "twitter"
   },
-  "type": [
-    "lib"
-  ],
+  "type": "lib",
   "keywords": [
     "ui",
     "ux",

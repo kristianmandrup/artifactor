@@ -4,9 +4,7 @@
   "author": {
     "organisation": "aurelia"
   },
-  "type": [
-    "plugin"
-  ],
+  "type": "plugin",
   "keywords": [
     "i18n"
   ],

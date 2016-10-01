@@ -12,9 +12,7 @@
     "keywords": [
       "contacts"
     ],
-    "type": [
-      "component"
-    ],
+    "type": "component",
     "categories": [
       "entity"
     ],

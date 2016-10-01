@@ -8,9 +8,7 @@
     "alias": "jimbo",
     "organisation": "yahoo"
   },
-  "type": [
-    "lib"
-  ],
+  "type": "lib",
   "keywords": [
     "dom",
     "query",

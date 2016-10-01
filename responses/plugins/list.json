@@ -1,7 +1,7 @@
 [
   {
-    "name": "contacts",
-    "description": "Contacts management",
+    "name": "i18n",
+    "description": "Localization",
     "author": {
       "name": "Kristian Mandrup",
       "alias": "kmandrup",
@@ -12,9 +12,8 @@
     "keywords": [
       "contacts"
     ],
-    "type": [
-      "component"
-    ],
+    "type": 
+      "plugin",
     "categories": [
       "entity"
     ],
