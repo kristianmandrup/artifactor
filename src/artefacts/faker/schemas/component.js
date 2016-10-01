@@ -7,6 +7,8 @@ const jsf = require('json-schema-faker');
 // Test schema: http://json-schema-faker.js.org/
 // To convert to valid JSON, use: http://www.freeformatter.com/json-formatter.html#ad-output
 
+const author = require('./author');
+
 const schema = {
   type: 'object',
   required: [
@@ -27,31 +29,7 @@ const schema = {
       type: 'string',
       faker: 'lorem.paragraph'
     },
-    author: {
-      type: 'object',
-      properties: {
-        name: {
-          type: 'string',
-          faker: 'name.findName',
-        },
-        alias: {
-          type: 'string',
-          faker: 'name.lastName'
-        },
-        email: {
-          type: 'string',
-          faker: 'internet.email'
-        },
-        organisation: {
-          type: 'string',
-          faker: 'company.companyName'
-        },
-        profileUrl: {
-          type: 'string',
-          faker: 'internet.url'
-        }
-      }
-    },
+    author: author,
     version: {
       type: 'string',
       faker: 'system.semver'      

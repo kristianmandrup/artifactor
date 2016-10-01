@@ -46,6 +46,42 @@ const adapter = 'db';
 Bonus if you configure the `Makefile` for different kinds of test runs or find another/better way to run the tests
 for various scenarios and configurations, f.ex using a config file of some sort?
 
+### Faker adapter
+
+To simulate a database full of artefacts we are introducing the Faker adapter. 
+It is based on the [json schema faker](json-schema-faker.js.org) which uses [faker.js](https://github.com/marak/Faker.js/) 
+to generate fake data based on the schema definitions. This is a similar approach to Mongoose schemas, 
+but those are used for validation. It would be cool if we could use the fake data to also populate the Database via the 
+DB models!
+
+See `/artefacts/faker/schemas` for the faker schemas:
+
+```js
+const schema = {
+  type: 'object',
+  required: [
+    'name',
+    'author',
+    'version',
+    'location',
+    'status',
+    'type',
+    'keywords'
+  ],
+  properties: {
+    name: {
+      type: 'string',
+      faker: 'random.word'
+    },
+    description: {
+      type: 'string',
+      faker: 'lorem.paragraph'
+    },
+    // more ....
+  }
+}
+```
+
 ### DB adapter testing
 
 To test the Mongo and Couch DB adapters, we need to first populate the DBs.

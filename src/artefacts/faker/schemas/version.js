@@ -7,141 +7,67 @@ const jsf = require('json-schema-faker');
 // Test schema: http://json-schema-faker.js.org/
 // To convert to valid JSON, use: http://www.freeformatter.com/json-formatter.html#ad-output
 
-const schema = {
-  type: 'object',
-  required: [
-    'name',
-    'author',
-    'version',
-    'location',
-    'status',
-    'type',
-    'keywords'
-  ],
-  properties: {
-    name: {
-      type: 'string',
-      faker: 'random.word'
-    },
-    description: {
-      type: 'string',
-      faker: 'lorem.paragraph'
-    },
-    author: {
-      type: 'object',
-      properties: {
-        name: {
-          type: 'string',
-          faker: 'name.findName',
-        },
-        alias: {
-          type: 'string',
-          faker: 'name.lastName'
-        },
-        email: {
-          type: 'string',
-          faker: 'internet.email'
-        },
-        organisation: {
-          type: 'string',
-          faker: 'company.companyName'
-        },
-        profileUrl: {
-          type: 'string',
-          faker: 'internet.url'
-        }
-      }
-    },
-    version: {
-      type: 'string',
-      faker: 'system.semver'      
-    },
-    location: {
-      type: 'string',
-      faker: 'internet.url'      
-    },
-    notice: {
-      type: 'string',
-      faker: 'lorem.sentence'            
-    },
-    status: {
-      enum: [
-        'alpha',
-        'beta',
-        'stable'
-      ]
-    },
-    'ui-frameworks': {
-      type: 'object',
-      properties: {
-        name: {
-          enum: [
-            'bootstrap',
-            'foundation',
-            'semantic-ui'
-          ]
-        },
-        status: {
-          enum: [
-            'alpha',
-            'beta',
-            'stable'
-          ]
-        }
-      }
-    },
-    type: {
-      enum: [
-        'component'
-      ]      
-    },
-    keywords: {
-      type: 'array',
-      items: {
-        type: 'string',
-        faker: 'lorem.word'
-      },
-      minItems: 1,
-      uniqueItems: true          
-    },
-    categories: {
-      type: 'array',
-      items: {
-        type: 'string',
-        faker: 'lorem.word'
-      },
-      minItems: 1,
-      uniqueItems: true          
-    },
-    install: {
-      type: 'object',
-      required: [
-        'dependencies'
-      ],
-      properties: {
-        bundles: {
-          type: 'array',
-          items: {
-            type: 'string',
-            faker: 'lorem.word'
-          },
-          minItems: 1,
-          uniqueItems: true          
-        },
-        dependencies: {
-          type: 'object',
-          properties: {
-            components: {
-              type: 'string'
-            },
-            libs: {
-              type: 'string'
-            }            
-          }
-        },        
-      }
-    }
-  }
-};
+const rating = {
+  id: 'rating',
+  rating: {
+    type: 'number'
+    minimum: 1, 
+    maximum: 5
+  },  
+  comment: {
+    type: 'string',
+    faker: 'lorem.sentence'
+  },
+  username: {
+    type: 'string',
+    faker: 'name.firstName'
+  } 
+});
 
-module.exports = jsf(schema);
+const author = require('./author');
+
+const schema = {
+  required: [
+    'number',
+    'date',
+    'rating'
+  ],
+  number: { // version number such as 1.3
+    type: 'string'
+    faker: 'system.semver'
+  }, 
+  date: {
+    type: 'date',
+    faker: 'date.past'
+  },
+  author: author,
+  notice: {
+    type: 'string',
+    faker: 'lorem.sentence'            
+  },
+  status: {
+    enum: [
+      'alpha',
+      'beta',
+      'stable'
+    ]
+  },
+  installations: {
+    type: 'number',
+    minimum: 1, 
+    maximum: 5000
+  },
+  rating: {
+    type: 'number',
+    minimum: 1, 
+    maximum: 5    
+  },
+  ratings: {
+    type: 'array',
+    $ref: 'rating'
+  },
+  // ui: uiFrameworks,
+  // install: install
+}
+
+module.exports = jsf(schema, rating);
