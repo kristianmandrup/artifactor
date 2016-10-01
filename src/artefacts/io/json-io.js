@@ -13,7 +13,7 @@ class JsonIo extends BaseIo {
 
   // async
   async createItem(data) {
-    // console.log(`Create ${this.entity} for ${this.id} not yet supported...`);
+    console.log('Create:', this.id, data);
     return {
       created: await this.io.create(data)
     };
@@ -22,18 +22,29 @@ class JsonIo extends BaseIo {
   // async 
   async deleteItem() {
     return {
-      deleted: await this.io.delete()
+      deleted: await this.io.delete(id)
     };
   }
 
   // async 
+  // TODO: Only create if no file/instance yet, otherwise add as version to existing
   async updateItem(data) {
     return {
-      updated: await this.io.create(data)
+      updated: await this.update(data)
     };
   }
 
-  async getItem(id) {
+  async update(data) {
+    let filePath = this.paths.itemPath;
+    try {
+      let exist = await fs.stat(filePath);
+      return exist ? await this.io.addVersion(data) : false; 
+    } catch (err) {
+      return await this.io.create(data);
+    }
+  }
+  
+  async getItem() {
     let filePath = this.paths.itemPath;
     return await fs.readJson(filePath);    
   }

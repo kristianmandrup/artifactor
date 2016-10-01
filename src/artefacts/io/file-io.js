@@ -49,6 +49,17 @@ class FileIo extends BaseIo {
     }     
   }
 
+  async addVersion(data) {
+    let version = data.version; 
+    let filePath = this.paths.versionPath(version);
+    try {
+      return await fs.outputJson(filePath, data);
+    } catch (err) {
+      return false;
+    }     
+  }
+
+
   async delete() {
     let filePath = this.paths.itemPath;
     console.log('delete path', filePath);

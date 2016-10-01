@@ -1,6 +1,6 @@
 const app = require('./koa-app');
 
-const adapter = 'db';
+const adapter = 'file';
 
 const server = require('../../server');
 const startedApp = app({

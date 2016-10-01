@@ -6,8 +6,8 @@ class Adapter {
     this.io = io.json.create(entity, id);
   }
 
-  async item({id}) {
-    return await this.io.getItem(id);
+  async item() {
+    return await this.io.getItem();
   }
 
   async list() {
@@ -24,12 +24,12 @@ class Adapter {
 
   // creates new and/or adds new version (upsert)
   async create({data}) {
-    // console.log('create item', data);
+    console.log('create item', data);
     return await this.io.createItem(data);
   }
 
   // adds new version (upsert)
-  async update(data) {
+  async update({data}) {
     return this.io.updateItem(data);
   }  
 
