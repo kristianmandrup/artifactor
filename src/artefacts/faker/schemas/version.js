@@ -7,6 +7,9 @@ const jsf = require('json-schema-faker');
 // Test schema: http://json-schema-faker.js.org/
 // To convert to valid JSON, use: http://www.freeformatter.com/json-formatter.html#ad-output
 
+const ui = require('./ui');
+const install = require('./install');
+
 const rating = {
   id: 'rating',
   rating: {
@@ -66,7 +69,7 @@ const schema = {
     type: 'array',
     $ref: 'rating'
   },
-  // ui: uiFrameworks,
+  ui: ui
   // install: install
 }
 

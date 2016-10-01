@@ -8,6 +8,8 @@ const jsf = require('json-schema-faker');
 // To convert to valid JSON, use: http://www.freeformatter.com/json-formatter.html#ad-output
 
 const author = require('./author');
+const ui = require('./ui');
+const install = require('./install');
 
 const schema = {
   type: 'object',
@@ -49,30 +51,7 @@ const schema = {
         'stable'
       ]
     },
-    'ui-frameworks': {
-      type: 'object',
-      properties: {
-        name: {
-          enum: [
-            'bootstrap',
-            'foundation',
-            'semantic-ui'
-          ]
-        },
-        status: {
-          enum: [
-            'alpha',
-            'beta',
-            'stable'
-          ]
-        }
-      }
-    },
-    type: {
-      enum: [
-        'component'
-      ]      
-    },
+    ui: ui,
     keywords: {
       type: 'array',
       items: {
@@ -91,34 +70,7 @@ const schema = {
       minItems: 1,
       uniqueItems: true          
     },
-    install: {
-      type: 'object',
-      required: [
-        'dependencies'
-      ],
-      properties: {
-        bundles: {
-          type: 'array',
-          items: {
-            type: 'string',
-            faker: 'lorem.word'
-          },
-          minItems: 1,
-          uniqueItems: true          
-        },
-        dependencies: {
-          type: 'object',
-          properties: {
-            components: {
-              type: 'string'
-            },
-            libs: {
-              type: 'string'
-            }            
-          }
-        },        
-      }
-    }
+    install: install
   }
 };
 

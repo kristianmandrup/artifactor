@@ -7,6 +7,10 @@ const jsf = require('json-schema-faker');
 // Test schema: http://json-schema-faker.js.org/
 // To convert to valid JSON, use: http://www.freeformatter.com/json-formatter.html#ad-output
 
+const author = require('./author');
+const ui = require('./ui');
+const install = require('./install');
+
 const schema = {
   type: 'object',
   required: [
@@ -27,31 +31,7 @@ const schema = {
       type: 'string',
       faker: 'lorem.paragraph'
     },
-    author: {
-      type: 'object',
-      properties: {
-        name: {
-          type: 'string',
-          faker: 'name.findName',
-        },
-        alias: {
-          type: 'string',
-          faker: 'name.lastName'
-        },
-        email: {
-          type: 'string',
-          faker: 'internet.email'
-        },
-        organisation: {
-          type: 'string',
-          faker: 'company.companyName'
-        },
-        profileUrl: {
-          type: 'string',
-          faker: 'internet.url'
-        }
-      }
-    },
+    author: author,
     version: {
       type: 'string',
       faker: 'system.semver'      
@@ -71,28 +51,10 @@ const schema = {
         'stable'
       ]
     },
-    'ui-frameworks': {
-      type: 'object',
-      properties: {
-        name: {
-          enum: [
-            'bootstrap',
-            'foundation',
-            'semantic-ui'
-          ]
-        },
-        status: {
-          enum: [
-            'alpha',
-            'beta',
-            'stable'
-          ]
-        }
-      }
-    },
+    ui: ui,
     type: {
       enum: [
-        'component'
+        'app'
       ]      
     },
     keywords: {
@@ -113,34 +75,7 @@ const schema = {
       minItems: 1,
       uniqueItems: true          
     },
-    install: {
-      type: 'object',
-      required: [
-        'dependencies'
-      ],
-      properties: {
-        bundles: {
-          type: 'array',
-          items: {
-            type: 'string',
-            faker: 'lorem.word'
-          },
-          minItems: 1,
-          uniqueItems: true          
-        },
-        dependencies: {
-          type: 'object',
-          properties: {
-            components: {
-              type: 'string'
-            },
-            libs: {
-              type: 'string'
-            }            
-          }
-        },        
-      }
-    }
+    install: install
   }
 };
 
