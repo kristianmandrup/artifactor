@@ -1,7 +1,7 @@
 module.exports = {
   id: 'rating',
   rating: {
-    type: 'number'
+    type: 'number',
     minimum: 1, 
     maximum: 5
   },  
@@ -13,4 +13,4 @@ module.exports = {
     type: 'string',
     faker: 'name.firstName'
   } 
-});
+};

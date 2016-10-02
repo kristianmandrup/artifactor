@@ -19,7 +19,7 @@ const schema = Object.assign(require('./base'), {
     type: 'array',
     $ref: 'locVersion'
   }
-}
+});
 
 
 module.exports = schema;

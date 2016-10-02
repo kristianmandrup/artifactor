@@ -16,7 +16,7 @@ const schema = {
     'rating'
   ],
   number: { // version number such as 1.3
-    type: 'string'
+    type: 'string',
     faker: 'system.semver'
   }, 
   date: {

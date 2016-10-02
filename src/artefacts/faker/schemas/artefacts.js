@@ -2,11 +2,12 @@ const jsf = require('json-schema-faker');
 
 const entities = require('../../entities');
 const common = require('./common');
+let schemas = {};
 
 module.exports = entities.list.map(name => {
-  let schema = require(`./${name}`);
-  let versionSchema = common.versionSchema(name);
-  let ratingSchema common.rating; 
+  schemas.main = require(`./${name}`);
+  schemas.version = common.versionSchema(name);
+  schemas.rating = common.rating; 
 
-  return jsf(schema, versionSchema, ratingSchema);
+  return jsf(schemas.main, schemas.version, schemas.rating);
 });

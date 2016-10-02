@@ -6,9 +6,11 @@ const schemas = {
   install: require('./install'),
   version: version,
   rating: rating,
-  locVersion: Object.assign(version, location: {
-    type: 'string',
-    faker: 'internet.url'
+  locVersion: Object.assign(version, {
+    location: {
+      type: 'string',
+      faker: 'internet.url'
+    }
   })
 }
 
