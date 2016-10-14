@@ -10,9 +10,9 @@ const route = '/apps/contacts-app';
 
 describe('apps', () => {
   describe('DELETE item', () => {            
-    it('should delete a single app', _.doAsync(async () => {   
+    it('should delete a single app', async () => {   
       let result = await _.callApi(route, 'DELETE', data);         
       expectations(result);       
-    }));
+    });
   });
 });

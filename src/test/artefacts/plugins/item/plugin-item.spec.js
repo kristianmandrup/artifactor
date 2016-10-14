@@ -7,9 +7,9 @@ const route = require('../route');
 
 describe('plugins', () => {
   describe('GET item', () => {            
-    it('should return a single plugin', _.doAsync(async () => {   
+    it('should return a single plugin', async () => {   
       let result = await _.callApi(route);         
       expectations(result);       
-    }));
+    });
   });
 });

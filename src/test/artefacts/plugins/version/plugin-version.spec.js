@@ -7,9 +7,9 @@ const route = '/plugins/i18n?version=1.1';
 
 describe('plugins', () => {
   describe('GET version', () => {            
-    it('should retrieve plugin version 1.1', _.doAsync(async () => {   
+    it('should retrieve plugin version 1.1', async () => {   
       let result = await _.callApi(route, 'GET');         
       expectations(result);       
-    }));
+    });
   });
 });

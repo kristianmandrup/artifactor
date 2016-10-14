@@ -8,9 +8,9 @@ const expectations = require('./expectations');
 
 describe('plugins', () => {
   describe('GET list', () => {            
-    it('should return a list of plugins', _.doAsync(async () => {   
+    it('should return a list of plugins', async () => {   
       let result = await _.callApi('/apps');         
       expectations(result);       
-    }));
+    });
   });
 });

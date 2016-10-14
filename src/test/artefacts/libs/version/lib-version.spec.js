@@ -7,9 +7,9 @@ const route = '/libs/jquery?version=1.1';
 
 describe('libs', () => {
   describe('GET version', () => {            
-    it('should retrieve lib version 1.1', _.doAsync(async () => {   
+    it('should retrieve lib version 1.1', async () => {   
       let result = await _.callApi(route, 'GET');         
       expectations(result);       
-    }));
+    });
   });
 });

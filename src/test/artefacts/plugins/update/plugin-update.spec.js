@@ -8,9 +8,9 @@ const route = require('../route');
 
 describe('plugins', () => {
   describe('UPDATE item', () => {            
-    it('should update a single plugin', _.doAsync(async () => {   
+    it('should update a single plugin', async () => {   
       let result = await _.callApi(route, 'UPDATE', data);         
       expectations(result);       
-    }));
+    });
   });
 });

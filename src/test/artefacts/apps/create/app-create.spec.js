@@ -8,9 +8,9 @@ const route = '/apps/contacts-app';
 
 describe('apps', () => {
   describe('POST item', () => {            
-    it('should create a single app', _.doAsync(async () => {   
+    it('should create a single app', async () => {   
       let result = await _.callApi(route, 'POST', data);         
       expectations(result);       
-    }));
+    });
   });
 });

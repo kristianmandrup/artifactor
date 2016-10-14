@@ -9,9 +9,9 @@ const route = '/apps';
 
 describe('libs', () => {
   describe('GET list', () => {            
-    it('should return a list of libs', _.doAsync(async () => {   
+    it('should return a list of libs', async () => {   
       let result = await _.callApi(route, 'GET');         
       expectations(result);       
-    }));
+    });
   });
 });

@@ -12,14 +12,14 @@ async function rating(data) {
 
 describe('libs', () => {
   describe('POST lib rating', () => {            
-    it('should add a rating to the lib', _.doAsync(async () => {   
+    it('should add a rating to the lib', async () => {   
       let result = await rating(data);
       expectations.ratingAdded(result);       
-    }));
+    });
 
-    it('should NOT add a second rating to the lib for the same user', _.doAsync(async () => {   
+    it('should NOT add a second rating to the lib for the same user', async () => {   
       let result = await rating(data);         
       expectations.duplicateUserRatingNotAdded(result);       
-    }));
+    });
   });
 });

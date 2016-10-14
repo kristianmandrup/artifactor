@@ -10,9 +10,9 @@ const route = '/libs/jquery';
 
 describe('libs', () => {
   describe('DELETE item', () => {            
-    it('should delete a single lib', _.doAsync(async () => {   
+    it('should delete a single lib', async () => {   
       let result = await _.callApi(route, 'DELETE', data);         
       expectations(result);       
-    }));
+    });
   });
 });

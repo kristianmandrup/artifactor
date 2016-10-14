@@ -18,7 +18,7 @@
   "popularWith": {
     "components": {
       "edgy": {
-        "combined": 1151 
+        "combined": 1151
       }
     },
     "apps": {
@@ -26,8 +26,8 @@
         "combined": 94
       }
     }
-  },  
-  "version": "1.2",  
+  },
+  "version": "1.2",
   "location": "github:kmandrup/contacts#1.2",
   "notice": "Added bootstrap",
   "status": "beta",
@@ -47,7 +47,7 @@
   "ui": {
     "bootstrap": "stable",
     "foundation": "beta"
-  },          
+  },
   "install": {
     "bundles": {
     },

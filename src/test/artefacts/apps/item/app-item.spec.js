@@ -7,9 +7,9 @@ const route = '/apps/contacts-app';
 
 describe('apps', () => {
   describe('GET item', () => {            
-    it('should return a single app', _.doAsync(async () => {   
+    it('should return a single app', async () => {   
       let result = await _.callApi(route, 'GET');         
       expectations(result);       
-    }));
+    });
   });
 });

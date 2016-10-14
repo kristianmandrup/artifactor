@@ -8,9 +8,9 @@ const route = '/libs/jquery';
 
 describe('libs', () => {
   describe('UPDATE item', () => {            
-    it('should update a single lib', _.doAsync(async () => {   
+    it('should update a single lib', async () => {   
       let result = await _.callApi(route, 'UPDATE', data);         
       expectations(result);       
-    }));
+    });
   });
 });

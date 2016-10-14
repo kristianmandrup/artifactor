@@ -7,9 +7,9 @@ const route = '/libs/jquery';
 
 describe('libs', () => {
   describe('GET item', () => {            
-    it('should return a single lib', _.doAsync(async () => {   
+    it('should return a single lib', async () => {   
       let result = await _.callApi(route, 'GET');         
       expectations(result);       
-    }));
+    });
   });
 });

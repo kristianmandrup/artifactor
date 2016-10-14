@@ -12,14 +12,14 @@ async function rating(data) {
 
 describe('apps', () => {
   describe('POST app rating', () => {            
-    it('should add a rating to the app', _.doAsync(async () => {   
+    it('should add a rating to the app', async () => {   
       let result = await rating(data);
       expectations.ratingAdded(result);       
-    }));
+    });
 
-    it('should NOT add a second rating to the app for the same user', _.doAsync(async () => {   
+    it('should NOT add a second rating to the app for the same user', async () => {   
       let result = await rating(data);         
       expectations.duplicateUserRatingNotAdded(result);       
-    }));
+    });
   });
 });

@@ -10,9 +10,9 @@ const route = require('../route');
 
 describe('plugins', () => {
   describe('DELETE item', () => {            
-    it('should delete a single app', _.doAsync(async () => {   
+    it('should delete a single app', async () => {   
       let result = await _.callApi(route, 'DELETE', data);         
       expectations(result);       
-    }));
+    });
   });
 });
