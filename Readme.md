@@ -31,6 +31,23 @@ So to test it, try a route like:
 
 `http://localhost:3000/components/contacts`
 
+### Troubleshooting
+
+If you still get an error, try removing the `dist` folder:
+
+`rm -r dist`
+
+Then recompile via `build` or `watch` task and start server again.
+
+To disable to DB adapter, uncomment it from `src/adapters/index.js` 
+
+```js
+module.exports = {
+  // db: require('./db-adapter'),
+  file: require('./file-adapter')
+}
+```
+
 ### Run Test or Test suite
 
 To run the tests, the Koa server app must be running...
@@ -95,7 +112,6 @@ Mongoose `Component` schema.
 (node:17910) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): TypeError: this.model.create(...).exec is not a function
 (node:17910) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 3): ValidationError: Path `type` is required., Path `version` is required., Path `date` is required., Path `name` is required.
 ```
-
 
 ## Architecture  
 

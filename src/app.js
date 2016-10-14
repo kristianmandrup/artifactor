@@ -9,5 +9,6 @@ const app = new Koa();
 // app.listen(5050, () => console.log('Listening on port 5050.'));
 
 module.exports = function(options = {adapter: 'file'}) {
+  console.log('configuring server app:', options);
   return configure(app, options);
 }
