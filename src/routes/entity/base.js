@@ -1,16 +1,22 @@
 const adapters = require('./adapters')
+const Validator = require('./validator'); 
 
 module.exports = class BaseRoute {
   // type is the type of artefact such as: components
   constructor(ctx, next, {entity, adapter}, name) {
+    this.validator = new Validator(this.ctx)
     this.name = name;
     this.entity = entity;
     this.ctx = ctx;
     this.adapterType = adapter || 'file';
   }
 
-  // Do we accept the request?
   accept() {
+    return this.acceptType() && this.valid();
+  }
+
+  // Do we accept the request?
+  acceptType() {
     switch (this.ctx.accepts('json', 'html')) {
       case 'json':
         return true;
@@ -18,6 +24,10 @@ module.exports = class BaseRoute {
         return true;
       default: this.ctx.throw(406, 'json or html only');
     }    
+  }
+
+  valid() {
+    return this.validator.validate();
   }
 
   // we use file adapter here
