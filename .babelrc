@@ -3,6 +3,8 @@
   "plugins": [
     "add-module-exports",
     "syntax-async-functions",
-    "transform-regenerator"
+    "transform-regenerator",
+    "transform-decorators-legacy",
+    "transform-class-properties"
   ]    
 }

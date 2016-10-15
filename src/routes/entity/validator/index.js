@@ -2,6 +2,8 @@ const jsonschema = require('jsonschema');
 const Validator = jsonschema.Validator;
 const schemas = require('./schemas'); 
 
+import { once, memoize } from 'lodash-decorators'
+
 // Should validate request
 class RequestValidator {
   constructor(ctx) {
@@ -15,6 +17,8 @@ class RequestValidator {
     this.schema = schemas[this.method];     
   }  
 
+  @once
+  @memoize
   validate() {
     if (!this.schema)
       return true;
