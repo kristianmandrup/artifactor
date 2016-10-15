@@ -1,4 +1,4 @@
-const _ = require('../utils');
+const { expect } = require('../utils');
 // to use expect:
 // _.expect()
 
@@ -11,9 +11,9 @@ describe('File Adapter', () => {
   describe('#item', () => {            
     it('should return item file content as json', async () => {
       let json = await components.item();
-      console.log('CONTENT', json);   
-      _.expect(json.name).to.equal('contacts');
-      _.expect(json.versions.length).to.equal(2);
+      console.log('CONTENT', json);
+      expect(json.name).to.equal('contacts');
+      expect(json.versions.length).to.equal(2);
     });
   });
 });
