@@ -1,14 +1,15 @@
 const fs = require('fs-promise');
-const BaseIo = require('./base-io');
-const fileIo = require('./file-io');
+const file = require('./file');
+const BaseIo = require('./base');
 
-// TODO: read/write JSON directly and get rid of file-io
+// TODO: Don't use fileIo from here! Use straight from FileAdapter!! 
 
-// Reads JSON from files in /responses
+// Reads JSON from files in /responses folder
+// See utils/paths
 class JsonIo extends BaseIo {
   constructor(entity, id) {
     super(entity, id);
-    this.io = fileIo.create(entity, id);
+    this.io = file.create(entity, id); 
   }
 
   // async

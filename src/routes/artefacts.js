@@ -1,5 +1,5 @@
 const routerFactory = require('./entity/router-factory');
-const entities = require('../artefacts').entities;
+const entities = require('../artefact').entities;
 
 // apps, components, plugins, ...
 module.exports = function({adapter = 'file'}) {

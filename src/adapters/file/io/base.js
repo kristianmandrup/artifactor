@@ -1,5 +1,5 @@
-const entities = require('../entities'); 
-const Paths = require('./paths');
+const entities = require('../../../artefact').entities; 
+const Paths = require('./utils/paths');
 
 // TODO: Use readJson/writeJson directly from json-io
 // https://www.npmjs.com/package/fs-extra#readjsonfile-options-callback

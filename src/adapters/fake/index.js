@@ -1,6 +1,6 @@
 // Generates fake data, simulating a backend with tons of data
 
-import faker from '../artefacts/faker';
+import faker from './faker';
 
 class FakeAdapter {
   // id is optional, used to indicate specific REST resource

@@ -1,5 +1,5 @@
-const fs = require('fs-promise');
-const BaseIo = require('./base-io'); 
+import fs from 'fs-promise';
+import BaseIo from './base'; 
 
 // TODO: Use readJson/writeJson directly from json-io
 // https://www.npmjs.com/package/fs-extra#readjsonfile-options-callback

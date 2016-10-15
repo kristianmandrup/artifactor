@@ -5,7 +5,7 @@ const chai = require('chai');
 const expect = chai.expect;
 chai.should();
 
-require('./populate');
+// require('./populate');
 
 module.exports = {
   expect: expect,

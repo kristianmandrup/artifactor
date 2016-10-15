@@ -13,3 +13,10 @@ class DataFaker {
     };
   }
 }
+
+export default {
+  DataFaker,
+  create: function (entity, id) {
+    return new DataFaker(entity, id);
+  }
+}
