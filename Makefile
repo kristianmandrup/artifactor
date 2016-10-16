@@ -1,5 +1,5 @@
 test:
 
-	@./node_modules/mocha/bin/mocha -t 2000 dist/test/artefacts/components/delete/component-delete.spec.js
+	@./node_modules/mocha/bin/mocha -t 2000 dist/test/sandbox/dsl-test.spec.js
 
 .PHONY: test
