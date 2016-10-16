@@ -11,6 +11,8 @@ class Tester {
     this.opts = opts;
     this.itFuns = [];
 
+    this.will = this.should;
+
     if (typeof opts === 'function') 
       this.fun = opts;    
 
@@ -51,8 +53,6 @@ class Tester {
         describe(this.text, fun);
       })    
     } else {
-      console.log('describe without parent', this.text)
-
       describe(this.text, fun);      
     }
   }

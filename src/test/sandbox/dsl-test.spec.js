@@ -53,7 +53,7 @@ describe('Plugin', () => {
 test('Addon')
   .that('READ item')
   .for('some cool stuff')
-  .should('reads a single component', () => {
+  .will('read a single component', () => {
     expect(1 + 1).to.eql(2);
   })
   .run();
