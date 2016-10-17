@@ -6,5 +6,5 @@
     "transform-regenerator",
     "transform-decorators-legacy",
     "transform-class-properties"
-  ]    
+  ]
 }

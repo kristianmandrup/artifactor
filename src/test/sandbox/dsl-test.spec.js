@@ -1,6 +1,12 @@
+require("babel-core/register");
+require("babel-polyfill");
+
 const fs = require('fs-promise');
 import path from 'path'; 
-const { test, expect } = require('./dsl');
+const test = require('mocha-test-dsl');
+
+var chai = require('chai'),
+    expect = chai.expect;
 
 const context = {
   delete: async () => {
@@ -23,8 +29,11 @@ const check = {
 }
 
 class Ctx{
+  constructor() {
+    this.x = 1;    
+  }
+
   before() {
-    this.x = 2;
     console.log('x = ', this.x)
   }
 
@@ -42,14 +51,6 @@ class Ctx{
   }  
 } 
 
-describe('Plugin', () => {
-  describe('Adds item', () => {
-    it('adds all props', () => {
-      expect(1 + 1).to.eql(2);
-    })    
-  })
-})
-
 test('Addon')
   .that('READ item')
   .for('some cool stuff')
@@ -63,8 +64,7 @@ test('Components')
     prepare: Ctx
   })
   .should('delete a single component', async () => {
-    let result = await context.delete(2);
-    // console.log('result', result); 
+    let result = await context.delete(); 
     check.wasDeleted(result);
   })
   .should('delete also update index', () => {

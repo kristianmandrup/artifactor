@@ -63,6 +63,12 @@ const adapter = 'db';
 Bonus if you configure the `Makefile` for different kinds of test runs or find another/better way to run the tests
 for various scenarios and configurations, f.ex using a config file of some sort?
 
+### Use new testing DSL
+
+See the `src/test/sandbox/dsl-test.spec.js` for an example of using the new and improved mocha testing DSL: `mocha-test-dsl`.
+This DSL lets you drastically improve how you write readable, reusable composable tests and avoid duplication, keeping it
+concise and to the point and very decoupled!!  
+
 ### Faker adapter
 
 To simulate a database full of artefacts we are introducing the Faker adapter. 
