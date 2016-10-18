@@ -12,6 +12,6 @@ function duplicateUserRatingNotAdded(res) {
 
 
 module.exports = {
-  ratingAdded: ratingAdded,
-  duplicateUserRatingNotAdded: duplicateUserRatingNotAdded
+  ratingAdded,
+  duplicateUserRatingNotAdded
 }

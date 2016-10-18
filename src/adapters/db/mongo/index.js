@@ -18,7 +18,7 @@ const models = require('./models');
 // console.log('models', models);
 
 module.exports = {
-  models: models,
-  db: db
-};
+  models,
+  db
+}
 

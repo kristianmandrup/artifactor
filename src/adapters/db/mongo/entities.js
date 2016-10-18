@@ -1,1 +1,1 @@
-module.exports  = require('../../artefacts/entities');
+module.exports  = require('../../../artefact/entities');

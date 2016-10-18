@@ -16,6 +16,7 @@ module.exports = entities.names.reduce( (models, name) => {
 
   let mdl = mongoose.model(clazzName, schema);
 
+  console.log('export model:', clazzName, mdl)
   models[clazzName] = mdl;  
   return models;
 }, {})

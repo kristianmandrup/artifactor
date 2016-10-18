@@ -1,5 +1,5 @@
 const {Schema } = require('mongoose');
-const component = require('./component-schema')
+const component = require('./component')
 
 // Note: an app is a kind of component
 // extend component schema with App specific schema (if needed) 

@@ -1,6 +1,6 @@
 const { Schema } = require('mongoose');
 const { Author } = require('./common');
-const { Version } = require('./component');
+const Version = require('./component/version');
 
 // Schema guide: http://mongoosejs.com/docs/guide.html
 

@@ -2,7 +2,7 @@
 // so a version has no repo location
 
 const {Schema } = require('mongoose');
-const artefact = require('./artefact-schema');
+const artefact = require('./artefact');
 
 // Note: an app is a kind of component
 // extend component schema with App specific schema (if needed) 
