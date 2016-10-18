@@ -1,15 +1,12 @@
-const _ = require('../../utils');
-const expectations = require('./expectations');
+const _ = require('../utils');
+const check = require('./expect/get');
+const test = require('mocha-test-dsl');
 
-// to use expect:
-// _.expect()
-const route = '/apps/contacts-app';
+const route = 'apps/contacts-app'; 
 
-describe('apps', () => {
-  describe('GET item', () => {            
-    it('should return a single app', async () => {   
-      let result = await _.callApi(route, 'GET');         
-      expectations(result);       
-    });
-  });
-});
+test('route: apps')
+  .that('GET item')            
+    .will('return a single app', async () => {   
+        check(await _.callApi());       
+    })
+    .run();

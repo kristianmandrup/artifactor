@@ -1,17 +1,11 @@
-'use strict';
+const _ = require('../utils');
+const check = require('./expect/list');
+const test = require('mocha-test-dsl');
+const route = 'apps';
 
-const _ = require('../../utils');
-const expectations = require('./expectations');
-
-// to use expect:
-// _.expect()
-const route = '/apps';
-
-describe('apps', () => {
-  describe('GET list', () => {            
-    it('should return a list of apps', async () => {   
-      let result = await _.callApi(route, 'GET');         
-      expectations(result);       
-    });
-  });
-});
+test('route: apps')
+  .that('GET list')            
+    .will('return a list of apps', async () => {   
+        check(await _.callApi(route));       
+    })
+    .run();

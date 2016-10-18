@@ -2,7 +2,7 @@ const _ = require('../utils');
 const requests = require('../requests');
 requests.rate = requests.components.contacts.rate;
 const route = '/components/contacts';
-const check = require('./expect/update');
+const check = require('./expect/rate');
 const test = require('mocha-test-dsl');
 
 test('route: components')

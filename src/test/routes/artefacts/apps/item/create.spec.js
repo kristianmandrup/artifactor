@@ -1,16 +1,13 @@
-const _ = require('../../utils');
-const expectations = require('./expectations');
-const data = require('../requests/contacts-app/create');
+const _ = require('../utils');
+const requests = require('../requests');
+requests.create = requests.apps.contactsApp.create;
+const route = '/apps';
+const check = require('./expect/create');
+const test = require('mocha-test-dsl');
 
-// to use expect:
-// _.expect()
-const route = '/apps/contacts-app';
-
-describe('apps', () => {
-  describe('POST item', () => {            
-    it('should create a single app', async () => {   
-      let result = await _.callApi(route, 'POST', data);         
-      expectations(result);       
-    });
-  });
-});
+test('route: apps')
+  .that('CREATE item')            
+    .will('create a single app', async () => {   
+        check(await _.callApi(route, 'POST', requests.create));       
+    })
+    .run();

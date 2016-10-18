@@ -5,7 +5,7 @@ const test = require('mocha-test-dsl');
 
 test('route: components')
   .that('GET version')            
-    .will('return a the component version', async () => {   
+    .will('return the component version', async () => {   
         check(await _.callApi(route));       
     })
     .run();
