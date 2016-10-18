@@ -1,16 +1,10 @@
 const _ = require('../utils');
-const expectations = require('./expect/get');
+const check = require('./expect/get');
+const test = require('mocha-test-dsl');
 
-// to use expect:
-// _.expect()
-const route = 'components/contacts';
-
-describe('components', () => {
-  describe('GET item', () => {            
-    it('should return a single component', async () => {   
-      let result = await _.callApi(route);   
-      console.log('body', result.body);      
-      expectations(result);       
-    });
-  });
-});
+test('route: components')
+  .that('GET item')            
+    .will('return a single component', async () => {   
+        check(await _.callApi('components/contacts'));       
+    })
+    .run();
