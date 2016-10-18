@@ -6,13 +6,16 @@ const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser')();
 const logger = require('koa-logger');
 
-const index = require('./routes/index');
-const artefacts = require('./routes/artefacts');
+const viewRoutes = require('./routes/views');
+
+const api = require('./routes/api');
+
+const artefactRouterFactory = api.artefacts;
 
 const views = require('koa-views');
 
 module.exports = function(app, options) {
-  const artefactRouters = artefacts(options);
+  const artefactRouters = artefactRouterFactory(options);
 
   // middlewares
   app.use(convert(bodyparser));
@@ -35,7 +38,7 @@ module.exports = function(app, options) {
   // const params = require('koa-strong-params');
   // app.use(params());
 
-  router.use('/', index.routes(), index.allowedMethods());
+  router.use('/', viewRoutes.routes(), viewRoutes.allowedMethods());
 
   for (let router of artefactRouters) {
     app.use(router.routes(), router.allowedMethods());
