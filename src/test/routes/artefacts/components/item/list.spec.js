@@ -1,17 +1,12 @@
 'use strict';
 
 const _ = require('../utils');
-const expectations = require('./expectations');
+const check = require('./expect/list');
+const test = require('mocha-test-dsl');
 
-// to use expect:
-// _.expect()
-const route = 'components';
-
-describe('components', () => {
-  describe('GET list', () => {            
-    it('should return a list of components', async () => {   
-      let result = await _.callApi(route);         
-      expectations(result);       
-    });
-  });
-});
+test('route: components')
+  .that('GET list')            
+    .will('return a list of components', async () => {   
+        check(await _.callApi('components'));       
+    })
+    .run();
