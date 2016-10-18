@@ -4,17 +4,13 @@ module.exports = {
     minLength: 2,
     maxLength: 30  
   },
-  type: {
-    type: 'string',
-    enum: ['component', 'app', 'addon', 'plugin', 'theme']
-  },
   version: {
     type: 'string',
     pattern: '^(\d+\.)?(\d+\.)?(\*|\d+)$'
   },    
-  date: {
+  key: {
     type: 'string',
-    format: 'date-time'
-  },
-  required: ['name', 'type', 'version', 'date']  
+    minLength: 10,
+    maxLength: 30  
+  }
 }

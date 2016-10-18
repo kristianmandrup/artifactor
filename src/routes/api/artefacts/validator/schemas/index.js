@@ -1,3 +1,4 @@
 module.exports = {
-  item: require('./item')
+  item: require('./item'),
+  version: require('./item')
 }
