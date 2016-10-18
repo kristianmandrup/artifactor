@@ -42,7 +42,7 @@ Test all main API methods:
 
 ### Route tests
 
-The tests in `test/artefacts` should be moved into routes as they test routes.
+The tests in `test/artefacts` should be moved into `test/routes` as they test routes.
 Also reduce the folders. Either by method or artefact type:
 
 ```

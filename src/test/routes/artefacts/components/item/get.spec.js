@@ -1,5 +1,5 @@
 const _ = require('../utils');
-const expectations = require('./expectations');
+const expectations = require('./expect/get');
 
 // to use expect:
 // _.expect()

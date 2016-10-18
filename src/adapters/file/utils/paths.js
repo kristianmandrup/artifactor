@@ -7,7 +7,7 @@ module.exports = class Paths {
   }
 
   get entityDir() {
-    return path.join(__dirname, '../../../responses', this.entity);
+    return path.join(__dirname, '../../../../responses', this.entity);
   }
 
   get folder() {

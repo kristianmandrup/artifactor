@@ -77,7 +77,7 @@ to generate fake data based on the schema definitions. This is a similar approac
 but those are used for validation. It would be cool if we could use the fake data to also populate the Database via the 
 DB models!
 
-See `/artefacts/faker/schemas` for the faker schemas:
+See `/adapters/fake/faker/schemas` for the faker schemas:
 
 ```js
 const schema = {
@@ -113,11 +113,6 @@ To populate the DBs, add functions in /src/test/data' for `/mongo/populate` and 
 
 Currently we have a validation error when trying to use the components item reponse to create a DB model using the
 Mongoose `Component` schema. 
-
-```
-(node:17910) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): TypeError: this.model.create(...).exec is not a function
-(node:17910) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 3): ValidationError: Path `type` is required., Path `version` is required., Path `date` is required., Path `name` is required.
-```
 
 ## Architecture  
 
@@ -220,9 +215,9 @@ In the end for a `contacts` component, the REST routes would be:
 - POST `/components/contacts` (POST to create the single item `contacts`)  
 - ...
 
-### artefacts
+### File adapter
 
-The `/artefacts` folder contains canned API responses in `.json` files for each artefact type.
+The `/responses` folder contains canned API responses in `.json` files for each artefact type.
 
 The `io.js` can be used to access these files, f.ex via:
 - `jsonItem(id)` - return specific artefact item
@@ -235,6 +230,8 @@ gradually switch to using Mongo DB schemas/models for the API.
 Use the `/adapters` folder to add an adapter, either for the file IO or a DB, such as Mongo DB via mongoose.
 
 ## Couch DB for Pouch DB (sync)
+
+See `adapters/db/couch`
 
 ### Setup
 
@@ -254,6 +251,8 @@ add-cors-to-couchdb
 ```
 
 ## Mongo DB via Mongoose
+
+See `adapters/db/mongo`
 
 ### Mac OSX - Mongo DB
 Configuring Mongo DB. First install [homebrew](https://github.com/Homebrew/brew)
@@ -360,13 +359,14 @@ To update an artefact, use `findOneAndUpdate` as follows:
 
 `Component.findOneAndUpdate(query, update, {'upsert': true}).exec().then(onSuccess, onError);`
 
-## IO
+## File IO adapter
 
-Currently the IO adapter is designed to use `/artefacts/io` to respond with canned responses from `.json` files 
+Currently the File IO adapter is designed to use `/adapters/file` to respond with canned responses from `.json` files 
 which can all found in the `/responses` folder.
 
 The next step is to use a JSON database (Mongo DB via [Mongoose](http://mongoosejs.com/docs/)) or Couch DB. 
 Each of these DBs are simple, easy to use and scalable.
+
 Later on we might perhaps use [KeystoneJS](http://keystonejs.com/) - which uses Mongoose under the covers...
 
 Note that one of the benefits of using Couch DB, is that we can then automatically sync with the client via Pouch DB 
@@ -405,6 +405,8 @@ To test CUD (Create, Update, Delete) API functionality, you can use the canned r
           rate.json
           remove.json
 ```
+
+The `test/artefacts` are route tests and should be moved to `test/routes` 
 
 There are similar requests for the other artefacts. 
 

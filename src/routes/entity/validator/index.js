@@ -17,8 +17,7 @@ class RequestValidator {
     this.schema = schemas[this.method];     
   }  
 
-  @once
-  @memoize
+  @memoize()
   validate() {
     if (!this.schema)
       return true;

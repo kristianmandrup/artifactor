@@ -4,7 +4,7 @@ const config = require('./config');
 //   file: true => file: require('./file') 
 const adapterConfig = Object.keys(config).reduce( (obj, key) => {
   if (config[key])
-    obj[key] = require('./' + key) 
+    obj[key] = require(`./${key}/adapter`); 
   return obj; 
 }, {})
 

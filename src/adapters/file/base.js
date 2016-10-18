@@ -1,4 +1,4 @@
-const entities = require('../../../artefact').entities; 
+const entities = require('../../artefact').entities; 
 const Paths = require('./utils/paths');
 
 // TODO: Use readJson/writeJson directly from json-io
