@@ -1,17 +1,13 @@
 const _ = require('../utils');
-const expectations = require('./expectations');
-const data = require('../../../../../requests/components/contacts/create');
-
-// to use expect:
-// _.expect()
+const requests = require('../requests');
+requests.update = requests.components.contacts.create;
 const route = '/components/contacts';
+const check = require('./expect/update');
+const test = require('mocha-test-dsl');
 
-describe('components', () => {
-  describe('UPDATE item', () => {            
-    it('should update a single component', async () => {   
-      let result = await _.callApi(route, 'PUT', data);
-      console.log('RESULT', result);         
-      expectations(result);       
-    });
-  });
-});
+test('route: components')
+  .that('UPDATE item')            
+    .will('update a single component', async () => {   
+        check(await _.callApi(route, 'PUT', requests.update));       
+    })
+    .run();

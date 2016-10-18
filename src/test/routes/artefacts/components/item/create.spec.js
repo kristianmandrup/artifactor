@@ -1,21 +1,13 @@
 const _ = require('../utils');
-const xp = require('./expectations');
-const data = require('../../../../../requests/components/contacts/create');
-
-// to use expect:
-// _.expect()
-// POST to route: contacts/:id
+const requests = require('../requests');
+requests.create = requests.components.contacts.create;
 const route = '/components/my-contacts';
-let test;
+const check = require('./expect/create');
+const test = require('mocha-test-dsl');
 
-describe('components', () => {
-  describe('POST/create item: contacts', () => {
-    test = xp.contacts;
-
-    it('should create a single component called: contacts', async () => {   
-      let result = await _.callApi(route, 'POST', data);
-      // console.log('RESULT', result);         
-      test(result);       
-    });
-  });
-});
+test('route: components')
+  .that('CREATE item')            
+    .will('create a single component', async () => {   
+        check(await _.callApi(route, 'POST', requests.create));       
+    })
+    .run();

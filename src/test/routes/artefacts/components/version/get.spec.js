@@ -1,16 +1,11 @@
 const _ = require('../utils');
-const expectations = require('./expectations');
-
-// to use expect:
-// _.expect()
 const route = 'components/contacts/version?version=1.2';
+const check = require('./expect/get');
+const test = require('mocha-test-dsl');
 
-describe('components', () => {
-  describe('GET version', () => {            
-    it('should retrieve component version 1.2', async () => {   
-      let result = await _.callApi(route);  
-      // console.log('res', result);       
-      expectations(result);       
-    });
-  });
-});
+test('route: components')
+  .that('GET version')            
+    .will('return a the component version', async () => {   
+        check(await _.callApi(route));       
+    })
+    .run();

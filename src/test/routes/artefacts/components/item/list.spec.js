@@ -1,5 +1,3 @@
-'use strict';
-
 const _ = require('../utils');
 const check = require('./expect/list');
 const test = require('mocha-test-dsl');
