@@ -11,6 +11,4 @@ obj.create = function(entity, id) {
   }
 }
 
-console.log('export', obj)
-
 module.exports = obj;

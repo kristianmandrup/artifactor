@@ -3,7 +3,7 @@ var chai = require('chai'),
 
 module.exports = {
   // deleted is true
-  wasDeleted: (res) => {
+  wasDeleted: (res) => {    
     expect(res.body.deleted).to.equal(true);
   },
 

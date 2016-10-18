@@ -34,7 +34,9 @@ class FileAdapter {
   }  
 
   async delete() {
-    return this.io.file.deleteItem();
+    return {
+      deleted: await this.io.file.delete();
+    };
   }
 
   async rate({version, data}) {
