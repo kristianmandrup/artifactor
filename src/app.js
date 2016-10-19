@@ -2,7 +2,7 @@
 require('babel-polyfill');
 
 const Koa = require('koa');
-const configure = require('./configure');
+const config = require('./config');
 const app = new Koa();
 
 // Start the application.
@@ -10,5 +10,5 @@ const app = new Koa();
 
 module.exports = function(options = {adapter: 'file'}) {
   console.log('configuring server app:', options);
-  return configure(app, options);
+  return config(app, options);
 }

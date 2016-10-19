@@ -41,14 +41,13 @@ module.exports = function(app, options) {
   // built from query string and request body data. 
   // The returned object has some useful methods allows for data requiring and filtering.
 
-
   // See: https://www.npmjs.com/package/koa-strong-params
   var qs = require('koa-qs')
   qs(app); // required for nested query string objects 
   const params = require('koa-strong-params');
   app.use(params());
 
-  // TODO: GraphQL
+  // TODO: GraphQL?? or use Apollo stack :)
   // const graphqlRouter = api.graphql;
   // app.use(graphqlRouter.routes()).use(graphqlRouter.allowedMethods());
 
