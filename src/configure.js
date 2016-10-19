@@ -10,11 +10,11 @@ const viewRoutes = require('./routes/views');
 
 const api = require('./routes/api');
 
-const artefactRouterFactory = api.artefacts;
-
 const views = require('koa-views');
 
 module.exports = function(app, options) {
+  const artefactRouterFactory = api.artefacts;
+
   const artefactRouters = artefactRouterFactory(options);
 
   // middlewares
@@ -37,6 +37,10 @@ module.exports = function(app, options) {
 
   // const params = require('koa-strong-params');
   // app.use(params());
+
+  // TODO: GraphQL
+  // const graphqlRouter = api.graphql;
+  // app.use(graphqlRouter.routes()).use(graphqlRouter.allowedMethods());
 
   router.use('/', viewRoutes.routes(), viewRoutes.allowedMethods());
 
