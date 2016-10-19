@@ -211,9 +211,13 @@ export default {
 ### Apollo integration
 
 [Redis pub/sub subscriptions](https://medium.com/apollo-stack/graphql-subscriptions-with-redis-pub-sub-f636fc84a0c4#.19vxo3fgt) 
-has been added to this [frontend server fork](https://github.com/kristianmandrup/frontpage-server)
+and Koa 2 support has been added to this [frontend server fork](https://github.com/kristianmandrup/frontpage-server)
 
-We need to create resolvers that can operate on an adapter, such as the one for MongoDB.
+We should use this repo as a foundation for GraphQL support.
+We then need to create resolvers that can operate on an adapter, such as the one for MongoDB which can be found 
+in this (artifactor) repo.
+
+*Resolvers*
 
 ```js
 const authors = [
