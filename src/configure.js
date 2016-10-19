@@ -35,8 +35,18 @@ module.exports = function(app, options) {
     console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
   });;
 
-  // const params = require('koa-strong-params');
-  // app.use(params());
+  // TODO: strong-params
+  // Rails-style implementation of strong parameters for Koa. 
+  // The middleware adds the this.params object to the Koa context which returns an object, 
+  // built from query string and request body data. 
+  // The returned object has some useful methods allows for data requiring and filtering.
+
+
+  // See: https://www.npmjs.com/package/koa-strong-params
+  var qs = require('koa-qs')
+  qs(app); // required for nested query string objects 
+  const params = require('koa-strong-params');
+  app.use(params());
 
   // TODO: GraphQL
   // const graphqlRouter = api.graphql;

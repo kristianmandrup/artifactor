@@ -27,12 +27,22 @@ Graph QL subscriptions:
 - [GraphQL subscriptions](https://medium.com/apollo-stack/a-proposal-for-graphql-subscriptions-1d89b1934c18#.6ectn9t50)
 - [graphql-subscriptions-with-redis-pub-sub](https://medium.com/apollo-stack/graphql-subscriptions-with-redis-pub-sub-f636fc84a0c4#.19vxo3fgt)
 
-subscriptionpackages:
+subscription packages:
 
 - [subscriptions-transport-ws](https://github.com/apollostack/subscriptions-transport-ws)
 - [graphql-subscriptions](https://github.com/apollostack/graphql-subscriptions)
 
-[Hello world Apollo Vue2 app](https://github.com/Akryum/frontpage-vue-app)
+[Apollo server](https://medium.com/apollo-stack/apollo-server-0-2-graphql-with-express-connect-hapi-or-koa-7e06b0a8fdb1#.ll0x7xfq9)
+
+*Stored Queries* is a feature that lets you define and validate queries ahead of time, so that when clients make requests they only have to send the name of the query along with variables. This not only saves bandwidth, but is also a way for you to secure your server by limiting the queries that clients can make.
+
+Hello world Apollo Vue2 app:
+
+- [frontpage client](https://github.com/Akryum/frontpage-vue-app)
+- [frontpage server](https://github.com/apollostack/frontpage-server)
+
+This is a really simple GraphQL server that uses [Apollo Server](https://github.com/apollostack/apollo-server) 
+and [GraphQL Tools](https://github.com/apollostack/graphql-tools) to serve a simple schema.
 
 Apollo Vue example setup:
 
