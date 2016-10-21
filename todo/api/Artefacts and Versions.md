@@ -1,4 +1,4 @@
-# Simplifying the design
+# Simplify the design
 
 ## Types of artefacts
 
@@ -7,11 +7,13 @@ Why not just have one Artefact entity and then have a `type` field?
 
 ## Version or item
 
-Does it make sense to distinguish between item and versions?
-Is it not just all versions?
-
-An `item` is just the latest version (default). 
+Get rid of the `item` concept. Everything is a `version`. There is only one model, the `Artefact` 
 
 Calling `components/contacts` retrieves latest version by default, then lists other most recent versions alongside.
 Ideally use Graph QL or similar!?
+
+## Update
+
+Please see lates routes/api for details on new simplified API where there are 
+*only Artefacts and everything is a version :)*
 
