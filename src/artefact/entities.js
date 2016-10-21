@@ -1,15 +1,4 @@
-class Entities {
-  validate() {
-    return this.list.indexOf(this.entity) ? true : false;
-  }
-
-  get names() {
-    return ['app', 'component', 'plugin', 'lib']; 
-  } 
-
-  get list() {
-    return ['apps', 'components', 'plugins', 'libs']; 
-  } 
+module.exports = {
+  singular: ['app', 'component', 'plugin', 'library', 'addon', 'theme'],
+  plural: ['apps', 'components', 'plugins', 'libraries', 'addons', 'themes'] 
 }
-
-module.exports = new Entities();

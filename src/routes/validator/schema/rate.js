@@ -8,7 +8,7 @@ module.exports = {
     },
     type: {
       type: 'string',
-      enum: ['component']
+      enum: ['component', 'app', 'plugin', 'add-on', 'theme', 'service', 'library']
     },
     version: {
       type: 'string',
@@ -32,7 +32,9 @@ module.exports = {
           minLength: 2,
           maxLength: 30            
         } 
-      }
+      },
+      required: ['vote', 'user']
     }
-  }            
+  },
+  required: ['name', 'type', 'version', 'rating']            
 }  

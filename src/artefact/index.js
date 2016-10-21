@@ -1,3 +1,5 @@
 module.exports = {
-  entities: require('./entities')
+  entities: require('./entities'),
+  schema: require('./schema'),
+  io: require('./io')
 }

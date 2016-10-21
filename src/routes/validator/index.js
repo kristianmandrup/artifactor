@@ -1,6 +1,6 @@
 const jsonschema = require('jsonschema');
 const Validator = jsonschema.Validator;
-const schemas = require('./schemas'); 
+const schemas = require('./schema'); 
 
 import { once, memoize } from 'lodash-decorators'
 
@@ -11,7 +11,6 @@ class RequestValidator {
     this.validator = new Validator();
 
     this.method = ctx.method || 'get';
-    this.entity = ctx.entity;
 
     // See https://spacetelescope.github.io/understanding-json-schema/
     this.schema = schemas[this.method];     

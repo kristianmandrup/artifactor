@@ -1,6 +1,6 @@
 // Generates fake data, simulating a backend with tons of data
 
-import faker from './faker';
+import faker from '../../faker';
 
 class FakeAdapter {
   // id is optional, used to indicate specific REST resource
@@ -9,13 +9,11 @@ class FakeAdapter {
   }
 
   async item() {
-    return await this.io.getItem();
+    return faker.generate();
   }
 
   async list() {
-    // console.log('get file list');
     let list = await this.io.getList();
-    // console.log('list', list);
     return list; // await this.io.getList();
   }
 

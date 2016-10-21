@@ -20,27 +20,25 @@ module.exports = {
   definitions: require('./definitions'),
   properties: {
     date: {
-      type: 'date',
-      faker: 'random.date' // ??
+      // type: 'date',
+      type: 'string',
+      format: 'date-time'
     },
     name: {
-      type: 'string',
-      faker: 'random.word'
+      type: 'string',      
     },
     description: {
-      type: 'string',
-      faker: 'lorem.paragraph'
+      type: 'string'      
     },
     author: {
       '$ref': '#/definitions/author'
     },
     version: {
       type: 'string',
-      faker: 'system.semver'      
+      pattern: '^(\d+\.)?(\d+\.)?(\*|\d+)$',            
     },
     notice: {
-      type: 'string',
-      faker: 'lorem.sentence'            
+      type: 'string'                  
     },
     status: {
       enum: [
@@ -52,8 +50,7 @@ module.exports = {
     keywords: {
       type: 'array',
       items: {
-        type: 'string',
-        faker: 'lorem.word'
+        type: 'string',        
       },
       minItems: 1,
       uniqueItems: true          
@@ -62,17 +59,15 @@ module.exports = {
       type: 'array',
       items: {
         type: 'string',
-        faker: 'lorem.word'
       },
       minItems: 1,
       uniqueItems: true          
     },
     type: {
-      enum: ['component', 'plugin', 'add-on', 'theme', 'service', 'library']
+      enum: ['component', 'app', 'plugin', 'add-on', 'theme', 'service', 'library']
     },
     location: {
-      type: 'string',
-      faker: 'internet.url'      
+      type: 'string',      
     },
     installations: {
       type: 'number',
