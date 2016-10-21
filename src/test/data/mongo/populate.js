@@ -1,16 +1,19 @@
-// populate Mongo DB
+const { generatorFor } = require('../../../../adapters/fake/faker')
+const generate = generatorFor('component');
 
-const adapter = require('../../../adapters').db;
+const DbSaver = require('../../artefact/io/db-saver');
 
-// var fluffy = new Kitten({ name: 'fluffy' });
+module.exports = {
+  // populate Mongo DB using faker generator
+  populate: function(maxCount) {
+    
+    const adapter = require('../../adapters/db/mongo');
 
-const components = adapter.adapt('components');
-
-
-// TODO: alternatively generate fake data using Fake adapter (see artefacts/faker folder)
-let contacts = require('../../../../responses/components/contacts/item');
-
-components.create('contact', contacts).then(() => {
-  console.log('Mongo DB - created', contacts)
-})
-
+    while (count < maxCount) {
+      let artefact = generate(count++);
+      new DbSaver(artefact, adapter).save();  
+    }
+    
+    return true;
+  }
+}

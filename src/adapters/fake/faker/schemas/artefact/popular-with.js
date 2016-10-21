@@ -6,5 +6,6 @@ module.exports = {
       minimum: 100, 
       maximum: 2000      
     }
-  }  
+  },
+  required: ['combinedCount']  
 };

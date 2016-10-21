@@ -1,17 +1,18 @@
 const { generatorFor } = require('../../../../adapters/fake/faker')
 const generate = generatorFor('component');
 
-const DbSaver = require('../../artefact/io/db-saver');
+const { createFileSaver } = require('../../artefact/io/db-saver');
 
 module.exports = {
-  // populate Couch DB using faker generator
+  // populate mock files using faker generator
   populate: function(maxCount) {
-    const adapter = require('../../adapters/db/couch');
+    // const adapter = require('../../adapters/file');
 
     while (count < maxCount) {
       let artefact = generate(count++);
 
-      new DbSaver(artefact, adapter).save();  
+      // TODO: alternatively use file adapter
+      createFileSaver(artefact, adapter).save();  
     }
     
     return true;

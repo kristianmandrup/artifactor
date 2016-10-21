@@ -10,10 +10,21 @@ const { generatorFor } = require('../../../../adapters/fake/faker')
 
 const generate = generatorFor('component');
 
+function display(obj) {
+  return JSON.stringify(obj, null, 2)
+}
+
+function displayLog(obj) {
+  console.log(display(obj));
+}
+
 test('Faker')
   .that('generator')            
     .will('generate a valid component', async () => {
-      let component = await generate();   
+      let component = await generate();
+
+      displayLog(component);   
+
       check.isValid(component);       
     })
     .run();
