@@ -1,3 +1,1 @@
-const faker = require('./data-faker');
-
-module.exports = faker;
+module.exports = require('./generator');

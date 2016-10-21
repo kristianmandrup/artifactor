@@ -10,7 +10,7 @@ function display(obj) {
   return JSON.stringify(obj, null, 2)
 }
 
-console.log('environment schema', display(schema));
+// console.log('environment schema', display(schema));
 
 const jsf = require('json-schema-faker')
 

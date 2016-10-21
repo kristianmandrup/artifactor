@@ -1,15 +1,19 @@
-const schema = {
+module.exports = {
   type: 'object',
   required: [
     'name',
+    'description',
     'author',
-    'version',
+    'version',    
     'location',
     'installations',
+    'popularWith',
     'status',
     'type',
     'keywords',
+    'categories',
     'avgRating',
+    'ratings',
     'environment'
   ],
   definitions: require('./definitions'),
@@ -99,5 +103,3 @@ const schema = {
     } 
   }
 };
-
-module.exports = schema;
