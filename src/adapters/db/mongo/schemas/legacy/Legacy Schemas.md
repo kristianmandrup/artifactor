@@ -1,4 +1,4 @@
-# Mongoose Schemas
+# Legacy Schemas
 
 Schemas are defined using simple Javascript objects. This makes it easy to extend/override Schemas
 by simply merging on top using `Object.assign` or lodash deep merge: `_.merge`.

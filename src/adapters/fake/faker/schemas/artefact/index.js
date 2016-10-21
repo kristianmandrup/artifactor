@@ -2,6 +2,7 @@ module.exports = {
   type: 'object',
   required: [
     'name',
+    'date',
     'description',
     'author',
     'version',    
@@ -18,6 +19,10 @@ module.exports = {
   ],
   definitions: require('./definitions'),
   properties: {
+    date: {
+      type: 'date',
+      faker: 'random.date' // ??
+    },
     name: {
       type: 'string',
       faker: 'random.word'

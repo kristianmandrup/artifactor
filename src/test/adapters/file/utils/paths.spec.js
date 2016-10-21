@@ -2,7 +2,13 @@ const _ = require('../utils');
 // to use expect:
 // _.expect()
 
-const Paths = require('../../artefacts/paths');
+const Paths = require('../../adapters/file/utils/paths');
+
+// TODO: use new test DSL
+
+// test('route: components')
+//   .that('GET version')            
+
 
 describe('Paths', () => {
   let name = 'contacts';

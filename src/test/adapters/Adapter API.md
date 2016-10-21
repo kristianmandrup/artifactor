@@ -1,4 +1,6 @@
-# REST API
+# Adapter API
+
+For use with REST API. All adapters must support the following API.
 
 ### Artefact entity API
 

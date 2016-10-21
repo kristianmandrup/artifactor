@@ -1,4 +1,3 @@
-const {Schema } = require('mongoose');
 const { Author } = require('./common');
 
 // allows easy extension
