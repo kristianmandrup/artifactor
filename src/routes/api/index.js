@@ -1,4 +1,4 @@
-const artefacts = require('./artefacts');
+const rest = require('./rest');
 // const graphql = require('./graphql');
 
 module.exports = {

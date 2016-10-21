@@ -1,6 +1,6 @@
 const BaseRoute = require('./base');
 
-module.exports = class VersionRoute extends BaseRoute {
+module.exports = class GetRoute extends BaseRoute {
   constructor(ctx, next, options) {    
     super(ctx, next, options, 'version');
   }
@@ -8,7 +8,7 @@ module.exports = class VersionRoute extends BaseRoute {
   extract() {   
     this.params = {
       id: this.ctx.params.id || 'contacts',
-      version: this.ctx.query.version || '1.0'
+      version: this.ctx.query.version || 'latest'
     }
   }
 

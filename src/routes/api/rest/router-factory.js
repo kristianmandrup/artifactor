@@ -9,12 +9,16 @@ class RouterFactory {
   }
 
   get routes() {
-    return ['list', 'item', 'version', 'create', 'update', 'delete', 'rate'];
+    return ['list', 'get', 'create', 'update', 'delete', 'rate'];
+  }
+
+  loadAction(name) {
+    return require(`./actions/${name}`);
   }
 
   get registry() {
     return this.routes.reduce( (res, name) => {
-      res[name] = require(`./${name}`);
+      res[name] = this.loadAction(name); 
       return res;
     }, {});
   }
