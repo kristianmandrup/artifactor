@@ -16,9 +16,22 @@ class JsonIo extends BaseIo {
   async createItem(data) {
     console.log('Create:', this.id, data);
     return {
-      created: await this.io.create(data)
+      created: await this.create(data)
     };
   }
+
+  // uses: outputJson from fs-extra
+  // Almost the same as writeJson, except that if the directory does not exist, it's created.
+  async create(data) {
+    let filePath = this.paths.itemPath;
+    console.log('create path', filePath);
+    try {
+      await fs.outputJson(filePath, data);
+      return true;
+    } catch (err) {
+      return false;
+    }     
+  }  
 
   // async 
   async deleteItem() {
@@ -39,15 +52,40 @@ class JsonIo extends BaseIo {
     let filePath = this.paths.itemPath;
     try {
       let exist = await fs.stat(filePath);
-      return exist ? await this.io.addVersion(data) : false; 
+      return exist ? await this.addVersion(data) : false; 
     } catch (err) {
-      return await this.io.create(data);
+      return await this.create(data);
     }
   }
-  
+
+  async addVersion(data) {
+    let version = data.version; 
+    let filePath = this.paths.versionPath(version);
+    try {
+      return await fs.outputJson(filePath, data);
+    } catch (err) {
+      return false;
+    }     
+  }
+    
   async getItem() {
     let filePath = this.paths.itemPath;
     return await fs.readJson(filePath);    
+  }
+
+  // TODO: use cache
+  async findLatestVersion() {
+    let versionFiles = await this.io.files();
+    latestFile = versionFiles.reverse()[0]; // sort descending
+    let content = await fs.readJson(latestFile);
+    if (!content)
+      return false;
+    return content.version; 
+  }
+
+  async getLatestVersion() {
+    let latestVersion = await findLatestVersion();
+    return await this.getVersion(latestVersion)
   }
 
   async getVersion(version) {
@@ -68,9 +106,24 @@ class JsonIo extends BaseIo {
   // async
   async rateVersion(versionId, data) {
     return {
-      rated: await this.io.rate(versionId, data)
+      rated: await this.rate(versionId, data)
     };
+  }  
 
+  async rate(version, data) {
+    let filePath = this.paths.versionPath(version);
+    console.log('rate path', filePath);
+    try {
+      let item = await fs.readJson(filePath);
+      // add rating to ratings of version item
+      console.log('item before rating', item)
+      item.ratings.push(data.rating);
+      console.log('item after rating', item)
+      await fs.outputJson(filePath + '.rated', item);
+      return item;
+    } catch (err) {
+      return false;
+    }     
   }  
 }
 

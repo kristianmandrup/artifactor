@@ -18,12 +18,12 @@
   "popularWith": {
     "components": {
       "edgy": {
-        "combined": 1151
+        "combineCount": 1151
       }
     },
     "apps": {
       "social-app": {
-        "combined": 94
+        "combineCount": 94
       }
     }
   },
@@ -36,6 +36,7 @@
     { "rating": "2", "comment": "Missing a Dialogue", "user": "all4you" },
     { "rating": "3", "comment": "Bootstrap UI looks good", "user": "megaboy" }
   ],
+  "rating": "3.2",
   "fakes": "complete",
   "preview": "complete",
   "docs": "complete",
