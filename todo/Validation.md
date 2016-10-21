@@ -8,3 +8,5 @@ Create test suite to test for valid and invalid requests for:
 - Update
 - Remove
 - Rate 
+
+Also use `koa-strong-params` for basic request validation.
