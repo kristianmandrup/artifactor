@@ -21,5 +21,6 @@ module.exports = {
       type: 'string',
       faker: 'internet.url'
     }
-  }
+  },
+  required: ['name']
 };

@@ -1,4 +1,3 @@
 module.exports = {
-  app: require('./app'),
-  component: require('./component')
+  artifact: require('./artifact')
 }

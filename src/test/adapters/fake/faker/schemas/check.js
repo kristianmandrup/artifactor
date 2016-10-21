@@ -3,7 +3,7 @@ const expect = chai.expect;
 chai.should();
 
 module.exports = {
-  isValid: (artefact) => {
-    expect(artefact).to.be.defined;
-  }
+  isValidEnv: (env) => {
+    expect(env).to.be.defined;
+  } 
 }

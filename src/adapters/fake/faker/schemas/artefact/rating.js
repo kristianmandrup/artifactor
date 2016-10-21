@@ -1,5 +1,4 @@
 module.exports = {
-  id: 'rating',
   rating: {
     type: 'number',
     minimum: 1, 
