@@ -2,12 +2,16 @@
 
 // For Faker API, see: https://github.com/marak/Faker.js/
 
-const jsf = require('json-schema-faker');
+// const jsf = require('json-schema-faker');
 
 // Test schema: http://json-schema-faker.js.org/
 // To convert to valid JSON, use: http://www.freeformatter.com/json-formatter.html#ad-output
 
-const common = require('./common').schema;
+const cmn = require('./index');
+
+console.log('common', cmn)
+
+const common = cmn.schema;
 
 const schema = {
   required: [

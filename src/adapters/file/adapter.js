@@ -35,7 +35,7 @@ class FileAdapter {
 
   async delete() {
     return {
-      deleted: await this.io.file.delete();
+      deleted: await this.io.file.delete()
     };
   }
 

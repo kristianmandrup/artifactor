@@ -1,4 +1,5 @@
 const faker = require('faker');
+const jsf = require('json-schema-faker')
 
 class DataFaker {
   constructor(entity, id) {
@@ -14,8 +15,17 @@ class DataFaker {
   }
 }
 
+function generatorFor(artefactType) {
+  let schema = require('./schemas/' + artefactType);
+
+  return function() {
+    return jsf(schema)
+  }
+}
+
 export default {
   DataFaker,
+  generatorFor,
   create: function (entity, id) {
     return new DataFaker(entity, id);
   }
