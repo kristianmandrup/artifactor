@@ -21,7 +21,7 @@ class FileSaver {
   }
 
   save(artefact) {
-    await fs.outputJson(this.jsonFilePath); 
+    await fs.outputJson(this.jsonFilePath, this.artefact); 
   }
 }
 

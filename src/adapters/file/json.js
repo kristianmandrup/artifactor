@@ -119,7 +119,7 @@ class JsonIo extends BaseIo {
       console.log('item before rating', item)
       item.ratings.push(data.rating);
       console.log('item after rating', item)
-      await fs.outputJson(filePath + '.rated', item);
+      await fs.outputJson(filePath, item);
       return item;
     } catch (err) {
       return false;

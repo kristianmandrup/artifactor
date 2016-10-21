@@ -18,3 +18,6 @@ while (i < 20) {
 
 Please see `test/data` with initial infrastructure for population... 
 
+```js
+
+const { populate } = require('../../data').file;
