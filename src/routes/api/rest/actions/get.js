@@ -2,14 +2,13 @@ const BaseRoute = require('./base');
 
 module.exports = class GetRoute extends BaseRoute {
   constructor(ctx, next, options) {    
-    super(ctx, next, options, 'version');
+    super(ctx, next, options);
   }
 
   extract() {   
-    this.params = {
-      id: this.ctx.params.id || 'contacts',
+    this.setParams({
       version: this.ctx.query.version || 'latest'
-    }
+    })
   }
 
   error() {

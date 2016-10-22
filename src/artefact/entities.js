@@ -1,4 +1,15 @@
-module.exports = {
-  singular: ['app', 'component', 'plugin', 'library', 'addon', 'theme'],
-  plural: ['apps', 'components', 'plugins', 'libraries', 'addons', 'themes'] 
+class Entities {
+  validate(entity, type = 'singular') {
+    return this[type].includes(entity);
+  }
+
+  get singular() {
+    return ['app', 'component', 'plugin', 'library', 'addon', 'theme']
+  }
+
+  get plural() {
+    return ['apps', 'components', 'plugins', 'libraries', 'addons', 'themes']
+  } 
 }
+
+module.exports = new Entities(); 

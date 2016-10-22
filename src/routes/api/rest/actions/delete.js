@@ -2,13 +2,7 @@ const BaseRoute = require('./base');
 
 module.exports = class DeleteRoute extends BaseRoute {
   constructor(ctx, next, options) {
-    super(ctx, next, options, 'delete');
-  }
-
-  extract() {   
-    this.params = {
-      id: this.ctx.params.id || 'contacts'
-    } 
+    super(ctx, next, options);
   }
 
   error() {

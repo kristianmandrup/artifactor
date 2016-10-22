@@ -14,15 +14,10 @@ module.exports = class Paths {
     return path.join(this.entityDir, this.id);
   }
 
-  get listPath() {
-    return path.join(this.entityDir, 'list.json');
-  }
-
-  get itemPath() {
-    return path.join(this.folder, `item.json`);
-  }
-
-  versionPath(version = 'version') {
+  versionPath(version) {
+    if (!version) {
+      throw 'versionPath: Missing version';
+    }
     return path.join(this.folder, `${version}.json`);
   }  
 }

@@ -2,14 +2,13 @@ const BaseRoute = require('./base');
 
 module.exports = class RateRoute extends BaseRoute {
   constructor(ctx, next, options) {
-    super(ctx, next, options, 'rate');
+    super(ctx, next, options);
   }
 
   extract() {   
-    this.params = {
-      id: this.ctx.params.id || 'contacts',
-      data: this.ctx.request.body
-    } 
+    this.setParams({
+      rating: this.ctx.request.body.rating
+    }) 
   }
 
   error() {

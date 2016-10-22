@@ -10,12 +10,8 @@ import BaseIo from './base';
 // TODO: Use readJson/writeJson directly from json-io
 // https://www.npmjs.com/package/fs-extra#readjsonfile-options-callback
 class FileIo extends BaseIo {
-  constructor(entity, id) {
-    super(entity, id);
-  }
-
-  validate() {
-    return this.entities.validate();
+  constructor(entity, {params}) {
+    super(entity, {params});
   }
 
   async readFiles() {
@@ -38,13 +34,10 @@ class FileIo extends BaseIo {
   }
 
   async list() {
-    return await fs.readFile(this.paths.listPath, 'utf8');
+    return await this.readFiles();
   }
 }
 
-module.exports = {
-  clazz: FileIo,
-  create: function(entity, id) {
-    return new FileIo(entity, id);
-  }
+module.exports = function(entity, {params}) {
+  return new FileIo(entity, {params});
 }

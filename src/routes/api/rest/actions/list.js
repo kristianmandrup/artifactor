@@ -2,7 +2,7 @@ const BaseRoute = require('./base');
 
 module.exports = class ListRoute extends BaseRoute {
   constructor(ctx, next, options) {
-    super(ctx, next, options, 'list');
+    super(ctx, next, options);
   }
 
   error() {

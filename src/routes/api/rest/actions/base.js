@@ -3,12 +3,12 @@ const Validator = require('./validator');
 
 module.exports = class BaseRoute {
   // type is the type of artefact such as: components
-  constructor(ctx, next, {entity, adapter}, name) {
+  constructor(ctx, next, {entity, adapterType, action}) {
     this.validator = new Validator(ctx)
-    this.name = name;
+    this.action = action;
     this.entity = entity;
     this.ctx = ctx;
-    this.adapterType = adapter || 'file';
+    this.adapterType = adapterType || 'file';
   }
 
   accept() {
@@ -30,10 +30,14 @@ module.exports = class BaseRoute {
     return this.validator.validate();
   }
 
+  get adapterClass() {
+    return adapters[this.adapterType]
+  }
+
   // we use file adapter here
   // f.ex for components entity
   get adapter() {
-    return adapters[this.adapterType].adapt(this.entity, this.params);
+    return this.adapterClass.create(this.entity, {params: this.params});
   }
 
   // executes the route and returns the body
@@ -50,15 +54,24 @@ module.exports = class BaseRoute {
     }
   }
 
-  // Extract from params and query string
-  extract() {   
-    this.params = {}; 
+  setParams(params) {
+    this.params = Object.assign(this.params || {}, params);     
   }
 
-  // name could be f.ex: list, item or version and so on...
+  // Extract from params and query string
+  extract() {   
+    this.setParams({
+      id: this.ctx.params.id,
+      data: this.ctx.request.body,
+      action: this.action
+    }); 
+  }
+
+  // action could be f.ex: list, item or version and so on...
   async jsonBody() {
-    console.log('get json body', this.name, this.adapterType);
-    return await this.adapter[this.name](this.params);
+    console.log('get json body', this.action);
+    // call method by action on adapter
+    return await this.adapter.execute();
   }
     
   // Use adapter

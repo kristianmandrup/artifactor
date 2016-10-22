@@ -2,7 +2,7 @@
   "name": "guest-app",
   "description": "Contacts management",
   "date": "2016-07-21",
-  "version": "1.0",
+  "version": "1.0.2",
   "rating": "4.2",
   "author": {
     "name": "Kristian Mandrup"

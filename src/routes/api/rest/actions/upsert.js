@@ -5,13 +5,6 @@ module.exports = class CreateRoute extends BaseRoute {
     super(ctx, next, options, 'create');
   }
 
-  extract() {   
-    this.params = {
-      id: this.ctx.params.id || 'contacts',
-      data: this.ctx.request.body
-    } 
-  }
-
   error() {
     console.error('Create route error');
   }
