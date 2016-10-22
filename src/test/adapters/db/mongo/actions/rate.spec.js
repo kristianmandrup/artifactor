@@ -1,12 +1,12 @@
 const _ = require('../utils');
 const check = require('./expect/create');
 const test = require('mocha-test-dsl');
-const components = require('./components');
+const model = require('./model');
 
 test('Adapter: mongo')
-  .that('Component.findOneAndUpdate')
-    .will('updates a component', async () => {
-      let result = await components.update({name: 'mindbender'}, {
+  .that('rate')
+    .will('rates a component', async () => {
+      let result = await model.rate({name: 'mindbender'}, {
         name: 'new-mindbender',
         type: 'component',
         version: '1.1',

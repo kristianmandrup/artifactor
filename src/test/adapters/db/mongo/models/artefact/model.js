@@ -2,39 +2,40 @@ const { mongo } = require('../../../../../adapters/db')
 const models = mongo.models;
 
 // see http://mongoosejs.com/docs/models.html
+const model = models.Artefact;
 
 module.exports = {
   create: async (obj) => {
     try {
-      return models.Component.create(obj);
+      return model.create(obj);
     } catch (err) {
       console.error(err);
     }  
   },
   delete: async (predicate) => {
     try {
-      return models.Component.remove(predicate);
+      return model.remove(predicate);
     } catch (err) {
       console.error(err);
     }  
   },
   update: async (predicate, obj) => {
     try {
-      return models.Component.findOneAndUpdate(predicate, obj);
+      return model.findOneAndUpdate(predicate, obj);
     } catch (err) {
       console.error(err);
     }  
   },  
   find: async (predicate) => {
     try {
-      return models.Component.find(predicate);
+      return model.find(predicate);
     } catch (err) {
       console.error(err);
     }  
   },
   findAll: async () => {
     try {
-      return models.Component.find();
+      return model.find();
     } catch (err) {
       console.error(err);
     }  
