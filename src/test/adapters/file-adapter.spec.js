@@ -1,19 +1,61 @@
-const { expect } = require('../utils');
-// to use expect:
-// _.expect()
+const _ = require('../utils');
 
-const ioAdapter = require('../../adapters/file-adapter');
+const check = require('./expect/get');
+const test = require('mocha-test-dsl');
 
-describe('File Adapter', () => {
-  let name = 'contacts';
-  const components = ioAdapter.adapt('components', name);
+const file = require('../../adapters/file');
 
-  describe('#item', () => {            
-    it('should return item file content as json', async () => {
-      let json = await components.item();
-      console.log('CONTENT', json);
-      expect(json.name).to.equal('contacts');
-      expect(json.versions.length).to.equal(2);
-    });
-  });
+var mock = require('mock-fs');
+
+// TODO: 
+// See test/data for methods to populate with test data 
+// use faker to create fake artefact version files
+// Use artefact/io/file-saver to save them in appropriate path for file adapter to find them :)
+
+mock({
+  'path/to/fake/dir': {
+    'some-file.txt': 'file content here',
+    'empty-dir': {/** empty directory */}
+  },
+  'path/to/some.png': new Buffer([8, 6, 7, 5, 3, 0, 9]),
+  'some/other/path': {/** another empty directory */}
 });
+
+// TODO: use new test DSL
+
+let tester = test('Adapter: file');
+
+tester
+  .that('an instance')            
+    .will('set paths correctly', () => {
+
+    })
+    // .run();
+
+tester
+  .that('get by id')            
+    .will('return latest version', () => {
+
+    })
+    // .run();
+
+tester
+  .that('get specific version')            
+    .will('return specific version', () => {
+
+    })
+    // .run();    
+
+tester
+  .that('get > version')            
+    .will('return all versions >', () => {
+
+    })
+    // .run();        
+
+tester
+  .that('get < version')            
+    .will('return all versions <', () => {
+
+    })
+    // .run();

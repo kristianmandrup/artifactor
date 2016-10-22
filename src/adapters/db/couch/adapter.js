@@ -11,7 +11,7 @@ class DbAdapter extends BaseAdapter {
     this.configure();
   }
 
-  configure() {
+  async configure() {
     // Mongo specific
     this.clazzName = className(this.entity);
     this.model = models[this.clazzName];
