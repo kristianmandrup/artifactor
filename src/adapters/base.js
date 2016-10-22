@@ -1,6 +1,4 @@
-const actions = require('../actions');
-
-class FileAdapter {
+class BaseAdapter {
   // id is optional, used to indicate specific REST resource
   constructor(entity, {params}) {
     this.entity = entity;
@@ -11,13 +9,6 @@ class FileAdapter {
   }
 
   async execute() {
-    return this.action.execute();
+    return await this.action.execute();
   }
 }
-
-module.exports = {
-  // params may contain id, data etc
-  create: function(entity, {params}) {
-    return new FileAdapter(entity, {params});
-  }
-} 

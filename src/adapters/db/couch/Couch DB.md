@@ -28,3 +28,9 @@ promised.db
 promised.client
 promised.cradle
 ```
+
+## Schemas
+
+CouchDB is schemaless, but perhaps we can Add schema support to Cradle!?
+
+[schema-couch examples](https://github.com/ryanramage/schema-couch/tree/master/example/schemas)

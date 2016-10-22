@@ -1,0 +1,1 @@
+// CouchDB has the concept of Views
