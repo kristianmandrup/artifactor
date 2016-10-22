@@ -1,4 +1,4 @@
-const check = require('./expect/get');
+const check = require('./check');
 const test = require('mocha-test-dsl');
 
 const file = require('../../adapters/file');

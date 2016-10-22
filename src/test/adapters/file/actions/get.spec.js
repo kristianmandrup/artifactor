@@ -1,4 +1,4 @@
-const check = require('./expect/get');
+const check = require('./check');
 const test = require('mocha-test-dsl');
 
 const file = require('../../adapters/file');
@@ -11,8 +11,8 @@ const action = actions.create.get('component', {
 // TODO: use new test DSL
 
 test('Adapter: File')
-  .that('action: get')            
-    .will('gets the version file', async () => {
+  .that('action: get version=1.2')            
+    .will('get tha version', async () => {
       let result = await action.execute();
       check.isVersion(result, '1.2');
     })
