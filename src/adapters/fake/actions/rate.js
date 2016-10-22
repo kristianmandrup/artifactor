@@ -5,9 +5,10 @@ module.exports = class Action extends BaseAction {
     super(entity, {params});
   }
 
+  // async
   async execute() {
     return {
-      deleted: await this.io.delete(this.id)
+      rated: true
     };
   }
 }

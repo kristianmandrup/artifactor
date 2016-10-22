@@ -7,7 +7,11 @@ module.exports = class Action extends BaseAction {
 
   async execute() {
     return {
-      deleted: await this.io.delete(this.id)
+      rated: await this.rated()
     };
-  }
+  }  
+
+  async rated() {
+    return await this.model.get({name: this.id}).rate(this.rating).exec();
+  }  
 }

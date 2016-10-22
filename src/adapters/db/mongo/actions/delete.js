@@ -4,10 +4,15 @@ module.exports = class Action extends BaseAction {
   constructor(entity, {params}) {
     super(entity, {params});
   }
-
-  async execute() {
+ 
+  async delete() {
     return {
-      deleted: await this.io.delete(this.id)
+      deleted: await this.deleted()
     };
   }
+
+  async deleted() {
+    return await this.model.delete({name: this.id}).exec();
+  }
+  
 }

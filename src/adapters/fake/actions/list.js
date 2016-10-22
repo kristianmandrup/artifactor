@@ -1,13 +1,16 @@
 const BaseAction = require('./base');
 
+function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 module.exports = class Action extends BaseAction {
   constructor(entity, {params}) {
     super(entity, {params});
   }
 
   async execute() {
-    return {
-      deleted: await this.io.delete(this.id)
-    };
+    let number = randomInt(1, 10);
+    return await this.faker.generate(number);    
   }
 }

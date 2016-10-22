@@ -5,9 +5,10 @@ module.exports = class Action extends BaseAction {
     super(entity, {params});
   }
 
+  // TODO: use data instance var
   async execute() {
     return {
-      deleted: await this.io.delete(this.id)
+      upserted: true
     };
   }
 }

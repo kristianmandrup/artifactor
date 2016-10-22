@@ -7,7 +7,7 @@ module.exports = class Action extends BaseAction {
 
   async execute() {
     return {
-      deleted: await this.io.delete(this.id)
+      deleted: true
     };
   }
 }
