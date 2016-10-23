@@ -1,6 +1,6 @@
 const { callApi } = require('./utils'); 
 
-class ApiCalls {
+class ApiCall {
   constructor(route, requests) {
     this.route = route;
     this.requests = request;
@@ -36,5 +36,5 @@ class ApiCalls {
 } 
 
 module.exports = function (route, request) {
-  return new ApiCalls(route, request);
+  return new ApiCall(route, request);
 }  
