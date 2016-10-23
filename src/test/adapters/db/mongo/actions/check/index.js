@@ -1,10 +1,4 @@
-var chai = require('chai'),
-    expect = chai.expect;
-
-function display(result) {
-  let txt = JSON.stringify(result, null, 2);
-  console.log(txt);  
-}
+const { display, expect } = require('../utils');
 
 module.exports = {
   deleted: (result) => {

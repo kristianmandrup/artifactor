@@ -2,7 +2,7 @@
 // Check that it matches schema
 
 const { display } = require('./utils');
-const check = require('./check/artefact');
+const check = require('./check');
 const test = require('mocha-test-dsl');
 
 const { generatorFor } = require('../../../../adapters/fake/faker')

@@ -1,1 +1,1 @@
-module.exports = require('../../adapters');
+module.exports = require('../').adapters;

@@ -15,5 +15,6 @@ function display(obj) {
 
 module.exports = {
   stringify,
-  display
+  display,
+  expect
 }

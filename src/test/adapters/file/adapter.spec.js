@@ -3,20 +3,16 @@ const _ = require('../utils');
 const check = require('./expect/get');
 const test = require('mocha-test-dsl');
 
-const file = require('../../adapters/file');
+const FileAdapter = require('./');
+let fileAdapter = new FileAdapter(entity, params); 
 
 // TODO: use new test DSL
 
-test('File io')
+test('adapter: File')
   .that('an instance')            
-    .will('set paths correctly', () => {
-
+    .will('has all actions', async () => {
+      fileAdapter = await fileAdapter.configure();
+      check.hasActions(fileAdapter); 
     })
-    // .run();
+    .run();
 
-test('File io')
-  .that('delete version')            
-    .will('deletes it', () => {
-
-    })
-    // .run();
