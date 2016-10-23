@@ -1,8 +1,7 @@
+const { display } = require('./utils');
 const check = require('./check');
 const test = require('mocha-test-dsl');
-
-const file = require('../../adapters/file');
-const actions = file.actions;
+const { actions } = require('./');
 const action = actions.create.delete('component', {
   id: 'contacts'
 });
