@@ -24,4 +24,6 @@ class RequestValidator {
   }
 }
 
-module.exports = RequestValidator; 
+module.exports = function(ctx) {
+  return new RequestValidator(ctx);
+} 

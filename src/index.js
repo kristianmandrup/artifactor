@@ -4,4 +4,5 @@ module.exports = {
   faker: require('./faker'),
   config: require('./config'),
   routes: require('./routes'),
+  validator: require('./validator')
 }

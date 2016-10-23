@@ -65,7 +65,8 @@ for various scenarios and configurations, f.ex using a config file of some sort?
 
 ### Use new testing DSL
 
-See the `src/test/sandbox/dsl-test.spec.js` for an example of using the new and improved mocha testing DSL: `mocha-test-dsl`.
+See [mocha-test-dsl](https://www.npmjs.com/package/mocha-test-dsl)
+
 This DSL lets you drastically improve how you write readable, reusable composable tests and avoid duplication, keeping it
 concise and to the point and very decoupled!!  
 
@@ -77,7 +78,7 @@ to generate fake data based on the schema definitions. This is a similar approac
 but those are used for validation. It would be cool if we could use the fake data to also populate the Database via the 
 DB models!
 
-See `/adapters/fake/faker/schemas` for the faker schemas:
+See `faker/schemas` for the faker schemas:
 
 ```js
 const schema = {
@@ -109,7 +110,8 @@ const schema = {
 
 To test the Mongo and Couch DB adapters, we need to first populate the DBs.
 This should ideally be done via `beforeEach` and cleaned up in `afterEach` for each test suite:
-To populate the DBs, add functions in /src/test/data' for `/mongo/populate` and `/couch/populate` respectively!   
+
+To populate the DBs, add functions in `/src/data` for `/mongo/populate` and `/couch/populate` respectively!   
 
 Currently we have a validation error when trying to use the components item reponse to create a DB model using the
 Mongoose `Component` schema. 
@@ -176,16 +178,18 @@ for (let router of artefactRouters) {
 }
 ```
 
-All the routes can be found in the `/routes` folder. 
-Arterfact routes such as for `/components` are generated via `/routes/artefacts.js`. 
+All the REST routes can be found in the `/routes/api/rest` folder. 
+Artefact routes are generated in `/routes/api/rest/index.js`. 
 
 It maps over the list of entities and calls `factory.createRouter(entity)` to 
-create a new Roter for each entity. 
+create a new Router the `Artefact` domain model. 
 
 `entities.list.map(entity => routerFactory.create(entity, adapter));`
 
 The list of `Router` instances are returned and are added to the Koa app as middlewares.
-The router factory can be found in: `routes/entity/router-factory.js`
+
+The router factory can be found in: `routes/api/rest/router-factory.js` and uses 
+the `route-factory.js` in the same folder to create each route, linked to an action in the `/actions` sub-folder.
 
 ```js
 createRouter() {
@@ -215,6 +219,35 @@ In the end for a `contacts` component, the REST routes would be:
 - POST `/components/contacts` (POST to create the single item `contacts`)  
 - ...
 
+For each supported action there is a class, such as `GetRoute` for the `get` action, which extends `BaseRoute`
+TODO: clean up naming to make consistent! 
+
+```js
+module.exports = class GetRoute extends BaseRoute {
+  constructor(ctx, next, options) {    
+    super(ctx, next, options);
+  }
+
+  // ...
+}
+```
+
+## adapters
+
+Currently we are developing these adapters
+- fake
+- file
+- db  
+  - mongo
+  - couch
+
+Use the `adapters/config.js` file to configure which adapters are active. 
+
+### Fake adapter
+
+Uses `faker` to generate fake responses. Useful for "quick and dirty" testing or generate fake realistic 
+looking responses for any purpose ;) 
+
 ### File adapter
 
 The `/responses` folder contains canned API responses in `.json` files for each artefact type.
@@ -226,8 +259,6 @@ The `io.js` can be used to access these files, f.ex via:
 
 You can start playing with the API using these files, building up the test suite and then 
 gradually switch to using Mongo DB schemas/models for the API. 
-
-Use the `/adapters` folder to add an adapter, either for the file IO or a DB, such as Mongo DB via mongoose.
 
 ## Couch DB for Pouch DB (sync)
 
@@ -393,22 +424,23 @@ Use the same file structure (pattern) for each entity.
 
 ## Test
 
-To test CUD (Create, Update, Delete) API functionality, you can use the canned requests in `/test`:
+To test CUD (Create, Update, Delete) API functionality, you can use the canned requests in `/requests`:
 
 ```
-/test
-  /artefacts
-    /components
-      /requests
-        /contacts
-          create.json
-          rate.json
-          remove.json
+/requests
+  /components
+    /contacts
+      create.json
+      rate.json
+      remove.json
+  /apps
+    /contact-app
+      create.json
+      ...
 ```
 
-The `test/artefacts` are route tests and should be moved to `test/routes` 
-
-There are similar requests for the other artefacts. 
+TODO: rename `create` to `upsert` (update or insert).
+Note: any "production ready" storage should NOT update but only *create new versions*.
 
 ## License
 

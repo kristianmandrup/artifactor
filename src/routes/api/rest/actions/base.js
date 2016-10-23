@@ -1,10 +1,10 @@
 const adapters = require('./adapters')
-const Validator = require('./validator'); 
+const validator = require('./validator'); 
 
 module.exports = class BaseRoute {
   // type is the type of artefact such as: components
   constructor(ctx, next, {entity, adapterType, action}) {
-    this.validator = new Validator(ctx)
+    this.validator = validator(ctx);
     this.action = action;
     this.entity = entity;
     this.ctx = ctx;

@@ -39,6 +39,7 @@
     "koa-strong-params": "0.0.3",
     "koa-views": "^5.0.2",
     "lodash-decorators": "^3.0.1",
+    "mocha-test-dsl": "^0.3.2",
     "mongoose": "^4.6.0",
     "node-dir": "^0.1.16",
     "pouch-clerk": "^0.3.6",
