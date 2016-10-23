@@ -1,32 +1,31 @@
-const { display } = require('./utils');
-const check = require('./expect/create');
-const test = require('mocha-test-dsl');
-const components = require('./components');
+const { display, check, test, action, ratingFor } = require('./env');
 
-test('Adapter: mongo')
-  .that('Component.upsert')
-    .will('creates a component', async () => {
-      let result = await components.create({
-        name: 'mindbender',
-        type: 'component',
-        version: '1.0',
-        date: '7/7/2016'
-      })
+let type = 'component';
+let name = 'contacts';
+let version = 'latest'; 
 
-      check.created(result);
+let params = {
+  type,
+  name,
+  version
+}
+
+test('Adapter: File')
+  .that('action: upsert components/my-contacts')            
+    .will('creates that component version', async () => {
+      let result = await action(params).upsert.execute();
+
+      check(result)
+        .wasCreated(); // check new file was created
     })
-    .run()
+    .run();
 
-test('Adapter: mongo')
-  .that('Component.upsert')
-    .will('update a component', async () => {
-      let result = await components.create({
-        name: 'mindbender',
-        type: 'component',
-        version: '1.0',
-        date: '7/7/2016'
-      })
+test('Adapter: File')
+  .that('action: upsert components/contacts')            
+    .will('updates that component version', async () => {
+      let result = await action(params).upsert.execute();
 
-      check.created(result);
+      check(result)
+        .wasUpdated(); // check timestamp
     })
-    .run()
+    .run();

@@ -1,6 +1,6 @@
 const { display, check, test, action, ratingFor } = require('./env');
 
-let type = 'components';
+let type = 'component';
 let name = 'contacts';
 let version = 'latest';
 

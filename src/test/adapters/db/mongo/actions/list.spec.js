@@ -1,15 +1,21 @@
-const { display } = require('./utils');
-const check = require('./expect/get');
-const test = require('mocha-test-dsl');
-const actions = require('./');
-const action = actions.create.list(params);
+const { display, check, test, action } = require('./env');
 
- test('Adapter: mongo')
-  .that('Component.findAll')
-    .will('finds all components', async () => {
-      let result = await action.execute()
+let type = 'component';
+let name = 'contacts';
+let version = 'latest'; 
 
-      check.retrieved(result);
+let params = {
+  type,
+  name,
+  version
+}
+
+test('Adapter: File')
+  .that('action: list components/contacts')            
+    .will('gets all versions', async () => {
+      let result = await action(params).list.execute();
+
+      check(result)
+        .isVersion('1.2');
     })
-    .run()
-
+    .run();

@@ -1,16 +1,16 @@
-const { display } = require('./utils');
-const check = require('./expect/delete');
-const test = require('mocha-test-dsl');
-const model = require('./model');
+const { display, check, test, model } = require('./env');
 
- test('Adapter: mongo')
+let predicate = {
+  name: 'mindbender'
+}
+
+test('Adapter: mongo')
   .that('Component.delete')
     .will('creates a component', async () => {
-      let result = await model.delete({
-        name: 'mindbender'
-      })
+      let result = await model.delete(predicate)
 
-      check.deleted(result);
+      check(result)
+        .wasDeleted()
     })
     .run()
 

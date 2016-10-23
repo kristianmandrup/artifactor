@@ -1,16 +1,23 @@
-const { display } = require('./utils');
-const check = require('./expect/get');
-const test = require('mocha-test-dsl');
-const actions = require('./');
+const { display, check, test, action } = require('./env');
+
+let type = 'component';
+let name = 'contacts';
+let version = '1.2'; 
+
+let params = {
+  type,
+  name,
+  version
+}
 
  test('Adapter: mongo')
   .that('Component.find')
     .will('finds a component', async () => {
-      let result = await model.find({
-        name: 'mindbender'
-      })
+      let result = await action(params).get.execute();
 
-      check.retrieved(result);
+      check(result)
+        .isVersion(version)
+        .isType(type)
     })
     .run()
 

@@ -1,8 +1,4 @@
-const { display } = require('./utils');
-const check = require('./expect/delete');
-const test = require('mocha-test-dsl');
-const actions = require('./');
-const action = actions.create.list(params);
+const { display, check, test, action } = require('./env');
  
 
  test('Adapter: mongo')
