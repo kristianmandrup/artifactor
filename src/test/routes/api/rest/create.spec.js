@@ -4,6 +4,8 @@ test('route: components')
   .that('CREATE item')            
     .will('create a single component', async () => {
       let result = await call.create();   
-      check(result).wasCreated();       
+
+      check(result)
+        .wasCreated()       
     })
     .run();

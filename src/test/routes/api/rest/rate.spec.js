@@ -14,7 +14,7 @@ test('route: components/contacts')
       
       check(result)
         .wasRated()
-        .ratingAdded();
+        .ratingAdded()
     })
 
     .will('NOT add a rating for the same user', async () => {   
@@ -24,7 +24,7 @@ test('route: components/contacts')
       
       check(result)
         .wasRated(false)
-        .ratingAdded(false);        
+        .ratingAdded(false)        
     })
 
     .will('add anpother rating for another same user', async () => {   
@@ -36,7 +36,7 @@ test('route: components/contacts')
         .wasRated()
         .ratedBy('sandy')
         .starsRated(2)
-        .ratingAdded();        
+        .ratingAdded()       
     })
 
     .run();

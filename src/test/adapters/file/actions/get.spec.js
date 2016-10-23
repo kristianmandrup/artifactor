@@ -1,19 +1,20 @@
-const { display } = require('./utils');
-const check = require('./check');
-const test = require('mocha-test-dsl');
-
-const { actions } = require('./');
-const action = actions.create.get('component', {
-  id: 'contacts',
-  version: '1.2'
-});
-
-// TODO: use new test DSL
+const { display, check, test, action } = require('./env');
 
 test('Adapter: File')
   .that('action: get version=1.2')            
     .will('get that version', async () => {
-      let result = await action.execute();
-      check.isVersion(result, '1.2');
+      let type = 'contacts';
+      let version = '1.2'; 
+
+      let params = {
+        type,
+        version
+      }
+
+      let result = await action(params).get.execute();
+
+      check(result)
+        .isVersion(version)
+        .isType(type)
     })
     .run();

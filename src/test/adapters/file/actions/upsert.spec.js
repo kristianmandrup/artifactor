@@ -1,32 +1,31 @@
-const check = require('./check');
-const test = require('mocha-test-dsl');
+const { display, check, test, action, ratingFor } = require('./env');
 
-const { actions } = require('./');
+let type = 'components';
+let name = 'contacts';
+let version = 'latest'; 
 
-const params = {
-  id: 'contacts',
-  version: 'latest'
-};
-
-// TODO: all actions should be called with params object only!
-const action = actions.create.get('component', params);
-
-// TODO: use new test DSL
+let params = {
+  type,
+  name,
+  version
+}
 
 test('Adapter: File')
   .that('action: upsert components/my-contacts')            
     .will('creates that component version', async () => {
-      check.doesNotExist('components', params);
-      let result = await action.execute();
-      check.wasCreated(result, params); // check new file was created
+      let result = await action(params).upsert.execute();
+
+      check(result)
+        .wasCreated(); // check new file was created
     })
     .run();
 
 test('Adapter: File')
   .that('action: upsert components/contacts')            
     .will('updates that component version', async () => {
-      check.doesExist('components', params);
-      let result = await action.execute();
-      check.wasUpdated(result); // check timestamp
+      let result = await action(params).upsert.execute();
+
+      check(result)
+        .wasUpdated(); // check timestamp
     })
     .run();

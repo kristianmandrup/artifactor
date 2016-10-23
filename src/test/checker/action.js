@@ -1,5 +1,7 @@
 const { display, expect } = require('../utils');
 
+let props = ['name', 'type', 'version', 'description', 'status', 'avgRating']
+
 // Check an action response
 // always allow for chaining checks
 // Can be reused in various different testing scenarios!
@@ -38,14 +40,28 @@ class Checker {
     return this;
   }
 
-  isVersion(version) {
-    expect(this.item.version).to.equal(version);
+  matches(opts = {}) {
+    for (let prop of props)
+      this.hasValue(prop, opts[prop])
     return this;
   }
 
-  isNamed(name) {
-    expect(this.item.name).to.equal(name);
+  hasValue(key, value) {
+    if (key && value)
+      expect(this.item[key]).to.equal(value);
     return this;
+  }
+
+  isVersion(version) {
+    return this.hasValue('version', version)
+  }
+
+  isType(type) {
+    return this.hasValue('type', type)
+  }
+
+  isNamed(name) {
+    return this.hasValue('name', name)
   }
 
   isList(length = 3) {
