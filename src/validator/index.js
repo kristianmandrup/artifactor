@@ -17,10 +17,12 @@ class RequestValidator {
   }  
 
   @memoize()
-  validate() {
+  validate(obj) {
     if (!this.schema)
       return true;
-    return this.validator.validate(this.request, this.schema);
+
+    obj = obj || this.request
+    return this.validator.validate(obj, this.schema);
   }
 }
 

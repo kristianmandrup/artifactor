@@ -1,21 +1,22 @@
 // TODO: Generate a fake, valid component
 // Check that it matches schema
 
-const { display } = require('./utils');
-const check = require('./check');
-const test = require('mocha-test-dsl');
+const { display, check, test, generate } = require('./env');
 
-const { generatorFor } = require('../../../../adapters/fake/faker')
-
-const generate = generatorFor('component');
+const createValidator = require('../../validator')
 
 test('Faker')
   .that('generator')            
     .will('generate a valid component', async () => {
-      let component = await generate();
+      let artefact = await generate();
 
-      display(component);   
+      let validator = createValidator({
+        method: 'create'
+      })
 
-      check.isValid(component);       
+      display(artefact);   
+
+      check(validator).for(artefact)
+        .isValid();       
     })
     .run();

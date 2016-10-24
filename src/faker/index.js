@@ -1,1 +1,3 @@
-module.exports = require('./generator');
+module.exports = {
+  generatorFor: require('./generator')
+}

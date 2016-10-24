@@ -1,5 +1,5 @@
 test:
 
-	@./node_modules/mocha/bin/mocha -t 2000 dist/test/validator/remove.spec.js
+	@./node_modules/mocha/bin/mocha -t 2000 dist/test/faker/generator.spec.js
 
 .PHONY: test

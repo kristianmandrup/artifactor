@@ -1,4 +1,4 @@
 module.exports = {
   schema: require('./artefact'),
-  decorator: require('./decorator')
+  decorate: require('./decorator')
 }

@@ -3,5 +3,5 @@ const defaultFakerObj = require('./artefact');
 
 // deep merge
 module.exports = function(obj, fakerObj = defaultFakerObj) {
-  return _.merge(obj, fakerObj);
+  return merge(obj, fakerObj);
 }
