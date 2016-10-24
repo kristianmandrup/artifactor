@@ -1,4 +1,4 @@
-const { actions, check, test } = require('./env')
+const { display, actions, check, test } = require('./env')
 
 const createValidator = require('./');
 
@@ -15,8 +15,12 @@ testArtefact
     let create = actions.create.invalid({
       name: 'm'
     });
+    // display(create)    
 
-    let result = validator.validate(create);   
+    let result = validator.validate(create);
+
+    // if (result.errors.length > 0)
+    //   console.log(result.errors.map(e => e.message))   
 
     check(result)
       .isValid(false)       
@@ -27,9 +31,14 @@ testArtefact
   .that('create valid artefact')            
   .will('is valid', () => {
     let create = actions.create.valid;
+    // display(create)
 
-    let result = validator.validate(create);   
+    let result = validator.validate(create);
+    // console.log('valid', result.valid, result.errors.length)
 
+    // if (result.errors.length > 0)
+    //   console.log(result.errors.map(e => e.message))   
+       
     check(result)
       .isValid()       
   })
