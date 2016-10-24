@@ -1,8 +1,7 @@
 const Router = require('koa-router');
-const RouteFactory = require('./route-factory');
+const RouteFactory = require('./route').factory;
 
 class RouterFactory {
-
   constructor(entity, adapter = 'file') {
     console.log('create router factory', entity, adapterType);
 
@@ -11,6 +10,8 @@ class RouterFactory {
         return await new RouteFactory(ctx, next, {action, adapterType, entity});
       }
     }
+
+    this.createRouter();
   }
 
   get routes() {
@@ -18,7 +19,7 @@ class RouterFactory {
   }
 
   createRouter() {
-    const router = new Router({
+    this.router = new Router({
       // /apps
       // /components
       prefix: `/${this.entity}`
@@ -34,15 +35,9 @@ class RouterFactory {
       .del('delete', '/:id', this.delete.bind(this))
       .put('update','/:id', this.update.bind(this))      
       .post('rate', '/:id/rate', this.rate.bind(this))            
-
-    return router;
   }
 } 
 
-module.exports = {
-  Factory: RouterFactory, 
-  create: function(entity, adapter) {
-    return new RouterFactory(entity, adapter).createRouter();
-  }
- 
+module.exports = function(entity, adapter) {
+  return new RouterFactory(entity, adapter).router;
 }

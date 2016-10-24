@@ -6,14 +6,11 @@ const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser')();
 const logger = require('koa-logger');
 
-const viewRoutes = require('./routes/views');
-
-const api = require('./routes/api');
-
+const { routes } = require('../');
 const views = require('koa-views');
 
 module.exports = function(app, options) {
-  const artefactRouterFactory = api.artefacts;
+  const artefactRouterFactory = routes.api.rest.routerFactory;
 
   const artefactRouters = artefactRouterFactory(options);
 
@@ -51,7 +48,7 @@ module.exports = function(app, options) {
   // const graphqlRouter = api.graphql;
   // app.use(graphqlRouter.routes()).use(graphqlRouter.allowedMethods());
 
-  router.use('/', viewRoutes.routes(), viewRoutes.allowedMethods());
+  router.use('/', routes.views.routes(), viewRoutes.allowedMethods());
 
   for (let router of artefactRouters) {
     app.use(router.routes(), router.allowedMethods());

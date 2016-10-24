@@ -37,10 +37,17 @@ Artefact portal (registry).
 ## Bounties
 
 Developers can issue requests for additional libarary support or functionality to be added to an Artefact.
+
 The owner of said artefact can then issue a crowd funding request, for a target number of Dev Coins.
+
 Users can then pledge one or more Dev Coins. If the target is reached, the developer may start development of the feature.
+
 When the feature is completed, the pledgers can then approve the feature. If a majority (60% min) approves, the
 developer gets all the pledged Dev Coins as a reward. 
+
+### Advanced (bounty bidding)
+Alternatively developers can bid to create the feature. Whoever bids the lowest within a given timeframe (default 5 days)
+get the bounty job for that price.
 
 ## PayPal
 
