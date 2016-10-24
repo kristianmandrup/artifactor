@@ -13,5 +13,5 @@ module.exports = {
     valid,
   },
   remove: require('./remove'),
-  rate: require('./ratings')
+  rate: require('./rate')
 }

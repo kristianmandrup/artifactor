@@ -25,6 +25,8 @@ export default {
 
 Then mock Mongoose with [mock-mongoose](https://www.npmjs.com/package/mongoose-mock) using [Sinon]()
 
+*Example Mongoose mocking*
+
 ```js
 var mongooseMock = require('mongoose-mock'),
   proxyquire = require('proxyquire'),
