@@ -8,19 +8,24 @@ A _Dev Coin_ is a new virtual currency which can be used when trading artefacts.
 There are several ways you can obtain Dev Coins:
 - Buy them using valid payment method (PayPal, BitCoin, ...)
 - Reward from star ratings on published artefacts (see below)
+- Bounties
+
+## Star rating rewards
 
 Dev Coin popularity reward:
-- 10 = 1
-- 20 = 2
-- 40 = 4
-- 80 = 6
-- 150 = 8
-- 300 = 12
-- 600 = 20
-- 1200 = 30
-- 2000 = 50
-- 4000 = 80
-- 10.000 = 100
+
+stars | award | ratio
+- 8 = 1 :8
+- 20 = 2 :10
+- 40 = 3 :13
+- 80 = 5 :16
+- 150 = 8 :19
+- 300 = 12 :25
+- 600 = 20 :30
+- 1.200 = 30 :40 
+- 2.500 = 50 :50
+- 5.000 = 80 :65
+- 8.000 = 100 :80
 
 A 5 star rating = +2 stars
 A 4 star rating = +1 star
