@@ -11,7 +11,7 @@ class ValidationChecker {
   }
 
   get valid() {
-    return this.validator.validate(this.artefact)
+    return this.validator.validate(this.artefact).valid
   }
       
   isValid(expected = true) {
