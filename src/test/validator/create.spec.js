@@ -9,6 +9,11 @@ const validator = createValidator({
 
 let testArtefact = test('validate: create artefact')
 
+// Results
+// The first error found will be thrown as an `Error` object if `options.throwError` is true. 
+// Otherwise all results will be appended to the `result.errors` array which 
+// also contains the *success flag* in `result.valid`.
+
 testArtefact
   .that('create invalid component')            
   .will('is invalid', () => {

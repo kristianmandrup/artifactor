@@ -11,7 +11,10 @@ test('Faker')
       let artefact = await generate();
 
       let validator = createValidator({
-        method: 'create'
+        method: 'create',
+        validator: {
+          throwError: true
+        }
       })
 
       display(artefact);   

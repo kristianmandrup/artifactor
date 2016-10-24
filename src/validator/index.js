@@ -10,6 +10,7 @@ class RequestValidator {
     this.request = ctx;
     this.validator = new Validator();
 
+    this.options = ctx.validator; // optional validator options
     this.method = ctx.method || 'get';
 
     // See https://spacetelescope.github.io/understanding-json-schema/
@@ -22,7 +23,7 @@ class RequestValidator {
       return true;
 
     obj = obj || this.request
-    return this.validator.validate(obj, this.schema);
+    return this.validator.validate(obj, this.schema, this.options);
   }
 }
 
