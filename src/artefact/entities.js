@@ -1,4 +1,7 @@
 class Entities {
+  constructor() {    
+  }
+
   validate(entity, type = 'singular') {
     return this[type].includes(entity);
   }

@@ -2,23 +2,21 @@ const Router = require('koa-router');
 const RouteFactory = require('./route').factory;
 
 class RouterFactory {
-  constructor(entity, adapter = 'file') {
+  constructor(entity, adapterType = 'file') {
     console.log('create router factory', entity, adapterType);
+  }
 
-    for (let action of this.routes()) {
+  get actions() {
+    return ['list', 'get', 'upsert', 'delete', 'rate'];
+  }
+
+  createRouter() {
+    for (let action of this.actions) {
       this[action] = async (ctx, next) => {
         return await new RouteFactory(ctx, next, {action, adapterType, entity});
       }
     }
 
-    this.createRouter();
-  }
-
-  get routes() {
-    return ['list', 'get', 'upsert', 'delete', 'rate'];
-  }
-
-  createRouter() {
     this.router = new Router({
       // /apps
       // /components
@@ -26,18 +24,17 @@ class RouterFactory {
     });
 
     // each entity router has exactly the same routes
-    router
+    this.router
       // /components/
       .get('list', '/', this.list.bind(this))
       // /components/:id
-      .get('get', '/:id', this.item.bind(this))            
-      .post('create', '/:id', this.create.bind(this))
-      .del('delete', '/:id', this.delete.bind(this))
-      .put('update','/:id', this.update.bind(this))      
+      .get('get', '/:id', this.get.bind(this))            
+      .post('upsert', '/:id', this.upsert.bind(this))
+      .del('delete', '/:id', this.delete.bind(this))      
       .post('rate', '/:id/rate', this.rate.bind(this))            
   }
 } 
 
 module.exports = function(entity, adapter) {
-  return new RouterFactory(entity, adapter).router;
+  return new RouterFactory(entity, adapter).createRouter();
 }

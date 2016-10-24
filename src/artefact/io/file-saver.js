@@ -20,14 +20,16 @@ class FileSaver {
     return path.join(this.filePath, this.fileName);
   }
 
-  save(artefact) {
-    await fs.outputJson(this.jsonFilePath, this.artefact); 
+  async save(artefact) {
+    try {
+      await fs.outputJson(this.jsonFilePath, this.artefact);
+      return true;
+    } catch (err) {
+      return false; 
+    }    
   }
 }
 
-module.exports = {
-  FileSaver,
-  createFileSaver: (artefact) => {
-    return new FileSaver(artefact);
-  }
+module.exports = (artefact) => {
+  return new FileSaver(artefact);
 }

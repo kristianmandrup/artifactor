@@ -1,1 +1,3 @@
-module.exports = require('../../../artefact/schema')
+const artefact = require('../../artefact')
+
+module.exports = artefact.schema;

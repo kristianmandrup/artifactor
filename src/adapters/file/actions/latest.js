@@ -1,4 +1,4 @@
-const BaseAction = require('../base');
+const BaseAction = require('./base');
 
 module.exports = class Latest extends BaseAction {
   constructor(entity, id) {

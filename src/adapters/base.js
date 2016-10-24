@@ -1,4 +1,4 @@
-class BaseAdapter {
+module.exports = class BaseAdapter {
   // id is optional, used to indicate specific REST resource
   constructor(entity, {params}, actions) {
     this.entity = entity;

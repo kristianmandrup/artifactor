@@ -1,4 +1,4 @@
-const { display, expect } = requie('./utils')
+const { display, expect } = require('./utils')
 
 class ValidationChecker {
   constructor(result) {

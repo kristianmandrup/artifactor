@@ -1,6 +1,6 @@
 const { actions, check, test } = require('./env')
 
-const createValidator = require('./');
+const createValidator = require('../../validator');
 
 const validator = createValidator({
   method: 'remove',

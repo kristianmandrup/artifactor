@@ -1,25 +1,32 @@
 const router = require('koa-router')();
-const co = require('co');
 const convert = require('koa-convert');
 const json = require('koa-json');
 const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser')();
 const logger = require('koa-logger');
+const path = require('path')
 
 const { routes } = require('../');
 const views = require('koa-views');
 
 module.exports = function(app, options) {
-  const artefactRouterFactory = routes.api.rest.routerFactory;
+  const createRouters = routes.api.rest.router.createAll;
 
-  const artefactRouters = artefactRouterFactory(options);
+  const restRouters = createRouters(options);
 
   // middlewares
   app.use(convert(bodyparser));
   app.use(convert(json()));
   app.use(convert(logger()));
-  app.use(require('koa-static')(__dirname + '/../public'));
 
+  // 
+  console.log('koa static')
+  const serve = require('koa-static')
+  const staticPath = path.join(__dirname, '../public')
+
+  app.use(serve(staticPath));
+
+  console.log('koa views')
   app.use(views(__dirname + '/../views', {
     extension: 'jade'
   }));
@@ -39,19 +46,22 @@ module.exports = function(app, options) {
   // The returned object has some useful methods allows for data requiring and filtering.
 
   // See: https://www.npmjs.com/package/koa-strong-params
-  var qs = require('koa-qs')
+  var qs = convert(require('koa-qs'))
   qs(app); // required for nested query string objects 
-  const params = require('koa-strong-params');
-  app.use(params());
+
+  // console.log('strong params')
+  // const params = convert(require('koa-strong-params'));
+  // app.use(params());
 
   // TODO: GraphQL?? or use Apollo stack :)
   // const graphqlRouter = api.graphql;
   // app.use(graphqlRouter.routes()).use(graphqlRouter.allowedMethods());
 
-  router.use('/', routes.views.routes(), viewRoutes.allowedMethods());
+  router.use('/', routes.views.routes(), routes.views.allowedMethods());
 
-  for (let router of artefactRouters) {
-    app.use(router.routes(), router.allowedMethods());
+  for (let router of restRouters) {
+    if (router)
+      app.use(router.routes(), router.allowedMethods());
   }
 
   app.on('error', function(err, ctx){
