@@ -1,12 +1,10 @@
 ## TODO: Testing
 
 Create tests for:
-- src/test/adapters
--  src/test/adapters/file/io
-  - json-io.spec
-  - file-io.spec  
+- src/test/adapters/file
 
-Use `mock-fs` to mock file system, and use .json files in `/responses` to act as fake file content :)
+Use `mock-fs` to mock file system, and use `.json` files in `/responses` to act as fake file content :)
+We can also use faked files generated via faker generator, see `/faker`.
 
 Example of using `mock-fs` can be found [here](https://github.com/kristianmandrup/project-env/blob/master/src/test/lib/file-mock.spec.js)
 Note that in the top I experimented with different ways to promisify the file system.
@@ -26,6 +24,8 @@ export default {
 Then mock Mongoose with [mock-mongoose](https://www.npmjs.com/package/mongoose-mock) using [Sinon]()
 
 *Example Mongoose mocking*
+
+NOTE: Always use chained `mocha-test-dsl` for better testing! 
 
 ```js
 var mongooseMock = require('mongoose-mock'),

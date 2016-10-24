@@ -32,4 +32,4 @@ Create test suite to test for valid and invalid requests for:
 
 ## Strong params (Rails style)
 
-Use `koa-strong-params` for basic request validation.
+Use `koa-strong-params` for basic request validation (see `src/config/index.js`)

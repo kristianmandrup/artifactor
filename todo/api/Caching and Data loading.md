@@ -13,8 +13,6 @@ we can solve the problem where an entire GraphQL result needs to be generated be
 It turns out that if the server can send patches to the result, it can also patch parts of the result 
 that have already been sent, resulting in real-time updates to the data on the client.
 
-
-
 ## Batch queries
 
 When you load your UI on the client, it might fire several queries in a short period of time to put 
