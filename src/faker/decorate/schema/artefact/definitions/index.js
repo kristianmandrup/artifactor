@@ -11,11 +11,13 @@ module.exports = {
   rating,
   popularWith,
   dependency: {
-    name: {
-      $ref: '#/definitions/name'
+    properties: {
+      name: {
+        $ref: '#/definitions/name'
+      }
     }
   },
   version: {
     faker: 'system.semver'      
-  }  
+  }
 }

@@ -1,8 +1,9 @@
 // TODO: Generate a fake, valid component
 // Check that it matches schema
 
-const { display, check, test, generate } = require('./env');
+const { display, check, test, generatorFor } = require('./env');
 
+const generate = generatorFor('component');
 const createValidator = require('../../validator')
 
 test('Faker')
@@ -19,7 +20,7 @@ test('Faker')
 
       display(artefact);   
 
-      check(validator).for(artefact)
+      check.validation(validator).for(artefact)
         .isValid();       
     })
     .run();

@@ -11,7 +11,8 @@ module.exports = function generatorFor(artefactType, twistedSchema = {}) {
 
   const decoratedSchema = fakerDecorate(schema)
 
-  // display(decoratedSchema)
+  // display(decoratedSchema.properties.name, 'NAME');
+  // display(decoratedSchema.definitions.category, 'DECORATED')
 
   const fakerSchema = merge({}, decoratedSchema, twistedSchema);
 

@@ -1,6 +1,4 @@
-const author = require('./author');
 const definitions = require('./definitions')
-
 const { display } = require('../../../utils');
 
 display(definitions, 'definitions');
@@ -18,11 +16,14 @@ display(definitions, 'definitions');
 //   ]
 
 module.exports = {
+  definitions: definitions,
   properties: {
-    author: author,
+    author: { 
+      // from definitions
+    },
     date: {
       faker: {
-        'date.recent': [30, {format: 'YYYY-MM-DDTHH:mm:ssZ'}]
+        'date.recent': [30, {format: 'ISO'}]
       }
     },
     name: {
@@ -58,11 +59,14 @@ module.exports = {
     },
     avgRating: {
       faker: {
-        'random.number': {min: 1, max: 5, precision: 0.01}
+        'random.number': {min: 1, max: 5, decimals: 2}
       }
     },
+    ratings: {
+      // minItems: 1
+    },
     environment: {
+      // from definitions
     }
-  },
-  definitions: definitions
+  }
 }

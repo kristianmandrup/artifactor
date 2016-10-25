@@ -34,8 +34,7 @@ module.exports = {
       '$ref': '#/definitions/author'
     },
     version: {
-      type: 'string'
-      // pattern: '^(\d+\.)?(\d+\.)?(\*|\d+)$',            
+      '$ref': '#/definitions/version'
     },
     notice: {
       type: 'string'                  

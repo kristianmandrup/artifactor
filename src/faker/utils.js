@@ -3,7 +3,8 @@ function stringify(obj) {
 }
 
 function display(obj, header) {
-  console.log(header)
+  if (header)
+    console.log(header)
   console.log(stringify(obj));
 }
 

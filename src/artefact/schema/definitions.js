@@ -12,7 +12,11 @@ module.exports = {
   dependency,
   category,
   popularWith,
+  name: {
+    type: 'string'
+  },
   version: {
-    type: 'string'     
+    type: 'string',
+    pattern: '^(\\d+\\.)?(\\d+\\.)?(\\*|\\d+)$'     
   }  
 }

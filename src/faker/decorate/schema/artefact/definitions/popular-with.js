@@ -1,6 +1,7 @@
 module.exports = {
   properties: {
     name: {
+      type: 'string',
       $ref: '#/definitions/name'
     },
     combinedCount: {
