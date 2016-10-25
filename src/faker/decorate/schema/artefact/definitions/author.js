@@ -4,7 +4,7 @@ module.exports = {
       faker: 'name.findName',
     },
     alias: {
-      faker: 'name.lastName'
+      $ref: '#/definitions/name'
     },
     email: {
       faker: 'internet.email'

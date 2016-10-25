@@ -1,4 +1,9 @@
 const author = require('./author');
+const definitions = require('./definitions')
+
+const { display } = require('../../../utils');
+
+display(definitions, 'definitions');
 
 // "faker": {
 //   "finance.amount": [100, 10000, 2, "$"]
@@ -21,7 +26,7 @@ module.exports = {
       }
     },
     name: {
-      faker: 'random.word'
+      $ref: '#/definitions/name'
     },
     description: {
       faker: 'lorem.paragraph'
@@ -55,18 +60,9 @@ module.exports = {
       faker: {
         'random.number': {min: 1, max: 5, precision: 0.01}
       }
+    },
+    environment: {
     }
   },
-  definitions: {
-    popularWith: {
-      name: {
-        faker: 'random.word',
-      },
-      combinedCount: {
-        faker: {
-          'random.number': {min: 1, max: 500}
-        }            
-      }
-    }
-  }
+  definitions: definitions
 }

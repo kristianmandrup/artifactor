@@ -20,9 +20,9 @@ module.exports = {
   definitions: require('./definitions'),
   properties: {
     date: {
-      type: 'date',
-      // type: 'string',
-      // format: 'date-time'
+      // type: 'date',
+      type: 'string',
+      format: 'date-time'
     },
     name: {
       type: 'string',      

@@ -7,6 +7,10 @@ The Mongo DB adapter has highest priority. We need to use many of the amazing fe
 
 We need to use `pre` and `post` hooks.
 
+## Validation
+
+Use [mongoose-validator](https://github.com/xpepermint/mongoose-validator)
+
 ## Models
 
 We need to enhance the current model...

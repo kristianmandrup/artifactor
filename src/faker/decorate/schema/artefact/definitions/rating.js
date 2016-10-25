@@ -6,6 +6,9 @@ module.exports = {
     faker: 'lorem.sentence'
   },
   username: {
-    faker: 'name.firstName'
+    faker: {
+      // todo: create username defintion
+      $ref: '#/definitions/name',
+    }
   } 
 };

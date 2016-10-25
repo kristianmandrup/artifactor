@@ -5,31 +5,13 @@ module.exports = {
   ],
   properties: {
     app: {
-      type: 'object',
-      properties: {
-        vue: {
-          type: 'string',
-          $ref: '#/definitions/dependency'
-        }
-      }
+      $ref: '#/definitions/category'
     },
     ui: {
-      type: 'object',
-      properties: {
-        bootstrap: {
-          type: 'string',
-          $ref: '#/definitions/dependency'
-        }
-      }
+      $ref: '#/definitions/category'
     },
     test: {
-      type: 'object',
-      properties: {
-        mocha: {
-          type: 'string',
-          $ref: '#/definitions/dependency'
-        }
-      }
+      $ref: '#/definitions/category'
     }
   }        
 };
