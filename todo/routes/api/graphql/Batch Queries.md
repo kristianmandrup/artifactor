@@ -20,4 +20,3 @@ together its initial state. One simple strategy to improve this without changing
 UI code is to batch together requests made within a small time interval. 
 
 This way, all of the data can be loaded in one roundtrip, without any extra effort.
-

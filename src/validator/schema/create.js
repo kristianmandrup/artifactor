@@ -1,3 +1,3 @@
 const artefact = require('../../artefact')
 
-module.exports = artefact.schema;
+module.exports = artefact.schema.create;

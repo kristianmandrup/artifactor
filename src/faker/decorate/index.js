@@ -1,6 +1,6 @@
 const { display } = require('../utils');
 const { merge } = require('lodash');
-const defaultFakerObj = require('./schema');
+const defaultFakerObj = require('./schema').create;
 
 // deep merge
 module.exports = function(schema, fakerObj) {

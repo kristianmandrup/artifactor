@@ -2,7 +2,7 @@ const config = require('../config');
 const BaseAdapter = require('../base');
 
 class DbAdapter extends BaseAdapter {
-  // id is optional, used to indicate specific REST resource
+  // TODO: move entity into params. Much more flexible
   constructor(entity, {params}) {
     super(entity, {params});
     this.adapter = this.resolvedAdapter;
