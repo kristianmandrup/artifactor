@@ -4,7 +4,7 @@
 const { display, check, test, generatorFor } = require('./env');
 
 const generate = generatorFor('component');
-const createValidator = require('../../validator')
+const createValidator = require('../../validator').request;
 
 test('Faker')
   .that('generator')            

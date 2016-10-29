@@ -7,8 +7,8 @@ const clazzes = actions.reduce((obj, action) => {
 }, {});
 
 const factories = actions.reduce((funs, action) => {
-  funs[action] = (entity, {params}) => {
-    return new require('./' + action)(entity, {params}); 
+  funs[action] = (params) => {
+    return new require('./' + action)(params); 
   }
   return funs;
 }, {})

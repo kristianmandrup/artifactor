@@ -4,8 +4,8 @@ const actions = require('./actions');
 
 class FakeAdapter extends BaseAdapter {
   // id is optional, used to indicate specific REST resource
-  constructor(entity, {params}) {
-    super(entity, {params}, actions)
+  constructor(params) {
+    super(params, actions)
   }
 
   async configure() {

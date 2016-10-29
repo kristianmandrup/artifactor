@@ -6,8 +6,8 @@ const BaseAdapter = require('../../base');
 const actions = require('./actions');
 
 class DbAdapter extends BaseAdapter {
-  constructor(entity, {params}) {
-    super(entity, {params}, actions)
+  constructor(params) {
+    super(params, actions)
   }
 
   async configure() {

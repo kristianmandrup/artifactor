@@ -1,5 +1,5 @@
 const adapters = require('./adapters')
-const validator = require('./validator'); 
+const validator = require('./validator').request; 
 
 module.exports = class BaseRoute {
   // type is the type of artefact such as: components
@@ -37,7 +37,7 @@ module.exports = class BaseRoute {
   // we use file adapter here
   // f.ex for components entity
   get adapter() {
-    return this.adapterClass.create(this.entity, {params: this.params});
+    return this.adapterClass.create(params: this.params);
   }
 
   // executes the route and returns the body
@@ -61,6 +61,7 @@ module.exports = class BaseRoute {
   // Extract from params and query string
   extract() {   
     this.setParams({
+      entity: this.entity,
       id: this.ctx.params.id,
       data: this.ctx.request.body,
       action: this.action

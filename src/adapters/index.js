@@ -1,8 +1,8 @@
 const config = require('./config');
 
 function createFactory(clazz) {
-  return async (entity, {params}) => {
-    return await new clazz(entity, {params}).configure();
+  return async (params) => {
+    return await new clazz(params).configure();
   }
 } 
 

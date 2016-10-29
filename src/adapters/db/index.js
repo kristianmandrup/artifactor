@@ -3,8 +3,8 @@ const BaseAdapter = require('../base');
 
 class DbAdapter extends BaseAdapter {
   // TODO: move entity into params. Much more flexible
-  constructor(entity, {params}) {
-    super(entity, {params});
+  constructor(params) {
+    super(params);
     this.adapter = this.resolvedAdapter;
   }
 

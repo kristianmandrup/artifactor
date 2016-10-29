@@ -1,3 +1,5 @@
 module.exports = {
-  artefact: require('./artefact')
+  artefact: require('./artefact'),
+  user: require('./user'),
+  organisation: require('./organisation')
 }

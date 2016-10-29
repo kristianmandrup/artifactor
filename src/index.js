@@ -2,7 +2,7 @@
 
 module.exports = {
   adapters: require('./adapters'),
-  artefact: require('./artefact'),
+  models: require('./models'),
   faker: require('./faker'),
   config: require('./config'),
   routes: require('./routes'),
