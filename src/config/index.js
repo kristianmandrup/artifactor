@@ -6,7 +6,9 @@ const bodyparser = require('koa-bodyparser')();
 const logger = require('koa-logger');
 const path = require('path')
 
-const { routes } = require('../');
+// routes
+const routes = require('artifactor-routes');
+
 const views = require('koa-views');
 
 module.exports = function(app, options) {
@@ -19,7 +21,6 @@ module.exports = function(app, options) {
   app.use(convert(json()));
   app.use(convert(logger()));
 
-  // 
   console.log('koa static')
   const serve = require('koa-static')
   const staticPath = path.join(__dirname, '../public')
