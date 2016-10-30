@@ -1,8 +1,0 @@
-{
-  "name": "sortable",
-  "description": "Sortable drag and drop",
-  "version": "1.0.0",
-  "typings": {
-    "location": "dt~sortable" 
-  }
-}
