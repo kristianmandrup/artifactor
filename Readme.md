@@ -1,5 +1,7 @@
 # Artifact Registry
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kristianmandrup/artifactor.svg?token=76da63a2a4176569110ca1cd7b07544fe800cdde767dc6cdb9f4564dcbdd1531)](https://greenkeeper.io/)
+
 This *Artifact Registry* app/API web server is being built using Koa 2 using ES7 async/await syntax.
 
 The initial project was generated using [koa-generator](https://www.npmjs.com/package/koa-generator)
